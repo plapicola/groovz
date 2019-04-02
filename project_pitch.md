@@ -21,3 +21,7 @@ interests and adjust the generated playlist.
 ### Target Audience
 
 Users who frequently find themselves in social situations and use Spotify.
+
+### Integrations
+
+Spotify OAuth and API.
