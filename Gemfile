@@ -42,8 +42,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'capybara'
+  gem 'launchy'
   gem 'shoulda-matchers'
   gem 'vcr'
+  gem 'simplecov'
+  gem 'selenium-webdriver'
 end
 
 group :development do
