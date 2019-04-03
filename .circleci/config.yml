@@ -48,6 +48,10 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       - run:
+          name: Start the database
+          command: sudo psql -h localhost -p 5432
+
+      - run:
           name: Wait for DB connection
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
