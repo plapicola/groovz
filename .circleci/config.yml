@@ -24,6 +24,10 @@ jobs:
     steps:
       - checkout
 
+      - run:
+          name: CircleCI dependencies
+          command: bash deploy/circle-dependencies.sh
+
       # Download and cache dependencies
       - restore_cache:
           keys:
