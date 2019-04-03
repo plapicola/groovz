@@ -9,5 +9,15 @@ RSpec.describe 'Login Page' do
 
       expect(page).to have_button 'Log In With Spotify'
     end
+
+    it 'I can log in' do
+      visit login_path
+
+      stub_spotify
+
+      click_button 'Log In With Spotify'
+
+      expect(current_path).to eq(root_path)
+    end
   end
 end
