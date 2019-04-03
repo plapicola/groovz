@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Shared actions for controllers
 class ApplicationController < ActionController::Base
   helper_method :current_user
 

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
+# Controller for login/logout functions
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     extract_spotify
