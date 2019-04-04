@@ -4,11 +4,12 @@ describe 'Root menu' do
   context 'as a user' do
     before :each do
       @user = create(:user)
-      allow_any_instance_of(ApplicationController)
-        .to receive(:current_user).and_return(@user)
     end
 
     it 'I see a link to create a party' do
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(@user)
+
       visit root_path
 
       click_button 'Create Party'
@@ -17,11 +18,24 @@ describe 'Root menu' do
     end
 
     it 'I see a link to join a party' do
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(@user)
+
       visit root_path
 
       click_button 'Join Party'
 
       expect(current_path).to eq(admissions_path)
+    end
+
+    it 'I see a link to log out of the application' do
+      login(@user)
+
+      visit root_path
+
+      click_button 'Log Out'
+
+      expect(current_path).to eq(login_path)
     end
   end
 
