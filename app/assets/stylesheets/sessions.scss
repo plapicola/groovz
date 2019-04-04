@@ -1,0 +1,31 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #404452;
+}
+
+.button_to {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 20%;
+}
+
+#login_button {
+  background-color: #1DB954;
+  color: white;
+  border-radius: 75px;
+  width: 80%;
+  height: 14vw;
+  font-size: 5.5vw;
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+#button-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
