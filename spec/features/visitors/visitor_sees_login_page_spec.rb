@@ -19,5 +19,13 @@ RSpec.describe 'Login Page' do
 
       expect(current_path).to eq(root_path)
     end
+
+    it 'I see a button to the legal page' do
+      visit login_path
+
+      click_button 'Legal'
+
+      expect(current_path).to eq(legal_path)
+    end
   end
 end
