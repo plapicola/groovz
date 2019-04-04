@@ -1,7 +1,7 @@
-<section class="button-container">
-    <%= button_to "Log In With Spotify", spotify_oauth_path, method: :get, class: "button btn-primary" %>
+<section class="button-container" id="login-button-container">
+    <%= button_to "Log In With Spotify", spotify_oauth_path, method: :get, class: "btn btn-primary" %>
     <div class="sub-buttons">
-      <%= button_to 'Legal', legal_path, method: :get, class: "button sub-button" %>
-      <%= button_to 'About', root_path, method: :get, class: "button sub-button" %>
+      <%= button_to 'Legal', legal_path, method: :get, class: "btn sub-button" %>
+      <%= button_to 'About', root_path, method: :get, class: "btn sub-button" %>
     </div>
 </section>
