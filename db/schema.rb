@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_204627) do
+ActiveRecord::Schema.define(version: 2019_04_04_231534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 2019_04_04_204627) do
     t.boolean "expires"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "avg_mode"
-    t.float "avg_acousticness"
-    t.float "avg_danceability"
-    t.float "avg_energy"
-    t.float "avg_valence"
-    t.float "avg_tempo"
+    t.float "mode"
+    t.float "acousticness"
+    t.float "danceability"
+    t.float "energy"
+    t.float "valence"
+    t.float "tempo"
   end
 
   add_foreign_key "artists", "users"

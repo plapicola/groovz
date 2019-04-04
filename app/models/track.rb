@@ -1,4 +1,12 @@
 class Track
+  attr_reader :mode,
+              :acousticness,
+              :danceability,
+              :energy,
+              :valence,
+              :tempo,
+              :id
+              
   def initialize(track_info)
     @id = track_info[:id]
     @mode = track_info[:mode]

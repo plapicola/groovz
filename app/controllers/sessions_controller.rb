@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   def create
     extract_spotify
     session[:user_id] = @user.id
-    @user.get_user_info
     redirect_to root_path
   end
 
