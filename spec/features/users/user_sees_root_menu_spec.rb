@@ -37,6 +37,17 @@ describe 'Root menu' do
 
       expect(current_path).to eq(login_path)
     end
+
+    it 'I see a link to the legal path' do
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(@user)
+
+      visit root_path
+
+      click_link 'Legal'
+
+      expect(current_path).to eq(legal_path)
+    end
   end
 
   context 'as a visitor' do
