@@ -1,0 +1,58 @@
+$spotify-green: #1DB954;
+$spotify-darkblue: #404452;
+$spotify-black: #191414;
+$spotify-grey: #222326;
+
+body {
+  background-color: $spotify-black;
+  font-family: 'Alegreya Sans', sans-serif;
+}
+
+.button_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 1vh;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  height: 30vh;
+}
+
+.button {
+  color: white;
+  border-radius: 75px;
+  border-style: hidden;
+  width: 80%;
+  height: 14vw;
+  font-size: 5.5vw;
+}
+
+.sub-button {
+  background-color: $spotify-darkblue;
+  width: 90%;
+  display: inline-block;
+  height: 8vw;
+  font-size: 4vw;
+}
+
+.sub-buttons {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: #1DB954;
+}
