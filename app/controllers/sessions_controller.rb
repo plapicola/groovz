@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   def create
     extract_spotify
     session[:user_id] = @user.id
+    @user.get_user_info
     redirect_to root_path
   end
 
@@ -20,6 +21,7 @@ class SessionsController < ApplicationController
   def extract_spotify
     @user = User.find_or_create_by(uid: spotify_info.uid)
     @user.update(spotify_session)
+    @user.update(musical_taste_info)
   end
 
   def spotify_info
@@ -28,5 +30,9 @@ class SessionsController < ApplicationController
 
   def spotify_session
     spotify_info.credentials.to_h
+  end
+
+  def musical_taste_info
+    @user.get_user_info
   end
 end
