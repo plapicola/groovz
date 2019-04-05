@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def reentry
-    if current_user&.party
+    if current_user&.party && current_user.party.name
       redirect_to host_party_path if user_owns_party?
       redirect_to party_path unless user_owns_party?
     end
