@@ -44,7 +44,7 @@ describe 'Root menu' do
 
       visit root_path
 
-      click_link 'Legal'
+      click_button 'Legal'
 
       expect(current_path).to eq(legal_path)
     end

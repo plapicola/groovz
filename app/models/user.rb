@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  belongs_to :party, required: false
+
   def get_user_info
     tracks = service.get_tracks
     get_average_values(tracks)
