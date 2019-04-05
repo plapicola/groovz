@@ -44,7 +44,7 @@ body {
 }
 
 .btn-minor {
-  background-color: $spotify-grey;
+  background-color: #424242;
   color: #9E9E9E;
   width: 70%;
 }
@@ -63,4 +63,15 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+#site-logo {
+  position: absolute;
+  top: 18%;
+  width: 100%;
+  text-align: center;
+
+  img {
+    width: 90%;
+  }
 }
