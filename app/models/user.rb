@@ -3,21 +3,20 @@
 class User < ApplicationRecord
   def get_user_info
     tracks = service.get_tracks
-    attr = track_attributes
-    get_average_values(tracks, attr)
+    get_average_values(tracks)
   end
 
   def add_user_artists
     service.add_artists(self)
   end
 
+  private
+
   def track_attributes
     [:mode, :acousticness, :danceability, :energy, :valence, :tempo]
   end
 
-  private
-
-  def get_average_values(tracks, track_attributes)
+  def get_average_values(tracks)
     all_tracks_total = Hash.new(0)
     tracks.each do |track|
       track_attributes.each do |attr|
@@ -32,6 +31,6 @@ class User < ApplicationRecord
   end
 
   def service
-    SpotifyService.new(self.token)
+    @service ||= SpotifyService.new(self.token)
   end
 end
