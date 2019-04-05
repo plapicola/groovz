@@ -32,6 +32,7 @@ class SessionsController < ApplicationController
   end
 
   def musical_taste_info
+    @user.add_user_artists
     @user.get_user_info
   end
 end

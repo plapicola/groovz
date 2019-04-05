@@ -2,9 +2,13 @@
 
 class User < ApplicationRecord
   def get_user_info
-    tracks = track_service.get_tracks
+    tracks = service.get_tracks
     attr = track_attributes
     get_average_values(tracks, attr)
+  end
+
+  def add_user_artists
+    service.add_artists(self)
   end
 
   def track_attributes
@@ -27,11 +31,7 @@ class User < ApplicationRecord
     average_taste_values
   end
 
-  def track_service
-    TrackService.new(self.token)
-  end
-
-  def artist_service
-    ArtistService.new
+  def service
+    SpotifyService.new(self.token)
   end
 end

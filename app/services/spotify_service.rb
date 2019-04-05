@@ -1,4 +1,4 @@
-class TrackService
+class SpotifyService
   def initialize(token)
     @token = token
   end
@@ -16,7 +16,26 @@ class TrackService
     get_json("/v1/audio-features?ids=#{ids}")[:audio_features]
   end
 
+  def add_artists(user)
+    get_artists.each do |artist_info|
+      artist_hash = make_artist_hash(artist_info, user)
+      Artist.create(artist_hash)
+    end
+  end
+
+  def get_artists
+    get_json('/v1/me/top/artists?limit=10')[:items]
+  end
+
   private
+
+  def make_artist_hash(artist_info, user)
+    {
+      spotify_id: artist_info[:id],
+      artist_name: artist_info[:name],
+      user_id: user.id
+    }
+  end
 
   def get_ids(tracks)
     tracks.map do |track|
