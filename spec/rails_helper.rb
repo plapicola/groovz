@@ -70,3 +70,15 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.javascript_driver = :selenium_chrome
+
+Capybara.server_port = 3001
+
+Capybara.configure do |config|
+  config.default_max_wait_time = 5
+end
