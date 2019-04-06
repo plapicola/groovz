@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/admissions', to: 'parties#new', as: :admissions
   post '/admissions', to: 'parties#create', as: :join_party
   get '/party', to: 'parties#show', as: :party
+  delete '/party', to: 'parties#delete', as: :leave_party 
   get '/legal', to: 'legal#show', as: :legal
   get '/host', to: 'host/parties#show', as: :host_party
   put '/host', to: 'host/parties#update', as: :update_host_party

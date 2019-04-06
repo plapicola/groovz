@@ -3,7 +3,7 @@
 # Controller for parties information
 class PartiesController < ApplicationController
   before_action :require_login
-  before_action :reentry, except: [:show]
+  before_action :reentry, except: [:show, :delete]
 
   def index; end
 
@@ -19,6 +19,11 @@ class PartiesController < ApplicationController
 
   def show
     render locals: {facade: PartyFacade.new(current_user)}
+  end
+
+  def delete
+    current_user.update(party: nil)
+    redirect_to root_path
   end
 
   private
