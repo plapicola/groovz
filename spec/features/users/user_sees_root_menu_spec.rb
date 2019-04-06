@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Root menu' do
   context 'as a user' do
     before :each do
-      @user = create(:user)
+      @user = create(:user, token: ENV['SPOTIFY_TOKEN'])
     end
 
     it 'I see a link to create a party' do
