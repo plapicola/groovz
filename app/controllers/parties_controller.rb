@@ -3,7 +3,7 @@
 # Controller for parties information
 class PartiesController < ApplicationController
   before_action :require_login
-  before_action :reentry
+  before_action :reentry, except: [:show]
 
   def index; end
 

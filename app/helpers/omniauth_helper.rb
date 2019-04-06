@@ -11,7 +11,8 @@ module OmniauthHelper
         'refresh_token' => '654321',
         'expires_at' => 1_403_021_232,
         'expires' => true
-      }
+      },
+      uid: '123456'
     )
   end
 end
