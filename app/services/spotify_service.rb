@@ -5,6 +5,28 @@ class SpotifyService
     @user = user
   end
 
+  def populate_playlist(playlist_id)
+    binding.pry
+    artists = @user.artists[0..4].map do |artist|
+      artist.spotify_id
+    end.join(',')
+
+    mode = @user.mode.to_i
+    track_info = get_json("/v1/recommendations?seed_artists=#{artists}&target_acousticness=#{@user.acousticness}&target_danceability=#{@user.danceability}&target_energy=#{@user.energy}&target_mode=#{mode}&target_valence=#{@user.valence}&target_tempo=#{@user.tempo}")[:tracks]
+    track_uris = track_info.map do |track|
+      track[:uri]
+    end
+
+    test = Faraday.put("https://api.spotify.com/v1/playlists/#{playlist_id}/tracks") do |faraday|
+      faraday.headers['Authorization'] = "Bearer #{@user.token}"
+      faraday.headers['Content-Type'] = 'application/json'
+      faraday.headers['Accept'] = 'application/json'
+      faraday.body = {
+        'uris' => track_uris
+      }.to_json
+    end
+  end
+
   def get_tracks
     tracks = get_json('/v1/me/top/tracks?limit=100')[:items]
     ids = get_ids(tracks)
@@ -15,7 +37,7 @@ class SpotifyService
   end
 
   def make_playlist
-    body = post_response("/v1/users/#{@user.uid}/playlists")
+    post_response("/v1/users/#{@user.uid}/playlists")[:id]
   end
 
   def get_music_info(ids)
@@ -58,7 +80,6 @@ class SpotifyService
       faraday.headers['Content-Type'] = 'application/json'
       faraday.body = {'name' => "#{@user.name}'s party playlist"}.to_json
     end
-    binding.pry
     JSON.parse(pr.body, symbolize_names: true)
   end
 
@@ -99,9 +120,3 @@ class SpotifyService
     }
   end
 end
-#
-# 'scope' => 'user-modify-playback-state
-#             playlist-modify-public
-#             user-top-read
-#             user-read-currently-playing
-#             user-library-modify'

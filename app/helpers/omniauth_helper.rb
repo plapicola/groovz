@@ -11,12 +11,7 @@ module OmniauthHelper
         'token' => ENV['SPOTIFY_TOKEN'],
         'refresh_token' => ENV['SPOTIFY_REFRESH_TOKEN'],
         'expires_at' => 1_403_021_232,
-        'expires' => true,
-        'scope' => 'user-modify-playback-state
-                    playlist-modify-public
-                    user-top-read
-                    user-read-currently-playing
-                    user-library-modify'
+        'expires' => true
       }
     )
   end
