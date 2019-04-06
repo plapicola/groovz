@@ -18,13 +18,27 @@ describe 'joining parties' do
     end
 
     it 'I can enter a valid room code and join be routed to the room' do
-      create(:party)
+      user = create(:user)
+      create(:party, user: user)
 
       visit admissions_path
 
-      fill_in :room_code, with: 'a1b2c3'
+      fill_in :code, with: 'a1b2c3'
+      click_button('Join')
 
       expect(current_path).to eq(party_path)
+    end
+
+    it 'i cannot join a party without a valid room code' do
+      user = create(:user)
+      create(:party, user: user)
+
+      visit admissions_path
+
+      fill_in :code, with: 'not valid'
+      click_button('Join')
+
+      expect(current_path).to eq(admissions_path)
     end
   end
 end

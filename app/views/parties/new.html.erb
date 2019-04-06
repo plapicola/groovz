@@ -1,1 +1,5 @@
 <h3>Room Code</h3>
+<%= form_tag join_party_path do %>
+  <%= text_field_tag :code %>
+  <%= submit_tag 'Join' %>
+<% end %>
