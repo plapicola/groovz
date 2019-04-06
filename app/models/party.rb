@@ -6,7 +6,6 @@ class Party < ApplicationRecord
 
   def self.generate_party(user)
     playlist_id = service(user).make_playlist
-    service(user).populate_playlist(playlist_id)
     create(user: user, users: [user], code: generate_code, playlist_id: playlist_id)
   end
 

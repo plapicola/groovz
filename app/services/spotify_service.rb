@@ -6,18 +6,27 @@ class SpotifyService
   end
 
   def populate_playlist(playlist_id)
-    binding.pry
-    artists = @user.artists[0..4].map do |artist|
-      artist.spotify_id
-    end.join(',')
+    artists = Artist.select("spotify_id")
+                    .joins(user: :party)
+                    .where(parties: {playlist_id: playlist_id})
+                    .group(:id)
+                    .limit(5)
+                    .pluck(:spotify_id)
+                    .join(',')
 
+                    # ADD BACK IN FREQUENCY ALIAS AND ORDER
+    party_tastes = User.select("users.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy")
+                        .joins(:party)
+                        .group(party: :id)
+                        .where(party: {playlist_id: playlist_id})
+    binding.pry
     mode = @user.mode.to_i
     track_info = get_json("/v1/recommendations?seed_artists=#{artists}&target_acousticness=#{@user.acousticness}&target_danceability=#{@user.danceability}&target_energy=#{@user.energy}&target_mode=#{mode}&target_valence=#{@user.valence}&target_tempo=#{@user.tempo}")[:tracks]
     track_uris = track_info.map do |track|
       track[:uri]
     end
 
-    test = Faraday.put("https://api.spotify.com/v1/playlists/#{playlist_id}/tracks") do |faraday|
+    Faraday.put("https://api.spotify.com/v1/playlists/#{playlist_id}/tracks") do |faraday|
       faraday.headers['Authorization'] = "Bearer #{@user.token}"
       faraday.headers['Content-Type'] = 'application/json'
       faraday.headers['Accept'] = 'application/json'
