@@ -3,7 +3,7 @@ class Party < ApplicationRecord
   has_many :users
 
   def self.generate_party(user)
-    user.update(party: create(user: user, code: generate_code))
+    create(user: user, users: [user], code: generate_code)
   end
 
   private

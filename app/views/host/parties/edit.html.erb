@@ -1,7 +1,9 @@
-<h5>Room Name</h5>
-<%= form_tag update_host_party_path, method: :put do %>
-  <%= text_field_tag :name %>
-  <%= submit_tag 'Start Party' %>
-<% end %>
+<%= link_to "BACK ARROW GOES HERE", cancel_party_path, method: :delete, class: 'back-arrow' %>
 
-<%= button_to "Go Back", cancel_party_path, method: :delete %>
+<section id='host-party-create'>
+  <%= form_tag update_host_party_path, method: :put, class: 'form-group' do %>
+    <%= label_tag "Party Name", nil, class: 'label' %>
+    <%= text_field_tag :name, nil, placeholder: 'Enter Here...', class: 'input-field rounded' %>
+    <%= submit_tag 'Start Party', class: 'btn sub-primary-button rounded' %>
+  <% end %>
+</section>
