@@ -7,4 +7,8 @@ class PartyFacade
   def party_name
     @party.name
   end
+
+  def party_code
+    @party.code
+  end
 end
