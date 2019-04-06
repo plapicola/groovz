@@ -4,14 +4,13 @@ module Host
   # Controller for displaying party creation and show for host users
   class PartiesController < ApplicationController
     before_action :require_login
-    before_action :reentry, except: [:destroy, :show]
+    before_action :reentry, except: %i[destroy show]
 
-    def show
-    end
+    def show; end
 
     def edit
       party = Party.generate_party(current_user)
-      render locals: {party: party}
+      render locals: { party: party }
     end
 
     def update
@@ -19,7 +18,7 @@ module Host
       if party.update(party_params)
         redirect_to host_party_path
       else
-        flash[:error] = "Something went wrong, please try again."
+        flash[:error] = 'Something went wrong, please try again.'
         render :edit, locals: {
           party: party
         }
@@ -35,7 +34,6 @@ module Host
 
     private
 
-    def party_params
-    end
+    def party_params; end
   end
 end
