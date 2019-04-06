@@ -1,6 +1,8 @@
 // Place all the styles related to the Parties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 #index-primary-buttons {
   position: absolute;
   bottom: 30vh;
@@ -13,4 +15,24 @@
 
 #index-create-button {
   margin-bottom: 5vw;
+}
+
+#host-party-create {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+
+  label {
+    font-weight: bolder;
+  }
+}
+
+#member-party-join {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+
+  label {
+    font-weight: bolder;
+  }
 }

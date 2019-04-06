@@ -1,14 +1,7 @@
-class PartyFacade
+class PartyFacade < SimpleDelegator
 
   def initialize(user)
-    @party = Party.find_by(users: user)
-  end
-
-  def party_name
-    @party.name
-  end
-
-  def party_code
-    @party.code
+    super(Party.find_by(users: user))
+    @user = user
   end
 end
