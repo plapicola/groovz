@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   def extract_spotify
     @user = User.find_or_create_by(uid: spotify_info.uid)
     @user.update(spotify_session)
+    binding.pry
     @user.update(musical_taste_info)
   end
 

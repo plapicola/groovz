@@ -5,7 +5,8 @@ class Party < ApplicationRecord
   has_many :users
 
   def self.generate_party(user)
-    create(user: user, users: [user], code: generate_code)
+    playlist_id = SpotifyService.new(user).make_playlist
+    create(user: user, users: [user], code: generate_code, playlist_id: playlist_id)
   end
 
   private

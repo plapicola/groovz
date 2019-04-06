@@ -14,6 +14,10 @@ class SpotifyService
     end
   end
 
+  def make_playlist
+    body = post_response("/v1/users/#{@user.uid}/playlists")
+  end
+
   def get_music_info(ids)
     get_json("/v1/audio-features?ids=#{ids}")[:audio_features]
   end
@@ -47,6 +51,15 @@ class SpotifyService
 
   def get_json(url)
     JSON.parse(response(url).body, symbolize_names: true)
+  end
+
+  def post_response(url)
+    pr = conn.post(url) do |faraday|
+      faraday.headers['Content-Type'] = 'application/json'
+      faraday.body = {'name' => "#{@user.name}'s party playlist"}.to_json
+    end
+    binding.pry
+    JSON.parse(pr.body, symbolize_names: true)
   end
 
   def response(url)
@@ -86,3 +99,9 @@ class SpotifyService
     }
   end
 end
+#
+# 'scope' => 'user-modify-playback-state
+#             playlist-modify-public
+#             user-top-read
+#             user-read-currently-playing
+#             user-library-modify'
