@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'sessions#create', as: :spotify_callback
   get '/soundcheck', to: 'host/parties#edit', as: :soundcheck
   get '/admissions', to: 'parties#new', as: :admissions
+  get '/party', to: 'parties#show', as: :party
   get '/legal', to: 'legal#show', as: :legal
   get '/host', to: 'host/parties#show', as: :host_party
   put '/host', to: 'host/parties#update', as: :update_host_party
