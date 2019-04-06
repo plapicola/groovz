@@ -17,7 +17,9 @@ class PartiesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    render locals: {facade: PartyFacade.new(current_user)}
+  end
 
   private
 
