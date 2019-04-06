@@ -18,8 +18,8 @@ describe 'joining parties' do
     end
 
     it 'I can enter a valid room code and join be routed to the room' do
-      user = create(:user)
-      create(:party, user: user)
+      host = create(:user)
+      create(:party, user: host)
 
       visit admissions_path
 
@@ -30,8 +30,8 @@ describe 'joining parties' do
     end
 
     it 'i cannot join a party without a valid room code' do
-      user = create(:user)
-      create(:party, user: user)
+      host = create(:user)
+      create(:party, user: host)
 
       visit admissions_path
 
@@ -39,6 +39,14 @@ describe 'joining parties' do
       click_button('Join')
 
       expect(current_path).to eq(admissions_path)
+    end
+
+    it 'i click go back from addmisions to root path' do
+      visit admissions_path
+
+      click_button('Go Back')
+
+      expect(current_path).to eq(root_path)
     end
   end
 end
