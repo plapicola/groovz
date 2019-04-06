@@ -33,6 +33,6 @@ class User < ApplicationRecord
   end
 
   def service
-    @service ||= SpotifyService.new(token)
+    @service ||= SpotifyService.new(self)
   end
 end
