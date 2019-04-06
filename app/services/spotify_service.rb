@@ -70,9 +70,9 @@ class SpotifyService
   end
 
   def request_new_token
-      Faraday.post('https://accounts.spotify.com/api/token') do |faraday|
-        faraday.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-        faraday.body = query_hash.to_query
+    Faraday.post('https://accounts.spotify.com/api/token') do |faraday|
+      faraday.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+      faraday.body = query_hash.to_query
     end
   end
 

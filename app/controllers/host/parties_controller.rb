@@ -34,6 +34,8 @@ module Host
 
     private
 
-    def party_params; end
+    def party_params
+      {}
+    end
   end
 end
