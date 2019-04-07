@@ -6,9 +6,10 @@ module OmniauthHelper
     OmniAuth.config.test_mode = true
     OmniAuth.config.mock_auth[:spotify] = OmniAuth::AuthHash.new(
       provider: 'spotify',
+      uid: ENV['SPOTIFY_UID'],
       credentials: {
         'token' => ENV['SPOTIFY_TOKEN'],
-        'refresh_token' => '654321',
+        'refresh_token' => ENV['SPOTIFY_REFRESH_TOKEN'],
         'expires_at' => 1_403_021_232,
         'expires' => true
       },

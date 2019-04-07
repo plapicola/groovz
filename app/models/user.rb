@@ -17,7 +17,7 @@ class User < ApplicationRecord
   private
 
   def track_attributes
-    [:mode, :acousticness, :danceability, :energy, :valence, :tempo]
+    %i[mode acousticness danceability energy valence tempo]
   end
 
   def get_average_values(tracks)
@@ -29,12 +29,12 @@ class User < ApplicationRecord
     end
     average_taste_values = {}
     all_tracks_total.each do |attr, value|
-      average_taste_values[attr] = value/100
+      average_taste_values[attr] = value / 100
     end
     average_taste_values
   end
 
   def service
-    @service ||= SpotifyService.new(self.token)
+    @service ||= SpotifyService.new(self)
   end
 end

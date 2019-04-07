@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Track
   attr_reader :mode,
               :acousticness,
@@ -6,7 +8,7 @@ class Track
               :valence,
               :tempo,
               :id
-              
+
   def initialize(track_info)
     @id = track_info[:id]
     @mode = track_info[:mode]

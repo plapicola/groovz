@@ -1,6 +1,39 @@
+# frozen_string_literal: true
+
 class SpotifyService
-  def initialize(token)
-    @token = token
+  def initialize(user)
+    @user = user
+  end
+
+  def populate_playlist(playlist_id)
+    artists = Artist.select('artists.spotify_id, COUNT(artists.user_id) AS frequency')
+                    .joins(user: :party)
+                    .where(parties: { playlist_id: playlist_id })
+                    .group(:spotify_id)
+                    .order('frequency desc')
+                    .limit(5)
+                    .map(&:spotify_id)
+                    .join(',')
+
+    party_tastes = Party.select('parties.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy')
+                        .joins(:users)
+                        .group(:id)
+                        .where(playlist_id: playlist_id)[0]
+
+    mode = party_tastes.avg_mode.to_i
+    track_info = get_json("/v1/recommendations?seed_artists=#{artists}&target_acousticness=#{party_tastes.avg_acoust}&target_danceability=#{party_tastes.avg_dance}&target_energy=#{party_tastes.avg_energy}&target_mode=#{mode}&target_valence=#{party_tastes.avg_valence}&target_tempo=#{party_tastes.avg_tempo}")[:tracks]
+    track_uris = track_info.map do |track|
+      track[:uri]
+    end
+
+    Faraday.put("https://api.spotify.com/v1/playlists/#{playlist_id}/tracks") do |faraday|
+      faraday.headers['Authorization'] = "Bearer #{@user.token}"
+      faraday.headers['Content-Type'] = 'application/json'
+      faraday.headers['Accept'] = 'application/json'
+      faraday.body = {
+        'uris' => track_uris
+      }.to_json
+    end
   end
 
   def get_tracks
@@ -10,6 +43,10 @@ class SpotifyService
     full_info.map do |track_info|
       Track.new(track_info)
     end
+  end
+
+  def make_playlist
+    post_response("/v1/users/#{@user.uid}/playlists")[:id]
   end
 
   def get_music_info(ids)
@@ -47,14 +84,48 @@ class SpotifyService
     JSON.parse(response(url).body, symbolize_names: true)
   end
 
+  def post_response(url)
+    pr = conn.post(url) do |faraday|
+      faraday.headers['Content-Type'] = 'application/json'
+      faraday.body = { 'name' => "#{@user.name}'s party playlist" }.to_json
+    end
+    JSON.parse(pr.body, symbolize_names: true)
+  end
+
   def response(url)
     conn.get(url)
   end
 
   def conn
+    refresh_token if Time.at(@user.expires_at) < Time.now
     Faraday.new(url: 'https://api.spotify.com') do |faraday|
-      faraday.headers['Authorization'] = "Bearer #{@token}"
+      faraday.headers['Authorization'] = "Bearer #{@user.token}"
       faraday.adapter Faraday.default_adapter
     end
+  end
+
+  def refresh_token
+    @user.update(token: new_access_token, expires_at: 3600.seconds.from_now.to_i)
+  end
+
+  def new_access_token
+    JSON.parse(request_new_token.body)['access_token']
+  end
+
+  def request_new_token
+    Faraday.post('https://accounts.spotify.com/api/token') do |faraday|
+      faraday.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+      faraday.body = query_hash.to_query
+    end
+  end
+
+  def query_hash
+    {
+      'grant_type' => 'refresh_token',
+      'refresh_token' => @user.refresh_token,
+      'redirect_uri' => 'groovzapp.com/auth/spotify/callback',
+      'client_id' => ENV['SPOTIFY_CLIENT_ID'],
+      'client_secret' => ENV['SPOTIFY_CLIENT_SECRET']
+    }
   end
 end
