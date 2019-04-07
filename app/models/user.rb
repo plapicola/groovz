@@ -4,6 +4,17 @@ class User < ApplicationRecord
   belongs_to :party, required: false
   has_many :artists
 
+  def update_musical_taste
+    add_user_artists
+    get_user_info
+  end
+
+  private
+
+  def track_attributes
+    %i[mode acousticness danceability energy valence tempo]
+  end
+
   def get_user_info
     tracks = service.get_tracks
     get_average_values(tracks)
@@ -12,12 +23,6 @@ class User < ApplicationRecord
   def add_user_artists
     artists.destroy_all
     service.add_artists(self)
-  end
-
-  private
-
-  def track_attributes
-    %i[mode acousticness danceability energy valence tempo]
   end
 
   def get_average_values(tracks)
