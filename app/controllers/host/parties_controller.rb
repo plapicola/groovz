@@ -7,6 +7,7 @@ module Host
     before_action :reentry, except: [:destroy, :show]
 
     def show
+      render locals: {facade: PartyFacade.new(current_user)}
     end
 
     def edit
@@ -36,7 +37,7 @@ module Host
     private
 
     def party_params
-      {}
+      params.permit(:name)
     end
   end
 end

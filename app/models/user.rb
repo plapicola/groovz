@@ -10,6 +10,7 @@ class User < ApplicationRecord
   end
 
   def add_user_artists
+    artists.destroy_all
     service.add_artists(self)
   end
 

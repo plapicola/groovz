@@ -10,7 +10,9 @@ class PartiesController < ApplicationController
   def new; end
 
   def create
-    if Party.find_by(join_party_params)
+    party = Party.find_by(join_party_params)
+    if party
+      current_user.update(party: party)
       redirect_to party_path
     else
       render :new
