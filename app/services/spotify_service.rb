@@ -6,22 +6,22 @@ class SpotifyService
   end
 
   def populate_playlist(playlist_id)
-    artists = Artist.select("spotify_id")
+    artists = Artist.select("artists.spotify_id, COUNT(artists.user_id) AS frequency")
                     .joins(user: :party)
                     .where(parties: {playlist_id: playlist_id})
-                    .group(:id)
+                    .group(:spotify_id)
+                    .order('frequency desc')
                     .limit(5)
-                    .pluck(:spotify_id)
+                    .map(&:spotify_id)
                     .join(',')
 
-                    # ADD BACK IN FREQUENCY ALIAS AND ORDER
-    party_tastes = User.select("users.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy")
-                        .joins(:party)
-                        .group(party: :id)
-                        .where(party: {playlist_id: playlist_id})
-    binding.pry
-    mode = @user.mode.to_i
-    track_info = get_json("/v1/recommendations?seed_artists=#{artists}&target_acousticness=#{@user.acousticness}&target_danceability=#{@user.danceability}&target_energy=#{@user.energy}&target_mode=#{mode}&target_valence=#{@user.valence}&target_tempo=#{@user.tempo}")[:tracks]
+    party_tastes = Party.select("parties.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy")
+                        .joins(:users)
+                        .group(:id)
+                        .where(playlist_id: playlist_id)[0]
+
+    mode = party_tastes.avg_mode.to_i
+    track_info = get_json("/v1/recommendations?seed_artists=#{artists}&target_acousticness=#{party_tastes.avg_acoust}&target_danceability=#{party_tastes.avg_dance}&target_energy=#{party_tastes.avg_energy}&target_mode=#{mode}&target_valence=#{party_tastes.avg_valence}&target_tempo=#{party_tastes.avg_tempo}")[:tracks]
     track_uris = track_info.map do |track|
       track[:uri]
     end
