@@ -5,6 +5,37 @@ class SpotifyService
     @user = user
   end
 
+  def populate_playlist(playlist_id)
+    artists = Artist.select('artists.spotify_id, COUNT(artists.user_id) AS frequency')
+                    .joins(user: :party)
+                    .where(parties: { playlist_id: playlist_id })
+                    .group(:spotify_id)
+                    .order('frequency desc')
+                    .limit(5)
+                    .map(&:spotify_id)
+                    .join(',')
+
+    party_tastes = Party.select('parties.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy')
+                        .joins(:users)
+                        .group(:id)
+                        .where(playlist_id: playlist_id)[0]
+
+    mode = party_tastes.avg_mode.to_i
+    track_info = get_json("/v1/recommendations?seed_artists=#{artists}&target_acousticness=#{party_tastes.avg_acoust}&target_danceability=#{party_tastes.avg_dance}&target_energy=#{party_tastes.avg_energy}&target_mode=#{mode}&target_valence=#{party_tastes.avg_valence}&target_tempo=#{party_tastes.avg_tempo}")[:tracks]
+    track_uris = track_info.map do |track|
+      track[:uri]
+    end
+
+    Faraday.put("https://api.spotify.com/v1/playlists/#{playlist_id}/tracks") do |faraday|
+      faraday.headers['Authorization'] = "Bearer #{@user.token}"
+      faraday.headers['Content-Type'] = 'application/json'
+      faraday.headers['Accept'] = 'application/json'
+      faraday.body = {
+        'uris' => track_uris
+      }.to_json
+    end
+  end
+
   def get_tracks
     tracks = get_json('/v1/me/top/tracks?limit=100')[:items]
     ids = get_ids(tracks)
@@ -12,6 +43,10 @@ class SpotifyService
     full_info.map do |track_info|
       Track.new(track_info)
     end
+  end
+
+  def make_playlist
+    post_response("/v1/users/#{@user.uid}/playlists")[:id]
   end
 
   def get_music_info(ids)
@@ -47,6 +82,14 @@ class SpotifyService
 
   def get_json(url)
     JSON.parse(response(url).body, symbolize_names: true)
+  end
+
+  def post_response(url)
+    pr = conn.post(url) do |faraday|
+      faraday.headers['Content-Type'] = 'application/json'
+      faraday.body = { 'name' => "#{@user.name}'s party playlist" }.to_json
+    end
+    JSON.parse(pr.body, symbolize_names: true)
   end
 
   def response(url)

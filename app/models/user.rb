@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   belongs_to :party, required: false
+  has_many :artists
 
   def get_user_info
     tracks = service.get_tracks

@@ -10,6 +10,7 @@ module Host
 
     def edit
       party = Party.generate_party(current_user)
+      SpotifyService.new(current_user).populate_playlist(party.playlist_id)
       render locals: { party: party }
     end
 
