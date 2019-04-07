@@ -3,6 +3,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   scope: %w[user-modify-playback-state
           playlist-modify-public
           user-top-read
-          user-read-currently-playing
+          user-read-playback-state
           user-library-modify].join(' ')
 end

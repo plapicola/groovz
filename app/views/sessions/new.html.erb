@@ -1,8 +1,8 @@
 <%= render partial: 'shared/site-logo' %>
 <section class="button-container" id="login-button-container">
-    <%= button_to "Log In With Spotify", spotify_oauth_path, method: :get, class: "btn btn-primary" %>
+    <%= button_to "Log In With Spotify", spotify_oauth_path, method: :get, class: "btn btn-primary rounded" %>
     <div class="sub-buttons">
-      <%= button_to 'Legal', legal_path, method: :get, class: "btn sub-button" %>
-      <%= button_to 'About', root_path, method: :get, class: "btn sub-button" %>
+      <%= button_to 'Legal', legal_path, method: :get, class: "btn sub-button rounded" %>
+      <%= button_to 'About', root_path, method: :get, class: "btn sub-button rounded" %>
     </div>
 </section>

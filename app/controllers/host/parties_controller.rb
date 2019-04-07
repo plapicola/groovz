@@ -6,7 +6,9 @@ module Host
     before_action :require_login
     before_action :reentry, except: %i[destroy show]
 
-    def show; end
+    def show
+      render locals: {facade: PartyFacade.new(current_user)}
+    end
 
     def edit
       party = Party.generate_party(current_user)
@@ -36,7 +38,7 @@ module Host
     private
 
     def party_params
-      {}
+      params.permit(:name)
     end
   end
 end

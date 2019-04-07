@@ -1,0 +1,27 @@
+<div class='room-info-panel'>
+  <div class="room-info-wrapper" id='room-name'>
+    <strong><h3 class='room-info-text'>Party Name:</h3></strong><%= facade.name %>
+  </div>
+
+  <div class="room-info-wrapper" id='room-code'>
+    <strong><h3 class='room-info-text'>Party Code:</h3></strong><%= facade.code %>
+  </div>
+</div>
+
+<div class="player-container">
+  <div id="guest-album-art">
+    <%= image_tag('album-loading.gif', class: 'album-artwork') %>
+  </div>
+  <div class="player-info-section">
+    <div class="save-button">
+    </div>
+    <div class="track-info">
+      <h4>Loading...</h4>
+      <p>Your party begins soon</p>
+    </div>
+    <div class="empty">
+    </div>
+  </div>
+</div>
+
+<%= button_to 'Bail Out', leave_party_path, method: :delete, id: 'leave-party-button', class: 'btn btn-boxed' %>

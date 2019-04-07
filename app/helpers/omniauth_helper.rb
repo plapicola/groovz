@@ -12,7 +12,8 @@ module OmniauthHelper
         'refresh_token' => ENV['SPOTIFY_REFRESH_TOKEN'],
         'expires_at' => 1_403_021_232,
         'expires' => true
-      }
+      },
+      uid: '123456'
     )
   end
 end

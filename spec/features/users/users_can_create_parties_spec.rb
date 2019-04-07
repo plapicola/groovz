@@ -14,7 +14,7 @@ describe 'Creating parties' do
 
       expect(current_path).to eq(soundcheck_path)
 
-      expect(page).to have_content 'Room Name'
+      expect(page).to have_content 'Party Name'
     end
 
     it 'I can fill out the name of a party and be taken to the party show page' do
@@ -30,7 +30,7 @@ describe 'Creating parties' do
     it 'I can click the go back button to cancel my party creation' do
       visit soundcheck_path
 
-      click_button 'Go Back'
+      click_link '.back-arrow'
 
       expect(current_path).to eq(root_path)
     end
