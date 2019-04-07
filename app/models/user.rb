@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   def get_user_info
     tracks = service.get_tracks
-    get_average_values(tracks)
+    update(get_average_values(tracks))
   end
 
   def add_user_artists
@@ -26,17 +26,21 @@ class User < ApplicationRecord
   end
 
   def get_average_values(tracks)
+    average_taste_values = {}
+    user_attribute_totals(tracks).each do |attr, value|
+      average_taste_values[attr] = value / 100.0
+    end
+    average_taste_values
+  end
+
+  def user_attribute_totals(tracks)
     all_tracks_total = Hash.new(0)
     tracks.each do |track|
       track_attributes.each do |attr|
         all_tracks_total[attr] += track.send(attr)
       end
     end
-    average_taste_values = {}
-    all_tracks_total.each do |attr, value|
-      average_taste_values[attr] = value / 100
-    end
-    average_taste_values
+    all_tracks_total
   end
 
   def service

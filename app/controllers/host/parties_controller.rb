@@ -11,9 +11,7 @@ module Host
     end
 
     def edit
-      party = Party.generate_party(current_user)
-      SpotifyService.new(current_user).populate_playlist(party.playlist_id)
-      render locals: { party: party }
+      CreatePartyJob.perform_later(current_user.id)
     end
 
     def update
