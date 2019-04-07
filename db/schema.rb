@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_000916) do
+ActiveRecord::Schema.define(version: 2019_04_06_163913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,11 @@ ActiveRecord::Schema.define(version: 2019_04_05_000916) do
     t.float "energy"
     t.float "valence"
     t.float "tempo"
+    t.bigint "party_id"
+    t.index ["party_id"], name: "index_users_on_party_id"
   end
 
   add_foreign_key "artists", "users"
   add_foreign_key "parties", "users"
+  add_foreign_key "users", "parties"
 end
