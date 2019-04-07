@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   def extract_spotify
     @user = User.find_or_create_by(uid: spotify_info.uid)
     @user.update(spotify_session)
-    @user.update(musical_taste_info)
+    @user.build_user_info
   end
 
   def spotify_info
@@ -29,10 +29,5 @@ class SessionsController < ApplicationController
 
   def spotify_session
     spotify_info.credentials.to_h
-  end
-
-  def musical_taste_info
-    @user.get_user_info
-    @user.add_user_artists
   end
 end

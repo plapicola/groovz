@@ -4,15 +4,24 @@ class User < ApplicationRecord
   belongs_to :party, required: false
   has_many :artists
 
-  def get_user_info
-    tracks = service.get_tracks
-    get_average_values(tracks)
-  end
+  # def get_user_info
+  #   tracks = service.get_tracks
+  #   get_average_values(tracks)
+  # end
 
   def add_user_artists
     artists.destroy_all
     service.add_artists(self)
   end
+
+  def build_user_info
+    add_user_artists
+    update(get_average_values)
+  end
+
+  # def musical_taste_info
+  #   @user.get_user_info
+  # end
 
   private
 
@@ -20,9 +29,9 @@ class User < ApplicationRecord
     %i[mode acousticness danceability energy valence tempo]
   end
 
-  def get_average_values(tracks)
+  def get_average_values
     all_tracks_total = Hash.new(0)
-    tracks.each do |track|
+    service.get_tracks.each do |track|
       track_attributes.each do |attr|
         all_tracks_total[attr] += track.send(attr)
       end
