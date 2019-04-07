@@ -8,7 +8,7 @@ $spotify-grey: #222326;
 
 .btn-boxed {
   width: 95%;
-  height: 7vh;
+  height: 15vw;
   background-color: $spotify-grey;
   border-radius: 15px;
   border-style: ridge;
@@ -18,15 +18,23 @@ $spotify-grey: #222326;
 .room-info-panel {
   padding-top: 5vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  align-items: baseline;
   width: 100%;
+
+  p {
+    align-self: center;
+  }
 }
 
 .room-info-wrapper {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  vertical-align: center;
+  justify-content: center;
+  align-items: center;
   width: 95%;
+  height: 15vw;
   background-color: $spotify-grey;
   border-style: ridge;
   border-radius: 10px;
@@ -35,6 +43,9 @@ $spotify-grey: #222326;
 }
 
 .room-info-text {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   display: inline-block;
   margin-right: 3vw;
   margin-left: 3vw;
@@ -44,17 +55,19 @@ $spotify-grey: #222326;
   text-align: center;
 
   #host-album-art {
-    max-width: 60vw;
+    max-width: 80vw;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
   }
 
   #guest-album-art {
-    max-width: 85vw;
+    max-width: 90vw;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    margin-bottom: 5vw;
+    margin-top: 3vw;
   }
 }
 
@@ -66,7 +79,7 @@ $spotify-grey: #222326;
 }
 
 .player-control-section {
-  height: 20vh;
+  height: 30vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
