@@ -6,16 +6,16 @@ class SpotifyService
   end
 
   def populate_playlist(playlist_id)
-    artists = Artist.select("artists.spotify_id, COUNT(artists.user_id) AS frequency")
+    artists = Artist.select('artists.spotify_id, COUNT(artists.user_id) AS frequency')
                     .joins(user: :party)
-                    .where(parties: {playlist_id: playlist_id})
+                    .where(parties: { playlist_id: playlist_id })
                     .group(:spotify_id)
                     .order('frequency desc')
                     .limit(5)
                     .map(&:spotify_id)
                     .join(',')
 
-    party_tastes = Party.select("parties.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy")
+    party_tastes = Party.select('parties.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy')
                         .joins(:users)
                         .group(:id)
                         .where(playlist_id: playlist_id)[0]
@@ -87,7 +87,7 @@ class SpotifyService
   def post_response(url)
     pr = conn.post(url) do |faraday|
       faraday.headers['Content-Type'] = 'application/json'
-      faraday.body = {'name' => "#{@user.name}'s party playlist"}.to_json
+      faraday.body = { 'name' => "#{@user.name}'s party playlist" }.to_json
     end
     JSON.parse(pr.body, symbolize_names: true)
   end
