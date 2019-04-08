@@ -4,9 +4,29 @@ class Party < ApplicationRecord
   belongs_to :user
   has_many :users
 
-  def self.generate_party(user)
-    playlist_id = service(user).make_playlist
-    create(user: user, users: [user], code: generate_code, playlist_id: playlist_id)
+  def self.generate_party(user_id)
+    user = User.find(user_id)
+    Party.create(user: user, users: [user], code: generate_code)
+  end
+
+  def self.get_party_tastes(party)
+    Party.select('parties.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy')
+                        .joins(:users)
+                        .group(:id)
+                        .where(id: party)[0]
+  end
+
+  def setup_playlist
+    playlist_id = service.make_playlist
+    update(playlist_id: playlist_id)
+  end
+
+  def repopulate_playlist
+    service.populate_playlist(playlist_id)
+  end
+
+  def update_playlist_name
+    service.change_playlist_name(playlist_id, name)
   end
 
   private
@@ -18,7 +38,7 @@ class Party < ApplicationRecord
     end.join('')
   end
 
-  def self.service(user)
-    SpotifyService.new(user)
+  def service
+    SpotifyService.new(self.user)
   end
 end

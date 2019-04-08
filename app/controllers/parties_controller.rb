@@ -13,6 +13,7 @@ class PartiesController < ApplicationController
     party = Party.find_by(join_party_params)
     if party
       current_user.update(party: party)
+      UpdatePlaylistJob.perform_later(party.id)
       redirect_to party_path
     else
       render :new

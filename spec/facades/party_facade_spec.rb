@@ -19,13 +19,13 @@ RSpec.describe PartyFacade do
 
     describe '.party_name' do
       it 'returns the name of the party' do
-        expect(@facade.party_name).to eq('Test Party')
+        expect(@facade.name).to eq('Test Party')
       end
     end
 
     describe '.party_code' do
       it 'returns the name of the party' do
-        expect(@facade.party_code).to eq('a1b2c3')
+        expect(@facade.code).to eq('a1b2c3')
       end
     end
   end

@@ -11,14 +11,13 @@ module Host
     end
 
     def edit
-      party = Party.generate_party(current_user)
-      SpotifyService.new(current_user).populate_playlist(party.playlist_id)
-      render locals: { party: party }
+      CreatePartyJob.perform_later(current_user.id)
     end
 
     def update
       party = current_user.party
       if party.update(party_params)
+        UpdatePlaylistNameJob.perform_later(party.id)
         redirect_to host_party_path
       else
         flash[:error] = 'Something went wrong, please try again.'
@@ -38,7 +37,7 @@ module Host
     private
 
     def party_params
-      params.permit(:name)
+      params.permit(:name, :device_id)
     end
   end
 end
