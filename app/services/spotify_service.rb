@@ -13,6 +13,14 @@ class SpotifyService
     send_playlist(track_uris, playlist_id)
   end
 
+  def devices
+    parse(request_devices)[:devices]
+  end
+
+  def request_devices
+    conn.get('/v1/me/player/devices')
+  end
+
   def parse_recommendations(artists, party_tastes)
     parse(request_recommendations(artists, party_tastes))[:tracks]
   end

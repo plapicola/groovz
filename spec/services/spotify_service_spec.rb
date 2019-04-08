@@ -9,12 +9,12 @@ RSpec.describe SpotifyService do
   end
 
   describe 'instance methods' do
-    describe '.request_devices' do
+    describe '.devices' do
       it 'returns a list of available devices for the user' do
         user = create(:user)
         service = SpotifyService.new(user)
 
-        devices = service.request_devices
+        devices = service.devices
 
         expect(devices).to be_a Array
         expect(devices[0]).to have_key :id
