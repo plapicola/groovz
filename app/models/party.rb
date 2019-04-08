@@ -25,6 +25,10 @@ class Party < ApplicationRecord
     service.populate_playlist(playlist_id)
   end
 
+  def update_playlist_name
+    service.change_playlist_name(playlist_id, name)
+  end
+
   private
 
   def self.generate_code

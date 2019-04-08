@@ -75,6 +75,15 @@ class SpotifyService
     get_json('/v1/me/top/artists?limit=10')[:items]
   end
 
+  def change_playlist_name(playlist_id, name)
+    conn.put("/v1/playlists/#{playlist_id}") do |req|
+      req.body = {
+        name: name,
+        description: "Groovz generated playlist for #{Date.today}."
+      }.to_json
+    end
+  end
+
   private
 
   def parse(response)
@@ -102,7 +111,7 @@ class SpotifyService
   def post_response(url)
     pr = conn.post(url) do |faraday|
       faraday.headers['Content-Type'] = 'application/json'
-      faraday.body = { 'name' => "#{@user.name}'s party playlist" }.to_json
+      faraday.body = { 'name' => "GroovzApp Playlist" }.to_json
     end
     JSON.parse(pr.body, symbolize_names: true)
   end
