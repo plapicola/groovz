@@ -36,7 +36,7 @@ module Host
     private
 
     def party_params
-      params.permit(:name)
+      params.permit(:name, :device_id)
     end
   end
 end
