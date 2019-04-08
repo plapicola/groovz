@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_020012) do
+ActiveRecord::Schema.define(version: 2019_04_08_202416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_020012) do
     t.bigint "party_id"
     t.string "name"
     t.index ["party_id"], name: "index_users_on_party_id"
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
   add_foreign_key "artists", "users"
