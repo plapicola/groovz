@@ -17,7 +17,6 @@ async function getAvailableDevices() {
         newSelect = document.createElement('OPTION');
         newSelect.setAttribute('value', currentDevice.id);
         newSelect.innerHTML = currentDevice.name;
-        console.log(newSelect);
         documentTarget.appendChild(newSelect);
       }
     });
