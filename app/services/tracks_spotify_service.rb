@@ -8,6 +8,8 @@ class TracksSpotifyService < SpotifyService
     end
   end
 
+  private
+  
   def get_music_info(ids)
     get_json("/v1/audio-features?ids=#{ids}")[:audio_features]
   end

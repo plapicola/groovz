@@ -39,7 +39,7 @@ http_interactions:
   recorded_at: Tue, 09 Apr 2019 23:04:28 GMT
 - request:
     method: get
-    uri: https://api.spotify.com/v1/me/player/devices
+    uri: https://api.spotify.com/v1/me/top/tracks?limit=100
     body:
       encoding: US-ASCII
       string: ''
