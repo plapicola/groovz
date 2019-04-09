@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :party_track do
-    spotify_id { "MyString" }
-    img_url { "MyString" }
-    title { "MyString" }
-    artist { "MyString" }
+    party
+    spotify_id { "SPOTIFY:ID:12345" }
+    img_url { "http://image.com/fake.png" }
+    title { "Song Title" }
+    artist { "Song Artist" }
   end
 end
