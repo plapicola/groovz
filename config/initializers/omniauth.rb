@@ -4,5 +4,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
           playlist-modify-public
           user-top-read
           user-read-playback-state
-          user-library-modify].join(' ')
+          user-library-modify
+          user-library-read].join(' ')
 end

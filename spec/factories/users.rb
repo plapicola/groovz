@@ -3,7 +3,7 @@ FactoryBot.define do
     uid { ENV['SPOTIFY_UID'] }
     token { ENV['SPOTIFY_TOKEN'] }
     refresh_token { ENV['SPOTIFY_REFRESH_TOKEN'] }
-    expires_at { 1554795423 }
+    expires_at { 1554832065 }
     expires { false }
     name { 'Tim' }
   end

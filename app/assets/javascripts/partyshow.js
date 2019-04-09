@@ -17,26 +17,43 @@ function subcribeToChannel() {
 }
 
 function userSavedTrack(trackId) {
-  const trackStatusUrl = 'api/v1/me/track_status?id=\`${trackId}\`';
-
+  const trackStatusUrl = `api/v1/me/track_status?id=${trackId}`;
   fetch(trackStatusUrl)
   .then(function(response){
-    response.json();
+    return response.json();
   })
-  .then(function(boolean){
-    console.log(boolean)
+  .then(function(trackStatus){
+    let track = trackStatus.data.attributes;
+    renderSaveButton(track.id, track.status);
   })
 }
 
-async function saveSong() {
-  const saveUrl = "api/v1/me/save_track";
+async function renderSaveButton(trackId, type){
+  if (type === false) {
+    target = getElementById("save-track");
+    target.src = "placeholder-pluss.png";
+    target.setAttribute('onclick', saveOrRemoveTrack(trackId, true));
+  }
+  else {
+  target = getElementById("save-track");
+  target.src = "placeholder-checkmark.png";
+  target.setAttribute('onclick', saveOrRemoveTrack(trackId, false));
+  }
+}
 
+async function saveOrRemoveTrack(trackId, type) {
+  const saveUrl = `api/v1/me/save_track?ids=${trackId}&type=${type}`;
+  if (type === true) {
+  renderSaveButton(trackId, false)
+  }
+  else {
+    renderSaveButton(trackId, true)
+  };
   fetch(songUrl)
     .then(function(response) {
-      response.json();
+        response.json();
     })
-    .then(function(result) {
-      console.log(result);
-
+    .then(function(message){
+      console.log(message);
     })
 }
