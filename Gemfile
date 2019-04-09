@@ -45,6 +45,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'vcr'
+  gem 'webmock'
   gem 'simplecov'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
