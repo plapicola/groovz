@@ -7,6 +7,7 @@ RSpec.describe 'Current Song API', type: :request do
       party = create(:party, users: [user])
       current_track = create(:party_track, party: party)
 
+
       allow_any_instance_of(ApplicationController)
         .to receive(:current_user).and_return(user)
 

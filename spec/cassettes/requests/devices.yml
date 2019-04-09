@@ -1,0 +1,95 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=98cce42bc3b4446bb5db7212119c809b&client_secret=e8b2afe053044cc68058da5ab6118761&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=AQBzz8AMgyYZu3ENqHQAA6sVJ_G3mVOalZMavuZMMauFQED_8CgUQjVCbGfMtYIUb7Gq7S2wrDEvk7mhdIwhvofFj6IH-2bQRWh1d0LqfWeST-ygEx4r46aDrEG3OZf2HpDG_g
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 09 Apr 2019 17:10:22 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQDwuCzEB6mAec5EE_KlR-4IkWloqo5LGpvdWg5CGYm7II_HPsCRgeeFrDGbaCeF-InaJMrvZAtJkWf2cgNQXkPvAZB-wobMqvIOONxXL_cgSiW8g1660VoGPpDzbdPEqpGk9LbuU71sTDm_YQPtML79JdMHQX-AB0zYIkmI3cCz20rdkiR3z2cu02riQ1_1D1oiVqiu0p2rDJwIyacEE-hTSZlv","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-modify playlist-modify-public user-read-playback-state user-top-read"}'
+    http_version: 
+  recorded_at: Tue, 09 Apr 2019 17:10:20 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/player/devices
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer BQDwuCzEB6mAec5EE_KlR-4IkWloqo5LGpvdWg5CGYm7II_HPsCRgeeFrDGbaCeF-InaJMrvZAtJkWf2cgNQXkPvAZB-wobMqvIOONxXL_cgSiW8g1660VoGPpDzbdPEqpGk9LbuU71sTDm_YQPtML79JdMHQX-AB0zYIkmI3cCz20rdkiR3z2cu02riQ1_1D1oiVqiu0p2rDJwIyacEE-hTSZlv
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Tue, 09 Apr 2019 17:10:22 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJkZXZpY2VzIiA6IFsgewogICAgImlkIiA6ICIxYzk4ZGU4MDU5YmQyNjg5MGMxNDQ0NGE5MjA0OGI0ZjZhYWVjODM3IiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiREVTS1RPUC1QSEMyNzBMIiwKICAgICJ0eXBlIiA6ICJDb21wdXRlciIsCiAgICAidm9sdW1lX3BlcmNlbnQiIDogMTAwCiAgfSwgewogICAgImlkIiA6ICI2ZjUzMzNjMDExZTk5MTNiN2VhMzE5ZmRjYzlmMTQ0ZTdlNDMyOWYyIiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiUGV0ZXItTUJQIiwKICAgICJ0eXBlIiA6ICJDb21wdXRlciIsCiAgICAidm9sdW1lX3BlcmNlbnQiIDogOTgKICB9LCB7CiAgICAiaWQiIDogImRjYjMyNTI1MTdlNWE1NDg0MWZmOTYzMjBlOTY0OTRjOTRmOTYyYjkiLAogICAgImlzX2FjdGl2ZSIgOiB0cnVlLAogICAgImlzX3ByaXZhdGVfc2Vzc2lvbiIgOiBmYWxzZSwKICAgICJpc19yZXN0cmljdGVkIiA6IGZhbHNlLAogICAgIm5hbWUiIDogIlBldGVy4oCZcyBpUGhvbmUiLAogICAgInR5cGUiIDogIlNtYXJ0cGhvbmUiLAogICAgInZvbHVtZV9wZXJjZW50IiA6IDEwMAogIH0gXQp9
+    http_version: 
+  recorded_at: Tue, 09 Apr 2019 17:10:20 GMT
+recorded_with: VCR 4.0.0
