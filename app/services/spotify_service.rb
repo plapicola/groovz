@@ -13,6 +13,10 @@ class SpotifyService
     send_playlist(track_uris, playlist_id)
   end
 
+  def current_song
+    get_json('/v1/me/player/currently-playing')[:item]
+  end
+
   def devices
     parse(request_devices)[:devices]
   end
