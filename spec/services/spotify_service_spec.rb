@@ -30,6 +30,10 @@ RSpec.describe SpotifyService do
         response = service.user_saved?("75eW0q4UnnNT1W5A2nlibq")
 
         expect(response.first).to eq(true)
+
+        response = service.user_saved?("15eW0q4UnnNT1W5A3nlibq") #changed key to random song
+
+        expect(response.first).to eq(false)
       end
     end
   end

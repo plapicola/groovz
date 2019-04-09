@@ -9,6 +9,10 @@ RSpec.describe Track, type: :model do
         response = Track.user_saved?("75eW0q4UnnNT1W5A2nlibq", user)
 
         expect(response).to eq(true)
+
+        response = Track.user_saved?("15eW0q4UnnNT1W5A2nlibq", user) #song id changed to random song
+
+        expect(response).to eq(false)
       end
     end
   end
