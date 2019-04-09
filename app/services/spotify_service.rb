@@ -98,6 +98,20 @@ class SpotifyService
     parse(user_saved_request(track_id))
   end
 
+  def save_track(track_id)
+    conn.put("/v1/me/tracks") do |req|
+      req.params[:ids] = track_id
+    end
+    return 'Song Saved'
+  end
+
+  def remove_track(track_id)
+    conn.delete("/v1/me/tracks") do |req|
+      req.params[:ids] = track_id
+    end
+    return 'Song Removed'
+  end
+
   private
 
   def parse(response)

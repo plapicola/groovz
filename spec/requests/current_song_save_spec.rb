@@ -23,7 +23,7 @@ describe 'Internal Player API' do
 
         status = JSON.parse(response.body, symbolize_names: true)
 
-        expect(response[:data][:attributes][:message]).to eq("Song Saved")
+        expect(response[:data][:attributes][:status]).to eq("Song Saved")
     end
   end
 end

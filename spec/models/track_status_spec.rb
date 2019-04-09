@@ -22,11 +22,11 @@ RSpec.describe TrackStatus, type: :model do
         user = create(:user)
         response = TrackStatus.save_or_remove("15eW0q4UnnNT1W5A2nlibq", true, user)
 
-        expect(response.message).to eq("Song Saved")
+        expect(response.status).to eq("Song Saved")
 
         response = TrackStatus.save_or_remove("15eW0q4UnnNT1W5A2nlibq", false, user)
 
-        expect(response.message).to eq("Song Removed")
+        expect(response.status).to eq("Song Removed")
       end
     end
   end

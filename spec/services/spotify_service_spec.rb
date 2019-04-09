@@ -42,10 +42,9 @@ RSpec.describe SpotifyService do
         user = create(:user)
         service = SpotifyService.new(user)
 
-        response = service.save_track("15eW0q4UnnNT1W5A3nlibq")
-        binding.pry
+        response = service.save_track("4VqPOruhp5EdPBeR92t6lQ")
 
-        expect(response.first).to eq(true)
+        expect(response).to eq('Song Saved')
       end
     end
 
@@ -53,11 +52,9 @@ RSpec.describe SpotifyService do
       it 'will call to spotifys api to remove the track from a user' do
         user = create(:user)
         service = SpotifyService.new(user)
+        response = service.remove_track("4VqPOruhp5EdPBeR92t6lQ")
 
-        response = service.remove_track("15eW0q4UnnNT1W5A3nlibq")
-        binding.pry
-
-        expect(response.first).to eq(true)
+        expect(response).to eq('Song Removed')
       end
     end
   end
