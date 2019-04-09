@@ -16,5 +16,18 @@ RSpec.describe TrackStatus, type: :model do
         expect(response.status).to eq(false)
       end
     end
+
+    describe '#save_or_remove' do
+      it 'sets a message attribute for song removed or song saved' do
+        user = create(:user)
+        response = TrackStatus.save_or_remove("15eW0q4UnnNT1W5A2nlibq", user)
+
+        expect(response.message).to eq("Song Saved")
+
+        response = TrackStatus.save_or_remove("15eW0q4UnnNT1W5A2nlibq", user)
+
+        expect(response.message).to eq("Song Removed")
+      end
+    end
   end
 end

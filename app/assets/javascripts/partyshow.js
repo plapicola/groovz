@@ -7,13 +7,17 @@ function subcribeToChannel() {
     channel: 'PartiesChannel', room: `parties-${roomCode}`},
     {
       received: function(data) {
-        let trackInfo = data.message.data.attributes;
-        document.getElementById("album-art").src = trackInfo.img_url;
-        document.getElementById("track-title").innerHTML = trackInfo.title;
-        document.getElementById("track-artist").innerHTML = trackInfo.artist;
+        updateTrackInfo(data);
         userSavedTrack(trackInfo.spotify_id);
     }
   });
+}
+
+function updateTrackInfo(data){
+  let trackInfo = data.message.data.attributes;
+  document.getElementById("album-art").src = trackInfo.img_url;
+  document.getElementById("track-title").innerHTML = trackInfo.title;
+  document.getElementById("track-artist").innerHTML = trackInfo.artist;
 }
 
 function userSavedTrack(trackId) {

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       scope :me, module: :me do
         get '/available_devices', to: 'devices#index', as: :available_devices
         get '/track_status',to: 'tracks#show', as: :track_status
+        get '/save_track', to: 'tracks#create', as: :save_track
       end
     end
   end
