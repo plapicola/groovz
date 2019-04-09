@@ -8,8 +8,17 @@ class TrackStatus
   end
 
   def self.user_saved?(track_id, user)
-    service = SpotifyService.new(user)
-    status = service.user_saved?(track_id)[0]
+    status = service(user).user_saved?(track_id)[0]
     TrackStatus.new(track_id, status)
+  end
+
+  def self.save_or_remove(track_id, type, user)
+    status = service(user).save_track(track_id) if type
+    status = service(user).remove_track(track_id) unless type
+    TrackStatus.new(track_id, status)
+  end
+
+  def self.service(user)
+    @service ||= SpotifyService.new(user)
   end
 end

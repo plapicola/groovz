@@ -36,5 +36,29 @@ RSpec.describe SpotifyService do
         expect(response.first).to eq(false)
       end
     end
+
+    describe 'save track' do
+      it 'will call to spotifys api to save the song to a user' do
+        user = create(:user)
+        service = SpotifyService.new(user)
+
+        response = service.save_track("15eW0q4UnnNT1W5A3nlibq")
+        binding.pry
+
+        expect(response.first).to eq(true)
+      end
+    end
+
+    describe 'remove track' do
+      it 'will call to spotifys api to remove the track from a user' do
+        user = create(:user)
+        service = SpotifyService.new(user)
+
+        response = service.remove_track("15eW0q4UnnNT1W5A3nlibq")
+        binding.pry
+
+        expect(response.first).to eq(true)
+      end
+    end
   end
 end
