@@ -7,11 +7,11 @@ function queryCurrentTrack() {
   const currentTrackUrl = '/api/v1/me/currently_playing';
   fetch(currentTrackUrl)
   .then(function(response) {
-    console.log(response);
     return response.json();
   })
-  .then(function(current_track) {
-    console.log(current_track);
+  .then(function(currentTrack) {
+    console.log(currentTrack)
+    if (currentTrack.data !== null)
     updateTrackInfo(current_track);
   })
 }
