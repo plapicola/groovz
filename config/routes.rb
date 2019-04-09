@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   root 'parties#index'
 
   get '/login', to: 'sessions#new', as: :login
