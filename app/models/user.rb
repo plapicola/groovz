@@ -16,13 +16,13 @@ class User < ApplicationRecord
   end
 
   def get_user_info
-    tracks = service.get_tracks
+    tracks = tracks_service.get_tracks
     update(get_average_values(tracks))
   end
 
   def add_user_artists
     artists.destroy_all
-    service.add_artists(self)
+    artists_service.add_artists(self)
   end
 
 
@@ -43,7 +43,7 @@ class User < ApplicationRecord
   def user_attribute_totals(tracks)
 
     all_tracks_total = Hash.new(0)
-    service.get_tracks.each do |track|
+    tracks_service.get_tracks.each do |track|
       track_attributes.each do |attr|
         all_tracks_total[attr] += track.send(attr)
       end
@@ -51,7 +51,11 @@ class User < ApplicationRecord
     all_tracks_total
   end
 
-  def service
-    @service ||= SpotifyService.new(self)
+  def tracks_service
+    @tracks_service ||= TracksSpotifyService.new(self)
+  end
+
+  def artists_service
+    @artists_service ||= ArtistsSpotifyService.new(self)
   end
 end
