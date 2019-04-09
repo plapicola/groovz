@@ -35,6 +35,6 @@ class SpotifyService
   end
 
   def user_service
-    UserSpotifyService.new
+    UserSpotifyService.new(@user)
   end
 end
