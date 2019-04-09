@@ -138,7 +138,7 @@ class SpotifyService
   end
 
   def new_access_token
-    @info ||= JSON.parse(request_new_token.body, symbolize_names: true)
+    @new_access_token ||= JSON.parse(request_new_token.body, symbolize_names: true)
   end
 
   def request_new_token
