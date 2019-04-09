@@ -12,7 +12,7 @@ RSpec.describe SpotifyService do
     describe '.devices' do
       it 'returns a list of available devices for the user' do
         user = create(:user)
-        service = SpotifyService.new(user)
+        service = UserSpotifyService.new(user)
 
         devices = service.devices
 

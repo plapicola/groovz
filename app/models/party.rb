@@ -3,7 +3,7 @@
 class Party < ApplicationRecord
   belongs_to :user
   has_many :users
-  has_many :party_tracks
+  has_many :party_tracks, dependent: :destroy
 
   def self.generate_party(user_id)
     user = User.find(user_id)
@@ -18,23 +18,10 @@ class Party < ApplicationRecord
   end
 
   def new_song?
-    return false if current_song&.spotify_id == song_info[:spotify_id]
-    add_song_to_database
-  end
-
-  def add_song_to_database
-    new_track = party_tracks.new(song_info)
-    new_track.save
-  end
-
-  def song_info
-    @info ||= service.current_song
-    {
-      spotify_id: @info[:id],
-      img_url: @info[:album][:images][0][:url],
-      title: @info[:name],
-      artist: @info[:artists].map {|artist| artist[:name]}.join(', ')
-    }
+    if song_info
+      return false if current_song&.spotify_id == song_info[:spotify_id]
+      add_song_to_database
+    end
   end
 
   def current_song
@@ -42,16 +29,16 @@ class Party < ApplicationRecord
   end
 
   def setup_playlist
-    playlist_id = service.make_playlist
+    playlist_id = playlist_service.make_playlist
     update(playlist_id: playlist_id)
   end
 
   def repopulate_playlist
-    service.populate_playlist(playlist_id)
+    playlist_service.populate_playlist(playlist_id)
   end
 
   def update_playlist_name
-    service.change_playlist_name(playlist_id, name)
+    playlist_service.change_playlist_name(playlist_id, name)
   end
 
   private
@@ -63,7 +50,24 @@ class Party < ApplicationRecord
     end.join('')
   end
 
-  def service
-    @service ||= SpotifyService.new(self.user)
+  def song_info
+    @info ||= playlist_service.current_song
+    if @info
+      {
+        spotify_id: @info[:id],
+        img_url: @info[:album][:images][0][:url],
+        title: @info[:name],
+        artist: @info[:artists].map {|artist| artist[:name]}.join(', ')
+      }
+    end
+  end
+
+  def add_song_to_database
+    new_track = party_tracks.new(song_info)
+    new_track.save
+  end
+
+  def playlist_service
+    @playlist_service ||= PlaylistSpotifyService.new(self.user)
   end
 end

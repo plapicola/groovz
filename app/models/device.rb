@@ -8,7 +8,7 @@ class Device
   end
 
   def self.for_user(user)
-    service = SpotifyService.new(user)
+    service = UserSpotifyService.new(user)
     device_list = service.devices
     device_list.map do |device_info|
       Device.new(device_info)
