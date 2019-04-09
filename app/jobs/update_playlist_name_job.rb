@@ -4,5 +4,6 @@ class UpdatePlaylistNameJob < ApplicationJob
   def perform(*args)
     party = Party.find(args[0])
     party.update_playlist_name
+    QueryCurrentPlayingJob.perform_later(party.id)
   end
 end

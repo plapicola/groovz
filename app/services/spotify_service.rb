@@ -13,6 +13,10 @@ class SpotifyService
     send_playlist(track_uris, playlist_id)
   end
 
+  def current_song
+    get_json('/v1/me/player/currently-playing')[:item]
+  end
+
   def devices
     parse(request_devices)[:devices]
   end
@@ -129,11 +133,12 @@ class SpotifyService
   end
 
   def refresh_token
-    @user.update(token: new_access_token, expires_at: 3600.seconds.from_now.to_i)
+    @user.update(refresh_token: new_access_token[:refresh_token]) if new_access_token[:refresh_token]
+    @user.update(token: new_access_token[:access_token], expires_at: 3600.seconds.from_now.to_i)
   end
 
   def new_access_token
-    JSON.parse(request_new_token.body)['access_token']
+    @new_access_token ||= JSON.parse(request_new_token.body, symbolize_names: true)
   end
 
   def request_new_token

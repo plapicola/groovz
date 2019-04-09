@@ -3,6 +3,7 @@
 class Party < ApplicationRecord
   belongs_to :user
   has_many :users
+  has_many :party_tracks
 
   def self.generate_party(user_id)
     user = User.find(user_id)
@@ -14,6 +15,30 @@ class Party < ApplicationRecord
                         .joins(:users)
                         .group(:id)
                         .where(id: party)[0]
+  end
+
+  def new_song?
+    return false if current_song&.spotify_id == song_info[:spotify_id]
+    add_song_to_database
+  end
+
+  def add_song_to_database
+    new_track = party_tracks.new(song_info)
+    new_track.save
+  end
+
+  def song_info
+    @info ||= service.current_song
+    {
+      spotify_id: @info[:id],
+      img_url: @info[:album][:images][0][:url],
+      title: @info[:name],
+      artist: @info[:artists].map {|artist| artist[:name]}.join(', ')
+    }
+  end
+
+  def current_song
+    party_tracks.order(:id).last
   end
 
   def setup_playlist
@@ -39,6 +64,6 @@ class Party < ApplicationRecord
   end
 
   def service
-    SpotifyService.new(self.user)
+    @service ||= SpotifyService.new(self.user)
   end
 end
