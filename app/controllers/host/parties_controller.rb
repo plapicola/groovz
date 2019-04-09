@@ -31,7 +31,6 @@ module Host
       party = current_user.party
       party.users.update(party: nil)
       party.update(code: nil, user: nil)
-      binding.pry
       redirect_to root_path
     end
 

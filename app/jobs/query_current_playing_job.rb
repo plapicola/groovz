@@ -7,7 +7,7 @@ class QueryCurrentPlayingJob < ApplicationJob
   def perform(id)
     if party(id).new_song?
       ActionCable.server.broadcast(
-        @party.code,
+        "parties-#{@party.code}",
         message: PartyTrackSerializer.new(@party.current_song)
       )
     end
