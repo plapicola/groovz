@@ -14,7 +14,9 @@ RSpec.describe SpotifyService do
         user = create(:user)
         service = UserSpotifyService.new(user)
 
-        devices = service.devices
+        devices = VCR.use_cassette('services/available_devices') do
+         service.devices
+        end
 
         expect(devices).to be_a Array
         expect(devices[0]).to have_key :id

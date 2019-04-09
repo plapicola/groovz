@@ -1,50 +1,6 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://accounts.spotify.com/api/token
-    body:
-      encoding: UTF-8
-      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
-    headers:
-      User-Agent:
-      - Faraday v0.15.4
-      Content-Type:
-      - application/x-www-form-urlencoded
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx
-      Date:
-      - Tue, 09 Apr 2019 22:07:17 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Keep-Alive:
-      - timeout=600
-      Vary:
-      - Accept-Encoding
-      X-Content-Type-Options:
-      - nosniff
-      Strict-Transport-Security:
-      - max-age=31536000
-    body:
-      encoding: ASCII-8BIT
-      string: '{"access_token":"BQBazpRkr938Wuqrp4yAcQRi78G2jXTFNxpBKec-Rfb96Q0iC1AycX3aVf_SdqQjdVn6SNDYDhZGul7eOD-WaQ6l2HXo3Kq9-vgE0mJv-k_97XDaLsn3NYgztgG-2zMZrGmsz9ixtbN-KxN8X7g-U25kw7bS7Q3B7YwnmcbUWg0W9je5zQhrYLdAcuEmbAXQn8TovpguGzlCRoyBXrissIqoH-3x","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
-        user-library-modify playlist-modify-public user-read-playback-state user-top-read"}'
-    http_version: 
-  recorded_at: Tue, 09 Apr 2019 22:07:15 GMT
-- request:
     method: get
     uri: https://api.spotify.com/v1/me/top/artists?limit=10
     body:
@@ -52,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer BQBazpRkr938Wuqrp4yAcQRi78G2jXTFNxpBKec-Rfb96Q0iC1AycX3aVf_SdqQjdVn6SNDYDhZGul7eOD-WaQ6l2HXo3Kq9-vgE0mJv-k_97XDaLsn3NYgztgG-2zMZrGmsz9ixtbN-KxN8X7g-U25kw7bS7Q3B7YwnmcbUWg0W9je5zQhrYLdAcuEmbAXQn8TovpguGzlCRoyBXrissIqoH-3x
+      - Bearer <SPOTIFY_USER_TOKEN>
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -79,7 +35,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 22:07:17 GMT
+      - Tue, 09 Apr 2019 23:17:02 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -96,7 +52,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 95901
+              "total" : 95904
             },
             "genres" : [ "catstep", "chillstep", "edm", "indie poptimism" ],
             "href" : "https://api.spotify.com/v1/artists/33o00sXuyWiApOFzo0vr0z",
@@ -124,7 +80,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 2288431
+              "total" : 2288520
             },
             "genres" : [ "melodic metalcore", "metalcore", "rock", "screamo" ],
             "href" : "https://api.spotify.com/v1/artists/1Ffb6ejR6Fe5IamqA5oRUF",
@@ -152,7 +108,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 2828174
+              "total" : 2828332
             },
             "genres" : [ "alternative metal", "nu metal", "post-grunge", "rap metal" ],
             "href" : "https://api.spotify.com/v1/artists/3TOqt5oJwL9BE2NG9MEwDa",
@@ -180,7 +136,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 193664
+              "total" : 193669
             },
             "genres" : [ "alternative metal", "nu metal", "post-grunge" ],
             "href" : "https://api.spotify.com/v1/artists/39VNwvlQTqE9SvgPjjnMpc",
@@ -208,7 +164,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 3031829
+              "total" : 3031982
             },
             "genres" : [ "alternative metal", "groove metal", "nu metal", "post-grunge" ],
             "href" : "https://api.spotify.com/v1/artists/5t28BP42x2axFnqOOMg3CM",
@@ -236,7 +192,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 629615
+              "total" : 629642
             },
             "genres" : [ "metal" ],
             "href" : "https://api.spotify.com/v1/artists/1Qp56T7n950O3EGMsSl81D",
@@ -264,7 +220,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 1547481
+              "total" : 1547540
             },
             "genres" : [ "alternative metal", "melodic metalcore", "metalcore", "nu metal", "pop punk", "post-grunge", "rap rock", "screamo", "welsh metal" ],
             "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
@@ -292,7 +248,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 1523434
+              "total" : 1523512
             },
             "genres" : [ "alternative metal", "nu metal", "post-grunge", "rap rock", "south african rock" ],
             "href" : "https://api.spotify.com/v1/artists/6B5c4sch27tWHAGdarpPaW",
@@ -320,7 +276,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 387752
+              "total" : 387797
             },
             "genres" : [ "screamo" ],
             "href" : "https://api.spotify.com/v1/artists/3Uobr6LgQpBbk6k4QGAb3V",
@@ -348,7 +304,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 83296
+              "total" : 83303
             },
             "genres" : [ "deep chiptune", "nightrun", "retro electro" ],
             "href" : "https://api.spotify.com/v1/artists/2KtnZQwMQJN3uyI8eHZRvm",
@@ -374,10 +330,10 @@ http_interactions:
           "total" : 50,
           "limit" : 10,
           "offset" : 0,
-          "href" : "https://api.spotify.com/v1/me/top/artists?limit=10&offset=0",
           "previous" : null,
+          "href" : "https://api.spotify.com/v1/me/top/artists?limit=10&offset=0",
           "next" : "https://api.spotify.com/v1/me/top/artists?limit=10&offset=10"
         }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 22:07:16 GMT
+  recorded_at: Tue, 09 Apr 2019 23:17:00 GMT
 recorded_with: VCR 4.0.0
