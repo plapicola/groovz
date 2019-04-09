@@ -88,6 +88,16 @@ class SpotifyService
     end
   end
 
+  def user_saved_request(track_id)
+    conn.get("/v1/me/tracks/contains") do |req|
+      req.params[:ids] = track_id
+    end
+  end
+
+  def user_saved?(track_id)
+    parse(user_saved_request(track_id))
+  end
+
   private
 
   def parse(response)

@@ -23,12 +23,14 @@ RSpec.describe SpotifyService do
     end
 
     describe 'user_saved?' do
-      user = create(:user)
-      service = SpotifyService.new(user)
+      it 'returns data on the status for the song and the user' do
+        user = create(:user)
+        service = SpotifyService.new(user)
 
-      response = service.user_saved?("75eW0q4UnnNT1W5A2nlibq")
+        response = service.user_saved?("75eW0q4UnnNT1W5A2nlibq")
 
-      expect(response).to eq(true)
+        expect(response.first).to eq(true)
+      end
     end
   end
 end

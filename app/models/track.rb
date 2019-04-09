@@ -5,7 +5,7 @@ class Track
               :acousticness,
               :danceability,
               :energy,
-              :valence,
+              :valence,\
               :tempo,
               :id
 
@@ -21,6 +21,6 @@ class Track
 
   def self.user_saved?(track_id, user)
     service = SpotifyService.new(user)
-    service.user_saved?(track_id)    
+    service.user_saved?(track_id)
   end
 end
