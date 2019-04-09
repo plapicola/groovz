@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       scope :me, module: :me do
         get '/available_devices', to: 'devices#index', as: :available_devices
+        get '/currently_playing', to: 'tracks#show', as: :currently_playing
       end
     end
   end
