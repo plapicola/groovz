@@ -1,4 +1,4 @@
 class TrackStatusSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :status, :message
+  attributes :id, :status
 end

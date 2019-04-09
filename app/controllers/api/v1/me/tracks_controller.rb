@@ -7,7 +7,6 @@ module Api
         end
 
         def create
-          binding.pry
           render json: TrackStatusSerializer.new(TrackStatus.save_or_remove(track_status_params, current_user))
         end
 

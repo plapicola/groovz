@@ -7,15 +7,15 @@ class TrackStatus
     @status = status
   end
 
-  def self.user_saved?(track_id, user)
-    status = service(user).user_saved?(track_id)[0]
-    TrackStatus.new(track_id, status)
+  def self.user_saved?(info, user)
+    status = service(user).user_saved?(info[:id])[0]
+    TrackStatus.new(info[:id], status)
   end
 
-  def self.save_or_remove(track_id, type, user)
-    status = service(user).save_track(track_id) if type
-    status = service(user).remove_track(track_id) unless type
-    TrackStatus.new(track_id, status)
+  def self.save_or_remove(info, user)
+    status = service(user).save_track(info[:ids]) if info[:type]
+    status = service(user).remove_track(info[:id]) unless info[:type]
+    TrackStatus.new(info[:id], status)
   end
 
   def self.service(user)
