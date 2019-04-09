@@ -10,7 +10,6 @@ function queryCurrentTrack() {
     return response.json();
   })
   .then(function(currentTrack) {
-    console.log(currentTrack)
     if (currentTrack.data !== null)
     updateTrackInfo(current_track);
   })
