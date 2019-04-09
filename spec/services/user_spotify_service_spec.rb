@@ -24,10 +24,9 @@ RSpec.describe UserSpotifyService do
       end
     end
 
-    describe '.refresh_token' do
+    describe '#refresh_token' do
       it 'returns an access token and a new refresh token if one is sent and saves them into the database' do
         VCR.use_cassette('requests/tokens') do
-
           user = create(:user)
           service = UserSpotifyService.new(user)
           old_token = user.token

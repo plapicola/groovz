@@ -17,26 +17,33 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
       Server:
       - nginx
       Date:
-      - Tue, 09 Apr 2019 23:04:28 GMT
+      - Tue, 09 Apr 2019 23:17:41 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '63'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Keep-Alive:
       - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
     body:
-      encoding: UTF-8
-      string: '{"error":"invalid_client","error_description":"Invalid client"}'
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQA0DjIHoeiNvbGJqJa9DifqC8cTffuBPUaoOsF7jG3hS308th-iwuOgY1ubiDU9NUDzWPGtKF9e63zFNYa_WSlHjFN3StAP7nYWEnNU2Y-KKXEah_Z5bxQaWcK8YfjXPavyhw2LIp2t1hcOfRaLeiWhOCtH2e7G3t9STh4u1paR4yBVrQTAYc2R6m9S2ZJlA9-C-dI","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-modify playlist-modify-public user-read-playback-state user-top-read"}'
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:04:28 GMT
+  recorded_at: Tue, 09 Apr 2019 23:17:41 GMT
 - request:
     method: get
     uri: https://api.spotify.com/v1/me/player/devices
@@ -45,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer
+      - Bearer BQA0DjIHoeiNvbGJqJa9DifqC8cTffuBPUaoOsF7jG3hS308th-iwuOgY1ubiDU9NUDzWPGtKF9e63zFNYa_WSlHjFN3StAP7nYWEnNU2Y-KKXEah_Z5bxQaWcK8YfjXPavyhw2LIp2t1hcOfRaLeiWhOCtH2e7G3t9STh4u1paR4yBVrQTAYc2R6m9S2ZJlA9-C-dI
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -54,15 +61,13 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers:
       Content-Type:
-      - application/json
-      - application/json
-      Www-Authenticate:
-      - Bearer realm="spotify", error="invalid_request", error_description="Only valid
-        bearer authentication supported"
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -74,7 +79,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:04:28 GMT
+      - Tue, 09 Apr 2019 23:17:41 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -83,13 +88,8 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: |-
-        {
-          "error": {
-            "status": 400,
-            "message": "Only valid bearer authentication supported"
-          }
-        }
+      string: !binary |-
+        ewogICJkZXZpY2VzIiA6IFsgewogICAgImlkIiA6ICI0YzNjNWM4M2EwODJiYWY0MjU1ZTU0Y2VjN2Y5YjYxYjU5NWJlNTdjIiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiVGltb3RoeeKAmXMgTWFjQm9vayBQcm8iLAogICAgInR5cGUiIDogIkNvbXB1dGVyIiwKICAgICJ2b2x1bWVfcGVyY2VudCIgOiAxMDAKICB9IF0KfQ==
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:04:28 GMT
+  recorded_at: Tue, 09 Apr 2019 23:17:41 GMT
 recorded_with: VCR 4.0.0

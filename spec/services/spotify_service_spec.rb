@@ -9,6 +9,5 @@ RSpec.describe SpotifyService do
   end
 
   describe 'instance methods' do
-
   end
 end
