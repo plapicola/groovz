@@ -1,6 +1,5 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
-require 'test/unit'
 require 'vcr'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -89,4 +88,9 @@ end
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/cassettes'
   config.hook_into :webmock
+  config.filter_sensitive_data('<SPOTIFY_USER_TOKEN>') { ENV['SPOTIFY_TOKEN'] }
+  config.filter_sensitive_data('<SPOTIFY_USER_REFRESH>') { ENV['SPOTIFY_REFRESH_TOKEN'] }
+  config.filter_sensitive_data('<SPOTIFY_CLIENT_ID>') { ENV['SPOTIFY_CLIENT_ID'] }
+  config.filter_sensitive_data('<SPOTIFY_CLIENT_SECRET>') { ENV['SPOTIFY_CLIENT_SECRET'] }
+  config.filter_sensitive_data('<SPOTIFY_UID>') { ENV['SPOTIFY_UID'] }
 end

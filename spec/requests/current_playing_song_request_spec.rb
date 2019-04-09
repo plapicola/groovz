@@ -13,14 +13,15 @@ RSpec.describe 'Current Song API', type: :request do
 
       get '/api/v1/me/currently_playing'
 
-      current_song = JSON.parse(response.body)[:data]
+      current_song = JSON.parse(response.body, symbolize_names: true)[:data]
 
       expect(current_song).to be_a Hash
       expect(current_song[:attributes]).to be_a Hash
-      expect(current_song[:attributes][:id]).to eq(current_tack.id)
+      expect(current_song[:id]).to eq(current_track.id.to_s)
       expect(current_song[:attributes][:spotify_id]).to eq(current_track.spotify_id)
-      expect(current_song[:attributes][:name]).to eq(current_track.name)
-      expect(current_song[:attributes][:image_url]).to eq(current_track.image_url)
+      expect(current_song[:attributes][:title]).to eq(current_track.title)
+      expect(current_song[:attributes][:artist]).to eq(current_track.artist)
+      expect(current_song[:attributes][:img_url]).to eq(current_track.img_url)
     end
   end
 end

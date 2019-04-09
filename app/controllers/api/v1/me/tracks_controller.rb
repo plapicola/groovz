@@ -3,7 +3,7 @@ module Api
     module Me
       class TracksController < ApplicationController
         def show
-          render json: PartyTrackSerializer.new(current_user.party.current_song)
+          render json: PartyTrackSerializer.new(current_user.party&.current_song)
         end
       end
     end

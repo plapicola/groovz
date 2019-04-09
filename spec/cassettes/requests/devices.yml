@@ -5,7 +5,7 @@ http_interactions:
     uri: https://accounts.spotify.com/api/token
     body:
       encoding: UTF-8
-      string: client_id=98cce42bc3b4446bb5db7212119c809b&client_secret=e8b2afe053044cc68058da5ab6118761&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=AQBzz8AMgyYZu3ENqHQAA6sVJ_G3mVOalZMavuZMMauFQED_8CgUQjVCbGfMtYIUb7Gq7S2wrDEvk7mhdIwhvofFj6IH-2bQRWh1d0LqfWeST-ygEx4r46aDrEG3OZf2HpDG_g
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
     headers:
       User-Agent:
       - Faraday v0.15.4
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 09 Apr 2019 17:10:22 GMT
+      - Tue, 09 Apr 2019 17:58:32 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -40,10 +40,10 @@ http_interactions:
       - max-age=31536000
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"BQDwuCzEB6mAec5EE_KlR-4IkWloqo5LGpvdWg5CGYm7II_HPsCRgeeFrDGbaCeF-InaJMrvZAtJkWf2cgNQXkPvAZB-wobMqvIOONxXL_cgSiW8g1660VoGPpDzbdPEqpGk9LbuU71sTDm_YQPtML79JdMHQX-AB0zYIkmI3cCz20rdkiR3z2cu02riQ1_1D1oiVqiu0p2rDJwIyacEE-hTSZlv","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+      string: '{"access_token":"BQBC2VETqolNBJSPckJCR5LZ-rc-65EwU6X4b-PusXLkF1_cG16jbqusCoPR8gj5bteWX4wRfcIAb9dhH6XemORJcJ60c-2tMv7DrooYhattonwMLIg_HErPQwZDnbuXRPpz7rNxZk6IxJAzTRS8xl5NTL_OVdR4xtgg_WR__nxLZEkvgMNpBfxhgOB1vWgrZkflgoToe4zGLm8hXyS1Cs1Q58cI","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
         user-library-modify playlist-modify-public user-read-playback-state user-top-read"}'
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 17:10:20 GMT
+  recorded_at: Tue, 09 Apr 2019 17:58:30 GMT
 - request:
     method: get
     uri: https://api.spotify.com/v1/me/player/devices
@@ -52,7 +52,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer BQDwuCzEB6mAec5EE_KlR-4IkWloqo5LGpvdWg5CGYm7II_HPsCRgeeFrDGbaCeF-InaJMrvZAtJkWf2cgNQXkPvAZB-wobMqvIOONxXL_cgSiW8g1660VoGPpDzbdPEqpGk9LbuU71sTDm_YQPtML79JdMHQX-AB0zYIkmI3cCz20rdkiR3z2cu02riQ1_1D1oiVqiu0p2rDJwIyacEE-hTSZlv
+      - Bearer BQBC2VETqolNBJSPckJCR5LZ-rc-65EwU6X4b-PusXLkF1_cG16jbqusCoPR8gj5bteWX4wRfcIAb9dhH6XemORJcJ60c-2tMv7DrooYhattonwMLIg_HErPQwZDnbuXRPpz7rNxZk6IxJAzTRS8xl5NTL_OVdR4xtgg_WR__nxLZEkvgMNpBfxhgOB1vWgrZkflgoToe4zGLm8hXyS1Cs1Q58cI
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -79,7 +79,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 17:10:22 GMT
+      - Tue, 09 Apr 2019 17:58:32 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -88,8 +88,26 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJkZXZpY2VzIiA6IFsgewogICAgImlkIiA6ICIxYzk4ZGU4MDU5YmQyNjg5MGMxNDQ0NGE5MjA0OGI0ZjZhYWVjODM3IiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiREVTS1RPUC1QSEMyNzBMIiwKICAgICJ0eXBlIiA6ICJDb21wdXRlciIsCiAgICAidm9sdW1lX3BlcmNlbnQiIDogMTAwCiAgfSwgewogICAgImlkIiA6ICI2ZjUzMzNjMDExZTk5MTNiN2VhMzE5ZmRjYzlmMTQ0ZTdlNDMyOWYyIiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiUGV0ZXItTUJQIiwKICAgICJ0eXBlIiA6ICJDb21wdXRlciIsCiAgICAidm9sdW1lX3BlcmNlbnQiIDogOTgKICB9LCB7CiAgICAiaWQiIDogImRjYjMyNTI1MTdlNWE1NDg0MWZmOTYzMjBlOTY0OTRjOTRmOTYyYjkiLAogICAgImlzX2FjdGl2ZSIgOiB0cnVlLAogICAgImlzX3ByaXZhdGVfc2Vzc2lvbiIgOiBmYWxzZSwKICAgICJpc19yZXN0cmljdGVkIiA6IGZhbHNlLAogICAgIm5hbWUiIDogIlBldGVy4oCZcyBpUGhvbmUiLAogICAgInR5cGUiIDogIlNtYXJ0cGhvbmUiLAogICAgInZvbHVtZV9wZXJjZW50IiA6IDEwMAogIH0gXQp9
+      string: |-
+        {
+          "devices" : [ {
+            "id" : "1c98de8059bd26890c14444a92048b4f6aaec837",
+            "is_active" : false,
+            "is_private_session" : false,
+            "is_restricted" : false,
+            "name" : "DESKTOP-PHC270L",
+            "type" : "Computer",
+            "volume_percent" : 100
+          }, {
+            "id" : "6f5333c011e9913b7ea319fdcc9f144e7e4329f2",
+            "is_active" : false,
+            "is_private_session" : false,
+            "is_restricted" : false,
+            "name" : "Peter-MBP",
+            "type" : "Computer",
+            "volume_percent" : 98
+          } ]
+        }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 17:10:20 GMT
+  recorded_at: Tue, 09 Apr 2019 17:58:30 GMT
 recorded_with: VCR 4.0.0
