@@ -21,5 +21,14 @@ RSpec.describe SpotifyService do
         expect(devices[0]).to have_key :name
       end
     end
+
+    describe 'user_saved?' do
+      user = create(:user)
+      service = SpotifyService.new(user)
+
+      response = service.user_saved?("75eW0q4UnnNT1W5A2nlibq")
+
+      expect(response).to eq(true)
+    end
   end
 end

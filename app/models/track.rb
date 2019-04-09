@@ -18,4 +18,9 @@ class Track
     @valence = track_info[:valence]
     @tempo = track_info[:tempo]
   end
+
+  def self.user_saved?(track_id, user)
+    service = SpotifyService.new(user)
+    service.user_saved?(track_id)    
+  end
 end
