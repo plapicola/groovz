@@ -8,7 +8,7 @@ function subcribeToChannel() {
     {
       received: function(data) {
         updateTrackInfo(data);
-        userSavedTrack(trackInfo.spotify_id);
+        userSavedTrack(data);
     }
   });
 }
@@ -20,7 +20,8 @@ function updateTrackInfo(data){
   document.getElementById("track-artist").innerHTML = trackInfo.artist;
 }
 
-function userSavedTrack(trackId) {
+function userSavedTrack(data) {
+  let trackId = data.message.data.attributes.spotify_id
   const trackStatusUrl = `api/v1/me/track_status?id=${trackId}`;
   fetch(trackStatusUrl)
   .then(function(response){
@@ -32,20 +33,21 @@ function userSavedTrack(trackId) {
   })
 }
 
-async function renderSaveButton(trackId, type){
+function renderSaveButton(trackId, type){
+  target = document.getElementById("save-track");
   if (type === false) {
-    target = getElementById("save-track");
-    target.src = "placeholder-pluss.png";
-    target.setAttribute('onclick', saveOrRemoveTrack(trackId, true));
+    console.log("igsjgnf");
+    target.src = "placeholder-plus.png";
+    target.onclick("saveOrRemoveTrack(trackId, true)");
   }
-  else {
-  target = getElementById("save-track");
+  else if (type === true) {
   target.src = "placeholder-checkmark.png";
-  target.setAttribute('onclick', saveOrRemoveTrack(trackId, false));
+  target.onclick("saveOrRemoveTrack(trackId, false)");
   }
 }
 
-async function saveOrRemoveTrack(trackId, type) {
+function saveOrRemoveTrack(trackId, type) {
+  console.log("is it making it here")
   const saveUrl = `api/v1/me/save_track?ids=${trackId}&type=${type}`;
   if (type === true) {
   renderSaveButton(trackId, false)
@@ -53,11 +55,11 @@ async function saveOrRemoveTrack(trackId, type) {
   else {
     renderSaveButton(trackId, true)
   };
-  fetch(songUrl)
+  fetch(saveUrl)
     .then(function(response) {
-        response.json();
+      return response.json();
     })
     .then(function(message){
-      console.log(message);
+      console.log(status);
     })
 }
