@@ -24,23 +24,6 @@ class Party < ApplicationRecord
     end
   end
 
-  def add_song_to_database
-    new_track = party_tracks.new(song_info)
-    new_track.save
-  end
-
-  def song_info
-    @info ||= playlist_service.current_song
-    if @info
-      {
-        spotify_id: @info[:id],
-        img_url: @info[:album][:images][0][:url],
-        title: @info[:name],
-        artist: @info[:artists].map {|artist| artist[:name]}.join(', ')
-      }
-    end
-  end
-
   def current_song
     party_tracks.order(:id).last
   end
@@ -65,6 +48,23 @@ class Party < ApplicationRecord
     6.times.map do
       options.sample
     end.join('')
+  end
+
+  def song_info
+    @info ||= playlist_service.current_song
+    if @info
+      {
+        spotify_id: @info[:id],
+        img_url: @info[:album][:images][0][:url],
+        title: @info[:name],
+        artist: @info[:artists].map {|artist| artist[:name]}.join(', ')
+      }
+    end
+  end
+
+  def add_song_to_database
+    new_track = party_tracks.new(song_info)
+    new_track.save
   end
 
   def playlist_service

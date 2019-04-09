@@ -11,20 +11,15 @@ class User < ApplicationRecord
 
   private
 
-  def track_attributes
-    %i[mode acousticness danceability energy valence tempo]
+  def add_user_artists
+    artists.destroy_all
+    artists_service.add_artists(self)
   end
 
   def get_user_info
     tracks = tracks_service.get_tracks
     update(get_average_values(tracks))
   end
-
-  def add_user_artists
-    artists.destroy_all
-    artists_service.add_artists(self)
-  end
-
 
   def get_average_values(tracks)
     average_taste_values = {}
@@ -34,14 +29,7 @@ class User < ApplicationRecord
     average_taste_values
   end
 
-  private
-
-  def track_attributes
-    %i[mode acousticness danceability energy valence tempo]
-  end
-
   def user_attribute_totals(tracks)
-
     all_tracks_total = Hash.new(0)
     tracks_service.get_tracks.each do |track|
       track_attributes.each do |attr|
@@ -49,6 +37,10 @@ class User < ApplicationRecord
       end
     end
     all_tracks_total
+  end
+
+  def track_attributes
+    %i[mode acousticness danceability energy valence tempo]
   end
 
   def tracks_service
