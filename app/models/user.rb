@@ -4,6 +4,9 @@ class User < ApplicationRecord
   belongs_to :party, required: false
   has_many :artists
 
+  validates_uniqueness_of :uid
+  validates_presence_of :uid
+
   def update_musical_taste
     add_user_artists
     get_user_info
