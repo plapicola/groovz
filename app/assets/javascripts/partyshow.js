@@ -7,9 +7,10 @@ function subcribeToChannel() {
     channel: 'PartiesChannel', room: `parties-${roomCode}`},
     {
       received: function(data) {
-        console.log(data);
-        $("#messages").removeClass('hidden')
-        return $("[data-chatroom='" + data.chatroom_id + "']").append(data.message);
+        let trackInfo = data.message.data.attributes;
+        document.getElementById("album-art").src = trackInfo.img_url;
+        document.getElementById("track-title").innerHTML = trackInfo.title;
+        document.getElementById("track-artist").innerHTML = trackInfo.artist;
     }
   });
 }
