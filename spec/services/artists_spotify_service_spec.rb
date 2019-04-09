@@ -15,10 +15,10 @@ RSpec.describe ArtistsSpotifyService do
        service = ArtistsSpotifyService.new(user)
 
        VCR.use_cassette('service/artists') do
-         artists = service.add_artists(user)
+         expect {
+           artists = service.add_artists(user)
+         }.to change{Artist.count}.by(10)
        end
-
-       expect(Artist.count).to eq(10)
       end
     end
   end
