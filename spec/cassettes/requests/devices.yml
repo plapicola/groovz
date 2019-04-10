@@ -35,7 +35,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:17:02 GMT
+      - Tue, 09 Apr 2019 23:45:32 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -44,8 +44,26 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJkZXZpY2VzIiA6IFsgewogICAgImlkIiA6ICIxYzk4ZGU4MDU5YmQyNjg5MGMxNDQ0NGE5MjA0OGI0ZjZhYWVjODM3IiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiREVTS1RPUC1QSEMyNzBMIiwKICAgICJ0eXBlIiA6ICJDb21wdXRlciIsCiAgICAidm9sdW1lX3BlcmNlbnQiIDogMTAwCiAgfSwgewogICAgImlkIiA6ICI2ZjUzMzNjMDExZTk5MTNiN2VhMzE5ZmRjYzlmMTQ0ZTdlNDMyOWYyIiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiUGV0ZXItTUJQIiwKICAgICJ0eXBlIiA6ICJDb21wdXRlciIsCiAgICAidm9sdW1lX3BlcmNlbnQiIDogOTgKICB9LCB7CiAgICAiaWQiIDogImRjYjMyNTI1MTdlNWE1NDg0MWZmOTYzMjBlOTY0OTRjOTRmOTYyYjkiLAogICAgImlzX2FjdGl2ZSIgOiB0cnVlLAogICAgImlzX3ByaXZhdGVfc2Vzc2lvbiIgOiBmYWxzZSwKICAgICJpc19yZXN0cmljdGVkIiA6IGZhbHNlLAogICAgIm5hbWUiIDogIlBldGVy4oCZcyBpUGhvbmUiLAogICAgInR5cGUiIDogIlNtYXJ0cGhvbmUiLAogICAgInZvbHVtZV9wZXJjZW50IiA6IDEwMAogIH0gXQp9
+      string: |-
+        {
+          "devices" : [ {
+            "id" : "1c98de8059bd26890c14444a92048b4f6aaec837",
+            "is_active" : false,
+            "is_private_session" : false,
+            "is_restricted" : false,
+            "name" : "DESKTOP-PHC270L",
+            "type" : "Computer",
+            "volume_percent" : 100
+          }, {
+            "id" : "6f5333c011e9913b7ea319fdcc9f144e7e4329f2",
+            "is_active" : false,
+            "is_private_session" : false,
+            "is_restricted" : false,
+            "name" : "Peter-MBP",
+            "type" : "Computer",
+            "volume_percent" : 98
+          } ]
+        }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:17:00 GMT
+  recorded_at: Tue, 09 Apr 2019 23:45:30 GMT
 recorded_with: VCR 4.0.0

@@ -35,7 +35,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:17:02 GMT
+      - Tue, 09 Apr 2019 23:45:32 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -80,7 +80,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 2288520
+              "total" : 2288554
             },
             "genres" : [ "melodic metalcore", "metalcore", "rock", "screamo" ],
             "href" : "https://api.spotify.com/v1/artists/1Ffb6ejR6Fe5IamqA5oRUF",
@@ -108,7 +108,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 2828332
+              "total" : 2828394
             },
             "genres" : [ "alternative metal", "nu metal", "post-grunge", "rap metal" ],
             "href" : "https://api.spotify.com/v1/artists/3TOqt5oJwL9BE2NG9MEwDa",
@@ -136,7 +136,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 193669
+              "total" : 193670
             },
             "genres" : [ "alternative metal", "nu metal", "post-grunge" ],
             "href" : "https://api.spotify.com/v1/artists/39VNwvlQTqE9SvgPjjnMpc",
@@ -164,7 +164,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 3031982
+              "total" : 3032036
             },
             "genres" : [ "alternative metal", "groove metal", "nu metal", "post-grunge" ],
             "href" : "https://api.spotify.com/v1/artists/5t28BP42x2axFnqOOMg3CM",
@@ -192,7 +192,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 629642
+              "total" : 629655
             },
             "genres" : [ "metal" ],
             "href" : "https://api.spotify.com/v1/artists/1Qp56T7n950O3EGMsSl81D",
@@ -220,7 +220,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 1547540
+              "total" : 1547558
             },
             "genres" : [ "alternative metal", "melodic metalcore", "metalcore", "nu metal", "pop punk", "post-grunge", "rap rock", "screamo", "welsh metal" ],
             "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
@@ -248,7 +248,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 1523512
+              "total" : 1523537
             },
             "genres" : [ "alternative metal", "nu metal", "post-grunge", "rap rock", "south african rock" ],
             "href" : "https://api.spotify.com/v1/artists/6B5c4sch27tWHAGdarpPaW",
@@ -276,7 +276,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 387797
+              "total" : 387811
             },
             "genres" : [ "screamo" ],
             "href" : "https://api.spotify.com/v1/artists/3Uobr6LgQpBbk6k4QGAb3V",
@@ -335,5 +335,5 @@ http_interactions:
           "next" : "https://api.spotify.com/v1/me/top/artists?limit=10&offset=10"
         }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:17:00 GMT
+  recorded_at: Tue, 09 Apr 2019 23:45:31 GMT
 recorded_with: VCR 4.0.0
