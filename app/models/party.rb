@@ -5,6 +5,10 @@ class Party < ApplicationRecord
   has_many :users
   has_many :party_tracks, dependent: :destroy
 
+  validates_presence_of :user_id
+  validates_presence_of :code
+  validates_uniqueness_of :code
+
   def self.generate_party(user_id)
     user = User.find(user_id)
     Party.create(user: user, users: [user], code: generate_code)
