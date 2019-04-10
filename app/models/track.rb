@@ -5,7 +5,7 @@ class Track
               :acousticness,
               :danceability,
               :energy,
-              :valence,\
+              :valence,
               :tempo,
               :id
 
