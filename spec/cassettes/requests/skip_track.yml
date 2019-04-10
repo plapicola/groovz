@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/me/player/next
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Content-Length:
+      - '0'
+      Date:
+      - Wed, 10 Apr 2019 22:14:38 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 10 Apr 2019 22:14:38 GMT
+recorded_with: VCR 4.0.0

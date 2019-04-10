@@ -21,7 +21,7 @@ module Host
         UpdatePlaylistNameJob.perform_later(party.id)
         redirect_to host_party_path
       else
-        flash[:error] = "Please make sure you select a device"
+        flash[:error] = 'Please make sure you select a device'
         render :edit, locals: {
           facade: PartyFacade.new(current_user)
         }
