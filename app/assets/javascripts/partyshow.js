@@ -10,8 +10,9 @@ function queryCurrentTrack() {
     return response.json();
   })
   .then(function(currentTrack) {
-    if (currentTrack.data !== null)
-    updateTrackInfo(current_track);
+    if (currentTrack.data !== null) {
+      updateTrackInfo(currentTrack);
+    }
   })
 }
 
