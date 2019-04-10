@@ -10,10 +10,16 @@ RSpec.describe 'Playback API' do
         user: user,
         users: [user]
       )
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(user)
 
-      get '/api/v1/me/start_playback'
+      # Cassette on InternalAPI to capture service call
+      VCR.use_cassette('requests/start_playback') do
+        put '/api/v1/me/start_playback'
 
-      expect(party.current_song.title).to eq('Silver Bullet')
+        expect(party.new_song?).to eq(true)
+        expect(party.current_song.title).to eq('Silver Bullet')
+      end
     end
   end
 end

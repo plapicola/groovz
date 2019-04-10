@@ -25,6 +25,10 @@ class PlaylistSpotifyService < SpotifyService
     post_response("/v1/users/#{@user.uid}/playlists")[:id]
   end
 
+  def start_playback
+    request_playback_start
+  end
+
   private
 
   def send_playlist(track_uris, playlist_id)
@@ -50,6 +54,16 @@ class PlaylistSpotifyService < SpotifyService
       req.params['target_mode'] = target.avg_mode.to_i # Request wants int
       req.params['target_valence'] = target.avg_valence
       req.params['target_tempo'] = target.avg_tempo
+    end
+  end
+
+  def request_playback_start
+    conn.put("/v1/me/player/play") do |req|
+      req.headers['Content-Type'] = 'application/json'
+      req.params[:device_id] = @user.party.device_id
+      req.body = {
+        context_uri: "spotify:playlist:#{@user.party.playlist_id}"
+      }.to_json
     end
   end
 end

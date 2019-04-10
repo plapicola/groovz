@@ -59,9 +59,13 @@ RSpec.describe PlaylistSpotifyService do
           users: [@user]
         )
 
-        @service.start_playback
+        VCR.use_cassette('services/start_playback') do
+          @service.start_playback
 
-        expect(party.current_song.title).to eq('Silver Bullet')
+          # new_song? triggers service call and inserts in to database
+          expect(party.new_song?).to eq(true)
+          expect(party.current_song.title).to eq('Silver Bullet')
+        end
       end
     end
   end

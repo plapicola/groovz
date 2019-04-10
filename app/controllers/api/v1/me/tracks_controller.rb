@@ -9,7 +9,7 @@ module Api
         end
 
         def update
-          if user_owns_party
+          if user_owns_party?
             PlaylistSpotifyService.new(current_user).start_playback
             head :ok
           else

@@ -18,7 +18,9 @@ function queryCurrentTrack() {
 
 function startPlayback() {
   const startPlaybackUrl = '/api/v1/me/start_playback';
-  fetch(startPlaybackUrl)
+  fetch(startPlaybackUrl, {
+    method: "PUT"
+  })
   .then(function(response) {
     return response.json();
   })
