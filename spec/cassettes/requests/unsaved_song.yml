@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.spotify.com/v1/me/player/devices
+    uri: https://api.spotify.com/v1/me/tracks/contains?ids=4VqPOruhp5EdPBeR92t6lQ
     body:
       encoding: US-ASCII
       string: ''
@@ -24,6 +24,10 @@ http_interactions:
       - application/json; charset=utf-8
       Cache-Control:
       - private, max-age=0
+      Etag:
+      - '"MC-IjdhNjFiZDc1MmIwOGVkYzg3YjMwNDg2N2QxYzFhMTAwIg=="'
+      Vary:
+      - Authorization
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -35,7 +39,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Wed, 10 Apr 2019 17:00:01 GMT
+      - Wed, 10 Apr 2019 16:59:27 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -44,26 +48,7 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: |-
-        {
-          "devices" : [ {
-            "id" : "1c98de8059bd26890c14444a92048b4f6aaec837",
-            "is_active" : false,
-            "is_private_session" : false,
-            "is_restricted" : false,
-            "name" : "DESKTOP-PHC270L",
-            "type" : "Computer",
-            "volume_percent" : 100
-          }, {
-            "id" : "6f5333c011e9913b7ea319fdcc9f144e7e4329f2",
-            "is_active" : true,
-            "is_private_session" : false,
-            "is_restricted" : false,
-            "name" : "Peter-MBP",
-            "type" : "Computer",
-            "volume_percent" : 60
-          } ]
-        }
+      string: "[ false ]"
     http_version: 
-  recorded_at: Wed, 10 Apr 2019 16:59:59 GMT
+  recorded_at: Wed, 10 Apr 2019 16:59:25 GMT
 recorded_with: VCR 4.0.0

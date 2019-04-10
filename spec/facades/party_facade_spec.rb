@@ -11,7 +11,7 @@ RSpec.describe PartyFacade do
 
   describe 'instance methods' do
     before(:each) do
-      user = create(:user)
+      user = create(:user, uid: 'guest')
       host = create(:user)
       party = create(:party, name: 'Test Party', user: host, users: [user])
       @facade = PartyFacade.new(user)

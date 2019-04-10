@@ -4,7 +4,7 @@ RSpec.describe 'Current Song API', type: :request do
   context 'as a User' do
     it "I can get the current playing song information for my party" do
       user = create(:user)
-      party = create(:party, users: [user])
+      party = create(:party, user: user, users: [user])
       current_track = create(:party_track, party: party)
 
 

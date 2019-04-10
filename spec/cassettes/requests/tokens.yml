@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Tue, 09 Apr 2019 23:17:41 GMT
+      - Wed, 10 Apr 2019 17:00:03 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -40,8 +40,9 @@ http_interactions:
       - max-age=31536000
     body:
       encoding: ASCII-8BIT
-      string: '{"access_token":"BQDZ4CV2IWOH7XhfS_LXUxl88TONP1_rYQxMkjmTa4ZixvDhgyfJn_8pMJ_iPxekd91GL3GdTiJy7QAonDsLD2NqeWPqel9NprcsHo0LDXFvAgHifBpagZSOElZKtrHFEAcA9kHNV9bAXgGJGYVfTG2UHGtdQSPPKhHmTJONZCCw9XGpmIhN9kJHdPxCqbOaaW8_qoA","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
-        user-library-modify playlist-modify-public user-read-playback-state user-top-read"}'
+      string: '{"access_token":"BQDMTQlMMZnslLUrZXHEeHDk03lKg5gZsaSE5R307omYGgcuU4HOlkafvDS-t6devXdMj2DoXlsvI09iy9BKvkUkbG2xIr7EjwuKAPoHobrEwTezd4LT_dTahGMpSHAjghnuS5-Ns1R2MFb6Z17F1aCgF4Rz0f5VGPOanmYTxRqUOcZbWO5lbcQ37VSIFeiXAyB32mk-9Rp09uY9Mhqt-s_sAnPiIgDe62nj","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:17:41 GMT
+  recorded_at: Wed, 10 Apr 2019 17:00:02 GMT
 recorded_with: VCR 4.0.0
