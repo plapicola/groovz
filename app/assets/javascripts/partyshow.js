@@ -37,14 +37,14 @@ function renderSaveButton(trackId, type){
   console.log(type)
   let target = document.getElementById("save-track");
   if (type === false) {
-    target.src = "placeholder-plus.png";
+    target.src = "plus_template.png";
     target.addEventListener('click', function() {
       event.preventDefault();
       saveOrRemoveTrack(trackId, type)
     }, {once: true});
   }
   else if (type === true) {
-    target.src = "placeholder-checkmark.png";
+    target.src = "check-mark-template.png";
     target.addEventListener('click', function(){
       event.preventDefault();
       saveOrRemoveTrack(trackId, type);
