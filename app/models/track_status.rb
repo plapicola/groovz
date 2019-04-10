@@ -13,8 +13,8 @@ class TrackStatus
   end
 
   def self.save_or_remove(info, user)
-    status = service(user).save_track(info[:ids]) if info[:type]
-    status = service(user).remove_track(info[:id]) unless info[:type]
+    status = service(user).remove_track(info[:id]) if info[:type] == "true"
+    status = service(user).save_track(info[:id]) if info[:type] == "false"
     TrackStatus.new(info[:id], status)
   end
 

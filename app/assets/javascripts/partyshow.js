@@ -34,32 +34,38 @@ function userSavedTrack(data) {
 }
 
 function renderSaveButton(trackId, type){
-  target = document.getElementById("save-track");
+  console.log(type)
+  let target = document.getElementById("save-track");
   if (type === false) {
-    console.log("igsjgnf");
     target.src = "placeholder-plus.png";
-    target.onclick("saveOrRemoveTrack(trackId, true)");
+    target.addEventListener('click', function() {
+      event.preventDefault();
+      saveOrRemoveTrack(trackId, type)
+    }, {once: true});
   }
   else if (type === true) {
-  target.src = "placeholder-checkmark.png";
-  target.onclick("saveOrRemoveTrack(trackId, false)");
+    target.src = "placeholder-checkmark.png";
+    target.addEventListener('click', function(){
+      event.preventDefault();
+      saveOrRemoveTrack(trackId, type);
+    }, {once: true});
   }
 }
 
 function saveOrRemoveTrack(trackId, type) {
-  console.log("is it making it here")
-  const saveUrl = `api/v1/me/save_track?ids=${trackId}&type=${type}`;
+  const saveUrl = `api/v1/me/save_track?id=${trackId}&type=${type}`;
+  console.log(saveUrl)
+  fetch(saveUrl)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(message){
+    console.log(message.data.attributes.status);
+  });
   if (type === true) {
   renderSaveButton(trackId, false)
   }
-  else {
+  else if (type === false){
     renderSaveButton(trackId, true)
   };
-  fetch(saveUrl)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(message){
-      console.log(status);
-    })
 }
