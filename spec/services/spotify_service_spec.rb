@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe SpotifyService do
@@ -12,9 +14,11 @@ RSpec.describe SpotifyService do
     describe '.devices' do
       it 'returns a list of available devices for the user' do
         user = create(:user)
-        service = SpotifyService.new(user)
+        service = UserSpotifyService.new(user)
 
-        devices = service.devices
+        devices = VCR.use_cassette('services/available_devices') do
+         service.devices
+        end
 
         expect(devices).to be_a Array
         expect(devices[0]).to have_key :id

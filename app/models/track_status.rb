@@ -19,6 +19,6 @@ class TrackStatus
   end
 
   def self.service(user)
-    @service ||= SpotifyService.new(user)
+    @service ||= TracksSpotifyService.new(user)
   end
 end

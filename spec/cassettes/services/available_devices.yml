@@ -1,0 +1,69 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/player/devices
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Tue, 09 Apr 2019 23:45:45 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "devices" : [ {
+            "id" : "1c98de8059bd26890c14444a92048b4f6aaec837",
+            "is_active" : false,
+            "is_private_session" : false,
+            "is_restricted" : false,
+            "name" : "DESKTOP-PHC270L",
+            "type" : "Computer",
+            "volume_percent" : 100
+          }, {
+            "id" : "6f5333c011e9913b7ea319fdcc9f144e7e4329f2",
+            "is_active" : false,
+            "is_private_session" : false,
+            "is_restricted" : false,
+            "name" : "Peter-MBP",
+            "type" : "Computer",
+            "volume_percent" : 98
+          } ]
+        }
+    http_version: 
+  recorded_at: Tue, 09 Apr 2019 23:45:43 GMT
+recorded_with: VCR 4.0.0

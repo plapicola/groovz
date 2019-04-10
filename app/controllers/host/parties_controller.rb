@@ -7,7 +7,7 @@ module Host
     before_action :reentry, except: %i[destroy show]
 
     def show
-      render locals: {facade: PartyFacade.new(current_user)}
+      render locals: { facade: PartyFacade.new(current_user) }
     end
 
     def edit
@@ -30,7 +30,8 @@ module Host
     def destroy
       party = current_user.party
       party.users.update(party: nil)
-      party.update(code: nil, user: nil)
+      party.update(user: nil)
+      party.destroy
       redirect_to root_path
     end
 

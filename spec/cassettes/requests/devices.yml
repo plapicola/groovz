@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/player/devices
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Tue, 09 Apr 2019 23:45:32 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJkZXZpY2VzIiA6IFsgewogICAgImlkIiA6ICI0YzNjNWM4M2EwODJiYWY0MjU1ZTU0Y2VjN2Y5YjYxYjU5NWJlNTdjIiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiVGltb3RoeeKAmXMgTWFjQm9vayBQcm8iLAogICAgInR5cGUiIDogIkNvbXB1dGVyIiwKICAgICJ2b2x1bWVfcGVyY2VudCIgOiAxMDAKICB9IF0KfQ==
+    http_version: 
+  recorded_at: Tue, 09 Apr 2019 23:45:30 GMT
+recorded_with: VCR 4.0.0

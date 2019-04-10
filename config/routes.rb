@@ -20,8 +20,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       scope :me, module: :me do
         get '/available_devices', to: 'devices#index', as: :available_devices
-        get '/track_status',to: 'tracks#show', as: :track_status
-        get '/save_track', to: 'tracks#create', as: :save_track
+        get '/track_status',to: 'track_status#show', as: :track_status
+        get '/save_track', to: 'track_status#create', as: :save_track
+        get '/currently_playing', to: 'tracks#show', as: :currently_playing
+        put '/start_playback', to: 'tracks#update', as: :start_playback
       end
     end
   end
