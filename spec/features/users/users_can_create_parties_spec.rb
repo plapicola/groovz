@@ -14,10 +14,14 @@ describe 'Creating parties' do
 
       expect(current_path).to eq(soundcheck_path)
 
-      expect(page).to have_content 'Party Name'
+      expect(page).to have_content 'Party name'
     end
 
     it 'I can fill out the name of a party and be taken to the party show page' do
+      visit root_path
+
+      click_button 'Create Party'
+
       visit soundcheck_path
 
       fill_in :name, with: 'Test Party!'
@@ -28,9 +32,13 @@ describe 'Creating parties' do
     end
 
     it 'I can click the go back button to cancel my party creation' do
+      visit root_path
+
+      click_button 'Create Party'
+
       visit soundcheck_path
 
-      page.find('.back-arrow')[0].click
+      page.find('#back-arrow').click
 
       expect(current_path).to eq(root_path)
     end
