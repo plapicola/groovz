@@ -13,9 +13,9 @@ RSpec.describe Artist, type: :model do
   describe 'class methods' do
     it 'get_common_artists' do
       user_1 = create(:user)
-      user_2 = create(:user)
-      user_3 = create(:user)
-      user_4 = create(:user)
+      user_2 = create(:user, uid: "2")
+      user_3 = create(:user, uid: "3")
+      user_4 = create(:user, uid: "4")
 
       user_1.artists.create(spotify_id: '1')
       user_2.artists.create(spotify_id: '1')
@@ -26,7 +26,7 @@ RSpec.describe Artist, type: :model do
 
       party = create(:party, user: user_1, users: [user_1, user_2, user_3, user_4])
 
-      expect(Arist.get_common_artists(party)).to eq('1,3,2')
+      expect(Artist.get_common_artists(party)).to eq('1,3,2')
     end
   end
 end

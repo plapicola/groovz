@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 10 Apr 2019 17:00:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQDMTQlMMZnslLUrZXHEeHDk03lKg5gZsaSE5R307omYGgcuU4HOlkafvDS-t6devXdMj2DoXlsvI09iy9BKvkUkbG2xIr7EjwuKAPoHobrEwTezd4LT_dTahGMpSHAjghnuS5-Ns1R2MFb6Z17F1aCgF4Rz0f5VGPOanmYTxRqUOcZbWO5lbcQ37VSIFeiXAyB32mk-9Rp09uY9Mhqt-s_sAnPiIgDe62nj","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Wed, 10 Apr 2019 17:00:02 GMT
+recorded_with: VCR 4.0.0
