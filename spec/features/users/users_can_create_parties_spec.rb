@@ -30,7 +30,7 @@ describe 'Creating parties' do
     it 'I can click the go back button to cancel my party creation' do
       visit soundcheck_path
 
-      click_link '.back-arrow'
+      page.find('.back-arrow')[0].click
 
       expect(current_path).to eq(root_path)
     end
