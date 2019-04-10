@@ -1,11 +1,12 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://api.spotify.com/v1/me/player/devices
+    method: put
+    uri: https://api.spotify.com/v1/playlists/2iyYsK01c4lPHyolL9lCqY
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"name":"Cool Playlist","description":"Groovz generated playlist for
+        2019-04-09."}'
     headers:
       Authorization:
       - Bearer <SPOTIFY_USER_TOKEN>
@@ -20,8 +21,6 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - application/json; charset=utf-8
       Cache-Control:
       - private, max-age=0
       Access-Control-Allow-Origin:
@@ -34,18 +33,17 @@ http_interactions:
       - 'true'
       Access-Control-Max-Age:
       - '604800'
+      Content-Length:
+      - '0'
       Date:
-      - Tue, 09 Apr 2019 23:45:32 GMT
+      - Tue, 09 Apr 2019 23:53:39 GMT
       Via:
       - 1.1 google
       Alt-Svc:
       - clear
-      Transfer-Encoding:
-      - chunked
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJkZXZpY2VzIiA6IFsgewogICAgImlkIiA6ICI0YzNjNWM4M2EwODJiYWY0MjU1ZTU0Y2VjN2Y5YjYxYjU5NWJlNTdjIiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiVGltb3RoeeKAmXMgTWFjQm9vayBQcm8iLAogICAgInR5cGUiIDogIkNvbXB1dGVyIiwKICAgICJ2b2x1bWVfcGVyY2VudCIgOiAxMDAKICB9IF0KfQ==
+      encoding: UTF-8
+      string: ''
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:45:30 GMT
+  recorded_at: Tue, 09 Apr 2019 23:53:37 GMT
 recorded_with: VCR 4.0.0

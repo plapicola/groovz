@@ -22,6 +22,6 @@ class ApplicationController < ActionController::Base
   private
 
   def user_owns_party?
-    current_user.party.user == current_user
+    current_user.party&.user == current_user if current_user
   end
 end

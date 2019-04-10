@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QueryCurrentPlayingJob < ApplicationJob
   queue_as :default
   after_perform do |job|

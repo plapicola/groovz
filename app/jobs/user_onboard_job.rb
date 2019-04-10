@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserOnboardJob < ApplicationJob
   queue_as :default
 

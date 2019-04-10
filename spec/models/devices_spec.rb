@@ -23,7 +23,7 @@ describe Device do
 
   describe 'class methods' do
     describe '.available_devices(user)' do
-      it 'returns an array of devices availble for a user' do
+      it 'returns an array of devices available for a user' do
         VCR.use_cassette('requests/devices') do
           user = create(:user)
           devices = Device.for_user(user)

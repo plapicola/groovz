@@ -88,6 +88,7 @@ $spotify-grey: #222326;
 }
 
 .track-info {
+  margin-top: 3%;
   h4 {
     margin: 0;
   }
@@ -104,6 +105,10 @@ $spotify-grey: #222326;
 
 .icon {
   max-width: 15vw;
+}
+
+.hide {
+  display: none;
 }
 
 #index-primary-buttons {
@@ -138,6 +143,12 @@ $spotify-grey: #222326;
   label {
     font-weight: bolder;
   }
+}
+
+#start-party-button {
+  position: absolute;
+  bottom: 40%;
+  width: 100%;
 }
 
 #leave-party-button {

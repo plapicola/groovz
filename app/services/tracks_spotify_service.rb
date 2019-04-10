@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TracksSpotifyService < SpotifyService
   def get_tracks
     tracks = get_json('/v1/me/top/tracks?limit=50')[:items]

@@ -5,6 +5,10 @@ class Party < ApplicationRecord
   has_many :users
   has_many :party_tracks, dependent: :destroy
 
+  validates_presence_of :user_id
+  validates_presence_of :code
+  validates_uniqueness_of :code
+
   def self.generate_party(user_id)
     user = User.find(user_id)
     Party.create(user: user, users: [user], code: generate_code)
@@ -12,14 +16,15 @@ class Party < ApplicationRecord
 
   def self.get_party_tastes(party)
     Party.select('parties.*, avg(users.acousticness) AS avg_acoust, avg(users.valence) AS avg_valence, avg(users.mode) AS avg_mode, avg(users.tempo) AS avg_tempo, avg(users.danceability) AS avg_dance, avg(users.energy) AS avg_energy')
-                        .joins(:users)
-                        .group(:id)
-                        .where(id: party)[0]
+         .joins(:users)
+         .group(:id)
+         .where(id: party)[0]
   end
 
   def new_song?
     if song_info
       return false if current_song&.spotify_id == song_info[:spotify_id]
+
       add_song_to_database
     end
   end
@@ -57,7 +62,7 @@ class Party < ApplicationRecord
         spotify_id: @info[:id],
         img_url: @info[:album][:images][0][:url],
         title: @info[:name],
-        artist: @info[:artists].map {|artist| artist[:name]}.join(', ')
+        artist: @info[:artists].map { |artist| artist[:name] }.join(', ')
       }
     end
   end
@@ -68,6 +73,6 @@ class Party < ApplicationRecord
   end
 
   def playlist_service
-    @playlist_service ||= PlaylistSpotifyService.new(self.user)
+    @playlist_service ||= PlaylistSpotifyService.new(user)
   end
 end

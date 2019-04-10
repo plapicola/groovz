@@ -13,10 +13,10 @@
     <%= image_tag('album-loading.gif', class: 'album-artwork') %>
   </div>
   <div class="track-info">
-    <h4>Loading...</h4>
-    <p>Your party begins soon</p>
+    <h4>Welcome to Groovz!</h4>
+    <p>Click 'Start Partying' to kick this off</p>
   </div>
-  <div class="player-control-section">
+  <div class="player-control-section hide" id='player-controls'>
     <div class="save-button">
       <%= image_tag("placeholder-checkmark.png", class: 'icon', onclick: "saveSong()") %>
     </div>
@@ -26,6 +26,10 @@
     <div class="next-button">
       <%= image_tag("placeholder-checkmark.png", class: 'icon', onclick: "skipSong()") %>
     </div>
+  </div>
+  <div id="start-party-button">
+    <%= button_tag 'Start Partying', onclick: 'startPlayback()', class: 'btn btn-primary rounded' %>
+    <%= button_tag 'Manual Control', onclick: 'showPlaybackControls()', class: 'btn btn-secondary rounded' %>
   </div>
 </div>
 

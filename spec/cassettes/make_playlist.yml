@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/<SPOTIFY_UID>/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":"GroovzApp Playlist"}'
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Location:
+      - https://api.spotify.com/v1/playlists/54FMH2qVtFm85IAI37mE5I
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Wed, 10 Apr 2019 03:52:23 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "collaborative" : false,
+          "description" : null,
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/playlist/54FMH2qVtFm85IAI37mE5I"
+          },
+          "followers" : {
+            "href" : null,
+            "total" : 0
+          },
+          "href" : "https://api.spotify.com/v1/playlists/54FMH2qVtFm85IAI37mE5I",
+          "id" : "54FMH2qVtFm85IAI37mE5I",
+          "images" : [ ],
+          "name" : "GroovzApp Playlist",
+          "owner" : {
+            "display_name" : "Tim Allen",
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/user/<SPOTIFY_UID>"
+            },
+            "href" : "https://api.spotify.com/v1/users/<SPOTIFY_UID>",
+            "id" : "<SPOTIFY_UID>",
+            "type" : "user",
+            "uri" : "spotify:user:<SPOTIFY_UID>"
+          },
+          "primary_color" : null,
+          "public" : true,
+          "snapshot_id" : "MSxiMjZmYjVkNWMxOGJkY2FiNTJjODg0YmYxNDhiNzVmNDA3YTVkNTcx",
+          "tracks" : {
+            "href" : "https://api.spotify.com/v1/playlists/54FMH2qVtFm85IAI37mE5I/tracks",
+            "items" : [ ],
+            "limit" : 100,
+            "next" : null,
+            "offset" : 0,
+            "previous" : null,
+            "total" : 0
+          },
+          "type" : "playlist",
+          "uri" : "spotify:playlist:54FMH2qVtFm85IAI37mE5I"
+        }
+    http_version: 
+  recorded_at: Wed, 10 Apr 2019 03:52:23 GMT
+recorded_with: VCR 4.0.0

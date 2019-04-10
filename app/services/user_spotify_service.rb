@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserSpotifyService < SpotifyService
   def refresh_token
     @user.update(refresh_token: new_access_token[:refresh_token]) if new_access_token[:refresh_token]

@@ -4,6 +4,9 @@ class User < ApplicationRecord
   belongs_to :party, required: false
   has_many :artists
 
+  validates_uniqueness_of :uid
+  validates_presence_of :uid
+
   def update_musical_taste
     add_user_artists
     get_user_info
@@ -29,7 +32,7 @@ class User < ApplicationRecord
     average_taste_values
   end
 
-  def user_attribute_totals(tracks)
+  def user_attribute_totals(_tracks)
     all_tracks_total = Hash.new(0)
     tracks_service.get_tracks.each do |track|
       track_attributes.each do |attr|
