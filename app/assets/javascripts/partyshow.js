@@ -16,6 +16,31 @@ function queryCurrentTrack() {
   })
 }
 
+function startPlayback() {
+  const startPlaybackUrl = '/api/v1/me/start_playback';
+  fetch(startPlaybackUrl)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log(result);
+    if (result.code === 200) {
+      showPlaybackControls();
+    }
+  })
+  .catch(function(error) {
+    let playbackText = document.getElementsByClassName('track-info')[0];
+    playbackText.getElementsByTagName('p').innerHTML = 'Something went wrong. Please try again.';
+  })
+}
+
+function showPlaybackControls() {
+  let startButton = document.getElementById('start-party-button');
+  let playerControls = document.getElementById('player-controls');
+  startButton.classList.add('hide');
+  playerControls.classList.remove('hide');
+}
+
 function subcribeToChannel() {
   App.messages = App.cable.subscriptions.create( {
     channel: 'PartiesChannel', room: `parties-${roomCode}`},
