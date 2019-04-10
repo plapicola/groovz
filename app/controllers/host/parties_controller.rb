@@ -16,13 +16,14 @@ module Host
 
     def update
       party = current_user.party
-      if party.update(party_params)
+      if party_params[:device_id]
+        party.update(party_params)
         UpdatePlaylistNameJob.perform_later(party.id)
         redirect_to host_party_path
       else
-        flash[:error] = 'Something went wrong, please try again.'
+        flash[:error] = "Please make sure you select a device"
         render :edit, locals: {
-          party: party
+          facade: PartyFacade.new(current_user)
         }
       end
     end
