@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PlaylistSpotifyService < SpotifyService
   def current_song
     song = get_json('/v1/me/player/currently-playing')
@@ -8,7 +10,7 @@ class PlaylistSpotifyService < SpotifyService
     artists = Artist.get_common_artists(@user.party)
     party_tastes = Party.get_party_tastes(@user.party)
     tracks = parse_recommendations(artists, party_tastes)
-    track_uris = tracks.map {|t| t[:uri]}
+    track_uris = tracks.map { |t| t[:uri] }
     send_playlist(track_uris, playlist_id)
   end
 
@@ -58,7 +60,7 @@ class PlaylistSpotifyService < SpotifyService
   end
 
   def request_playback_start
-    conn.put("/v1/me/player/play") do |req|
+    conn.put('/v1/me/player/play') do |req|
       req.headers['Content-Type'] = 'application/json'
       req.params[:device_id] = @user.party.device_id
       req.body = {

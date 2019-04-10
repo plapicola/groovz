@@ -22,7 +22,6 @@ function startPlayback() {
     method: "PUT"
   })
   .then(function(response) {
-    console.log(response);
     if (response.status === 200) { // Expect no body
       showPlaybackControls();
     }
