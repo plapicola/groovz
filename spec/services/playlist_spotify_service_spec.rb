@@ -49,5 +49,20 @@ RSpec.describe PlaylistSpotifyService do
         expect(response.status).to eq(200)
       end
     end
+
+    describe 'start_playback' do
+      it 'starts playback of the generated playlist on the users device' do
+        party = create(:party,
+          playlist_id: '4ZenWelYqdG7lVhcDerX9D',
+          device_id: '6f5333c011e9913b7ea319fdcc9f144e7e4329f2',
+          user: @user,
+          users: [@user]
+        )
+
+        @service.start_playback
+
+        expect(party.current_song.title).to eq('Silver Bullet')
+      end
+    end
   end
 end
