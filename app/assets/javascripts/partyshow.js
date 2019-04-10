@@ -22,11 +22,8 @@ function startPlayback() {
     method: "PUT"
   })
   .then(function(response) {
-    return response.json();
-  })
-  .then(function(result) {
-    console.log(result);
-    if (result.code === 200) {
+    console.log(response);
+    if (response.status === 200) { // Expect no body
       showPlaybackControls();
     }
   })
