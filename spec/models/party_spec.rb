@@ -54,7 +54,52 @@ RSpec.describe Party, type: :model do
 
   describe 'instance methods' do
     it 'new_song?' do
-      
+      user = create(:user)
+      party = Party.create(user: user, users: [user], code: 'code')
+      expect(party.party_tracks).to eq([])
+      VCR.use_cassette('new_song? with new song playing') do
+        expect(party.new_song?).to eq(true)
+        expect(party.party_tracks.count).to eq(1)
+        expect(party.new_song?).to eq(false)
+      end
+    end
+
+    it 'current_song' do
+        user = create(:user)
+        party = Party.create(user: user, users: [user], code: 'code')
+        party.party_tracks.create(artist: 'Queen',
+                                  spotify_id: '4u7EnebtmKWzUH433cf5Qv',
+                                  title: 'Bohemian Rhapsody - Remastered 2011',
+                                  img_url: 'https://i.scdn.co/image/beae4292c3214147a7201ef48f855b4ed40ff84e'
+                                )
+
+        expect(party.current_song).to eq(party.party_tracks[0])
+    end
+
+    it 'setup_playlist' do
+      user = create(:user)
+      party = Party.create(user: user, users: [user], code: 'code')
+      expect(party.playlist_id).to eq(nil)
+      VCR.use_cassette('make_playlist') do
+        party.setup_playlist
+        expect(party.playlist_id).to_not eq(nil)
+      end
+    end
+
+    it 'repopulate_playlist' do
+      user = create(:user, tempo: 60.0,
+                            mode: 0.0,
+                            valence: 0.0,
+                            energy: 0.0,
+                            danceability: 0.0,
+                            acousticness: 0.0
+                          )
+      Artist.create(user_id: user.id, spotify_id: '0TnOYISbd1XYRBk9myaseg')
+      party = create(:party, user: user, users: [user], code: 'code', playlist_id: '54FMH2qVtFm85IAI37mE5I')
+      VCR.use_cassette('repopulate_playlist') do
+        response = party.repopulate_playlist
+        expect(response.status).to eq(201)
+      end
     end
   end
 end
