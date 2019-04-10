@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function(){
 async function getAvailableDevices() {
   const url = '/api/v1/me/available_devices';
 
-  fetch(url)
+  fetch(url, {
+    method: "PUT"
+  }
     .then(function(response) {
       return response.json();
     })
