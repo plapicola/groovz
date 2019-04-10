@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.spotify.com/v1/me/player/devices
+    uri: https://api.spotify.com/v1/me/tracks/contains?ids=4vnukzBCfcOHeBYp1N7dDz
     body:
       encoding: US-ASCII
       string: ''
@@ -24,6 +24,10 @@ http_interactions:
       - application/json; charset=utf-8
       Cache-Control:
       - private, max-age=0
+      Etag:
+      - '"MC-ImJiMDMxMTUwYjU4MDJhZjc0YjEzOWQ3N2MwN2YzZDNlIg=="'
+      Vary:
+      - Authorization
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -35,7 +39,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:45:32 GMT
+      - Wed, 10 Apr 2019 16:59:27 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -44,8 +48,7 @@ http_interactions:
       - chunked
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        ewogICJkZXZpY2VzIiA6IFsgewogICAgImlkIiA6ICI0YzNjNWM4M2EwODJiYWY0MjU1ZTU0Y2VjN2Y5YjYxYjU5NWJlNTdjIiwKICAgICJpc19hY3RpdmUiIDogZmFsc2UsCiAgICAiaXNfcHJpdmF0ZV9zZXNzaW9uIiA6IGZhbHNlLAogICAgImlzX3Jlc3RyaWN0ZWQiIDogZmFsc2UsCiAgICAibmFtZSIgOiAiVGltb3RoeeKAmXMgTWFjQm9vayBQcm8iLAogICAgInR5cGUiIDogIkNvbXB1dGVyIiwKICAgICJ2b2x1bWVfcGVyY2VudCIgOiAxMDAKICB9IF0KfQ==
+      string: "[ true ]"
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:45:30 GMT
+  recorded_at: Wed, 10 Apr 2019 16:59:25 GMT
 recorded_with: VCR 4.0.0

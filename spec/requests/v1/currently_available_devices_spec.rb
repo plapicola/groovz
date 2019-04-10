@@ -11,7 +11,7 @@ describe 'Internal Player API' do
 
         devices = JSON.parse(response.body, symbolize_names: true)[:data]
 
-        expect(devices.length).to eq(2)
+        expect(devices.length).to eq(1)
         expect(devices[0]).to be_a Hash
         expect(devices[0][:id]).to eq("1c98de8059bd26890c14444a92048b4f6aaec837")
         expect(devices[0][:attributes][:name]).to eq("DESKTOP-PHC270L")
