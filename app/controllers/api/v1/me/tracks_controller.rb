@@ -13,6 +13,7 @@ module Api
         def update
           if user_owns_party?
             PlaylistSpotifyService.new(current_user).start_playback
+            QueryCurrentPlayingJob.perform_later(current_user.party.id)
             head :ok
           else
             head :not_authorized
