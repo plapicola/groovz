@@ -107,3 +107,19 @@ function saveOrRemoveTrack(trackId, type) {
     renderSaveButton(trackId, true)
   };
 }
+
+function playSong() {
+  const playUrl = 'api/v1/me/playback/toggle';
+  fetch(playUrl, {
+    method: 'PUT';
+  })
+  .then(function() {
+    let playbackImage = document.getElementById('pause-play-button');
+    let image = playbackImage.getElementsByTagName('img')[0];
+    if (image.src === 'pause-button.png') {
+      image.src = 'play-button.png';
+    } else {
+      image.src = 'pause-button.png';
+    }
+  })
+}
