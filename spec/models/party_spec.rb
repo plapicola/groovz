@@ -101,5 +101,14 @@ RSpec.describe Party, type: :model do
         expect(response.status).to eq(201)
       end
     end
+
+    it 'update_playlist_name' do
+      user = create(:user)
+      party = create(:party, user: user, users: [user], code: 'code', playlist_id: '54FMH2qVtFm85IAI37mE5I')
+      VCR.use_cassette('update_playlist_name') do
+        response = party.update_playlist_name
+        expect(response.status).to eq(200)
+      end
+    end
   end
 end
