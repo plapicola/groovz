@@ -10,7 +10,31 @@ class TracksSpotifyService < SpotifyService
     end
   end
 
+  def user_saved?(track_id)
+    parse(user_saved_request(track_id))
+  end
+
+  def save_track(track_id)
+    conn.put("/v1/me/tracks") do |req|
+      req.params[:ids] = track_id
+    end
+    return 'Song Saved'
+  end
+
+  def remove_track(track_id)
+    conn.delete("/v1/me/tracks") do |req|
+      req.params[:ids] = track_id
+    end
+    return 'Song Removed'
+  end
+
   private
+
+  def user_saved_request(track_id)
+    conn.get("/v1/me/tracks/contains") do |req|
+      req.params[:ids] = track_id
+    end
+  end
 
   def get_music_info(ids)
     get_json("/v1/audio-features?ids=#{ids}")[:audio_features]

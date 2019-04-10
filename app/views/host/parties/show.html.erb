@@ -10,21 +10,21 @@
 
 <div class="player-container">
   <div id="host-album-art">
-    <%= image_tag('album-loading.gif', class: 'album-artwork') %>
+    <%= image_tag('album-loading.gif', class: 'album-artwork', id: 'album-art') %>
   </div>
   <div class="track-info">
-    <h4>Welcome to Groovz!</h4>
-    <p>Click 'Start Partying' to kick this off</p>
+    <h4 id="track-title">Welcome to Groovz!</h4>
+    <p id="track-artist">Click 'Start Partying' to kick this off</p>
   </div>
   <div class="player-control-section hide" id='player-controls'>
     <div class="save-button">
-      <%= image_tag("placeholder-checkmark.png", class: 'icon', onclick: "saveSong()") %>
+      <%= image_tag("plus_template.png", class: 'icon', id: "save-track") %>
     </div>
     <div class="play-button">
-      <%= image_tag("placeholder-checkmark.png", class: 'icon', onclick: "playSong()") %>
+      <%= image_tag("plus_template.png", class: 'icon', onclick: "playSong()") %>
     </div>
     <div class="next-button">
-      <%= image_tag("placeholder-checkmark.png", class: 'icon', onclick: "skipSong()") %>
+      <%= image_tag("plus_template.png", class: 'icon', onclick: "skipSong()") %>
     </div>
   </div>
   <div id="start-party-button">
