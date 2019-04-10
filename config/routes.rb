@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       scope :me, module: :me do
         get '/available_devices', to: 'devices#index', as: :available_devices
         get '/currently_playing', to: 'tracks#show', as: :currently_playing
+        put '/start_playback', to: 'tracks#update', as: :start_playback
       end
     end
   end

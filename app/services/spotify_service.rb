@@ -17,7 +17,7 @@ class SpotifyService
   def post_response(url)
     pr = conn.post(url) do |faraday|
       faraday.headers['Content-Type'] = 'application/json'
-      faraday.body = { 'name' => "GroovzApp Playlist" }.to_json
+      faraday.body = { 'name' => 'GroovzApp Playlist' }.to_json
     end
     JSON.parse(pr.body, symbolize_names: true)
   end

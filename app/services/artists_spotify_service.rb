@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArtistsSpotifyService < SpotifyService
   def add_artists(user)
     get_artists.each do |artist_info|

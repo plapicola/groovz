@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PartyTrack < ApplicationRecord
   belongs_to :party
 

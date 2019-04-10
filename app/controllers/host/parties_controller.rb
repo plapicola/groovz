@@ -7,7 +7,7 @@ module Host
     before_action :reentry, except: %i[destroy show]
 
     def show
-      render locals: {facade: PartyFacade.new(current_user)}
+      render locals: { facade: PartyFacade.new(current_user) }
     end
 
     def edit
