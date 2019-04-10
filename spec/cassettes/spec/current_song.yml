@@ -1,0 +1,138 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/player/currently-playing
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Tue, 09 Apr 2019 23:55:52 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp" : 1554854102971,
+          "context" : {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/playlist/4TLNuRH12LUlCDvPZ2dgKn"
+            },
+            "href" : "https://api.spotify.com/v1/playlists/4TLNuRH12LUlCDvPZ2dgKn",
+            "type" : "playlist",
+            "uri" : "spotify:user:69doss1dia7oz4kv1t74n0l6m:playlist:4TLNuRH12LUlCDvPZ2dgKn"
+          },
+          "progress_ms" : 266892,
+          "item" : {
+            "album" : {
+              "album_type" : "album",
+              "artists" : [ {
+                "external_urls" : {
+                  "spotify" : "https://open.spotify.com/artist/3TOqt5oJwL9BE2NG9MEwDa"
+                },
+                "href" : "https://api.spotify.com/v1/artists/3TOqt5oJwL9BE2NG9MEwDa",
+                "id" : "3TOqt5oJwL9BE2NG9MEwDa",
+                "name" : "Disturbed",
+                "type" : "artist",
+                "uri" : "spotify:artist:3TOqt5oJwL9BE2NG9MEwDa"
+              } ],
+              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/album/1IpufqmucrxYUJQxf1AP0n"
+              },
+              "href" : "https://api.spotify.com/v1/albums/1IpufqmucrxYUJQxf1AP0n",
+              "id" : "1IpufqmucrxYUJQxf1AP0n",
+              "images" : [ {
+                "height" : 640,
+                "url" : "https://i.scdn.co/image/7b5d558389f39c65a152f0885d584634df3c2dc0",
+                "width" : 640
+              }, {
+                "height" : 300,
+                "url" : "https://i.scdn.co/image/c62ef2c6aef03b08ddedc18d7c699d425e427ff8",
+                "width" : 300
+              }, {
+                "height" : 64,
+                "url" : "https://i.scdn.co/image/c7bfb8a6693b6a419bf1f1a868179351984c5f25",
+                "width" : 64
+              } ],
+              "name" : "Evolution (Deluxe)",
+              "release_date" : "2018-10-19",
+              "release_date_precision" : "day",
+              "total_tracks" : 14,
+              "type" : "album",
+              "uri" : "spotify:album:1IpufqmucrxYUJQxf1AP0n"
+            },
+            "artists" : [ {
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/artist/3TOqt5oJwL9BE2NG9MEwDa"
+              },
+              "href" : "https://api.spotify.com/v1/artists/3TOqt5oJwL9BE2NG9MEwDa",
+              "id" : "3TOqt5oJwL9BE2NG9MEwDa",
+              "name" : "Disturbed",
+              "type" : "artist",
+              "uri" : "spotify:artist:3TOqt5oJwL9BE2NG9MEwDa"
+            } ],
+            "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+            "disc_number" : 1,
+            "duration_ms" : 284293,
+            "explicit" : false,
+            "external_ids" : {
+              "isrc" : "USRE11800601"
+            },
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/track/1IbaGRC0Yrovu3MP1ipf1u"
+            },
+            "href" : "https://api.spotify.com/v1/tracks/1IbaGRC0Yrovu3MP1ipf1u",
+            "id" : "1IbaGRC0Yrovu3MP1ipf1u",
+            "is_local" : false,
+            "name" : "A Reason to Fight",
+            "popularity" : 66,
+            "preview_url" : "https://p.scdn.co/mp3-preview/93bc0f656ecc63ecc4f37fbbe4d78034908a1005?cid=<SPOTIFY_CLIENT_ID>",
+            "track_number" : 3,
+            "type" : "track",
+            "uri" : "spotify:track:1IbaGRC0Yrovu3MP1ipf1u"
+          },
+          "currently_playing_type" : "track",
+          "actions" : {
+            "disallows" : {
+              "resuming" : true
+            }
+          },
+          "is_playing" : true
+        }
+    http_version: 
+  recorded_at: Tue, 09 Apr 2019 23:55:50 GMT
+recorded_with: VCR 4.0.0
