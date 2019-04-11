@@ -87,8 +87,12 @@ $spotify-grey: #222326;
   vertical-align: center;
 }
 
+.info-item {
+  width: 16vw;
+}
+
 .track-info {
-  margin-top: 3%;
+  width: 66vw;
   h4 {
     margin: 0;
   }
