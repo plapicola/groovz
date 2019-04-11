@@ -15,23 +15,27 @@ class TracksSpotifyService < SpotifyService
   end
 
   def save_track(track_id)
-    conn.put("/v1/me/tracks") do |req|
+    conn.put('/v1/me/tracks') do |req|
       req.params[:ids] = track_id
     end
-    return 'Song Saved'
+    'Song Saved'
   end
 
   def remove_track(track_id)
-    conn.delete("/v1/me/tracks") do |req|
+    conn.delete('/v1/me/tracks') do |req|
       req.params[:ids] = track_id
     end
-    return 'Song Removed'
+    'Song Removed'
+  end
+
+  def skip_current_track
+    conn.post('/v1/me/player/next')
   end
 
   private
 
   def user_saved_request(track_id)
-    conn.get("/v1/me/tracks/contains") do |req|
+    conn.get('/v1/me/tracks/contains') do |req|
       req.params[:ids] = track_id
     end
   end

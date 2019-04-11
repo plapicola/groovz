@@ -96,7 +96,6 @@ function renderSaveButton(trackId, type){
 
 function saveOrRemoveTrack(trackId, type) {
   const saveUrl = `api/v1/me/save_track?id=${trackId}&type=${type}`;
-  console.log(saveUrl)
   fetch(saveUrl)
   .then(function(response) {
     return response.json();
@@ -110,6 +109,11 @@ function saveOrRemoveTrack(trackId, type) {
   else if (type === false){
     renderSaveButton(trackId, true)
   };
+}
+
+function skipTrack() {
+  const skipUrl = '/api/v1/me/tracks/skip_track';
+  fetch(skipUrl)
 }
 
 function playSong() {

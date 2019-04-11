@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TrackStatus
   attr_reader :id,
               :status
@@ -13,8 +15,8 @@ class TrackStatus
   end
 
   def self.save_or_remove(info, user)
-    status = service(user).remove_track(info[:id]) if info[:type] == "true"
-    status = service(user).save_track(info[:id]) if info[:type] == "false"
+    status = service(user).remove_track(info[:id]) if info[:type] == 'true'
+    status = service(user).save_track(info[:id]) if info[:type] == 'false'
     TrackStatus.new(info[:id], status)
   end
 
