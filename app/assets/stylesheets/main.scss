@@ -128,6 +128,11 @@ h4 {
   font-size: 7vw;
 }
 
+.small-label {
+  margin-bottom: 4vw;
+  font-size: 4vw;
+}
+
 #site-logo {
   position: absolute;
   top: 5%;
@@ -136,5 +141,14 @@ h4 {
 
   img {
     width: 90%;
+  }
+}
+
+#back-arrow {
+  position: relative;
+  top: 3%;
+  left: 5%;
+  img {
+    width: 10vw;
   }
 }

@@ -1,11 +1,14 @@
-<%= link_to "BACK ARROW GOES HERE", cancel_party_path, method: :delete, id: 'back-arrow' %>
+<%= link_to image_tag('back-button.png'), cancel_party_path, method: :delete, id: 'back-arrow' %>
 
 <section id='host-party-create'>
   <%= form_tag update_host_party_path, method: :put, class: 'form-group' do %>
     <%= label_tag "Party Name", nil, class: 'label' %>
     <%= text_field_tag :name, nil, placeholder: 'Enter Here...', class: 'input-field rounded' %>
-    <%= label_tag "Select A Playback Device" %>
-    <%= select_tag "device_id", nil, id: 'device-list' %>
+    <%= label_tag "Select A Playback Device:", nil, class: 'small-label' %>
+    <div id="device-group">
+      <%= select_tag "device_id", nil, id: 'device-list', class: 'rounded' %>
+      <%= image_tag 'refresh.png', id: 'refresh-button', onclick: 'getAvailableDevices()' %>
+    </div>
     <%= submit_tag 'Start Party', class: 'btn sub-primary-button rounded' %>
   <% end %>
 </section>

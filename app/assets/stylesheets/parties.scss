@@ -111,6 +111,33 @@ $spotify-grey: #222326;
   display: none;
 }
 
+#device-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+  margin-bottom: 5%;
+}
+
+#device-list {
+  display: inline;
+  height: 8vw;
+  width: auto;
+  background-color: #E0E0E0;
+  font-size: 3vw;
+  text-align-last: center;
+  text-align: center;
+  margin-right: 7%;
+  border: none;
+  padding: 2%;
+}
+
+#refresh-button {
+  max-width: 8vw;
+  display: inline;
+}
+
 #index-primary-buttons {
   position: absolute;
   bottom: 30vh;
