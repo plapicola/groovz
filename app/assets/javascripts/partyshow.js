@@ -12,7 +12,7 @@ function queryCurrentTrack() {
   .then(function(currentTrack) {
     if (currentTrack.data !== null) {
       showPlaybackControls();
-      updateTrackInfo(currentTrack);
+      updateTrackInfo(currentTrack.data);
     }
   })
 }
@@ -45,14 +45,18 @@ function subcribeToChannel() {
     channel: 'PartiesChannel', room: `parties-${roomCode}`},
     {
       received: function(data) {
-        updateTrackInfo(data);
-        userSavedTrack(data);
-    }
+        if (data.message.playing !== undefined) {
+          updatePausePlayIcon(data.message.playing);
+        } else {
+          updateTrackInfo(data.message.data);
+          userSavedTrack(data);
+        }
+      }
   });
 }
 
 function updateTrackInfo(data){
-  let trackInfo = data.message.data.attributes;
+  let trackInfo = data.attributes;
   document.getElementById("album-art").src = trackInfo.img_url;
   document.getElementById("track-title").innerHTML = trackInfo.title;
   document.getElementById("track-artist").innerHTML = trackInfo.artist;
@@ -111,15 +115,21 @@ function saveOrRemoveTrack(trackId, type) {
 function playSong() {
   const playUrl = 'api/v1/me/playback/toggle';
   fetch(playUrl, {
-    method: 'PUT';
+    method: 'PUT'
   })
   .then(function() {
     let playbackImage = document.getElementById('pause-play-button');
     let image = playbackImage.getElementsByTagName('img')[0];
-    if (image.src === 'pause-button.png') {
-      image.src = 'play-button.png';
-    } else {
-      image.src = 'pause-button.png';
-    }
+    updatePausePlayIcon(image.src.includes('/pause-button.png'));
   })
+}
+
+function updatePausePlayIcon(playing) {
+  let playbackImage = document.getElementById('pause-play-button');
+  let image = playbackImage.getElementsByTagName('img')[0];
+  if (playing) {
+    image.src = '/pause-button.png';
+  } else {
+    image.src = '/play-button.png';
+  }
 }
