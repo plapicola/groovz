@@ -99,12 +99,13 @@ $spotify-grey: #222326;
 }
 
 .album-artwork {
+  margin-top: 5%;
   max-width: 100%;
   max-height: 70vh;
 }
 
 .icon {
-  max-width: 15vw;
+  width: 33vw;
 }
 
 .hide {
@@ -181,4 +182,16 @@ $spotify-grey: #222326;
 #leave-party-button {
   position: absolute;
   bottom: 10%;
+}
+
+#save-track {
+  max-width: 12vw;
+}
+
+#skip-icon {
+  max-width: 8vw;
+}
+
+#pause-play {
+  max-width: 21vw;
 }
