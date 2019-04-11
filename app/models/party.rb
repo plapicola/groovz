@@ -56,13 +56,13 @@ class Party < ApplicationRecord
   end
 
   def song_info
-    @info ||= playlist_service.current_song
-    if @info
+    info = playlist_service.current_song
+    if info
       {
-        spotify_id: @info[:id],
-        img_url: @info[:album][:images][0][:url],
-        title: @info[:name],
-        artist: @info[:artists].map { |artist| artist[:name] }.join(', ')
+        spotify_id: info[:id],
+        img_url: info[:album][:images][0][:url],
+        title: info[:name],
+        artist: info[:artists].map { |artist| artist[:name] }.join(', ')
       }
     end
   end

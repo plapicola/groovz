@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe PlaylistSpotifyService do
   before :each do
     @user = create(:user, mode: 0.21, acousticness: 0.0337308434, danceability: 0.24806, energy: 0.38735, valence: 0.166571, tempo: 63.56895)
+    create(:party, user: @user, users: [@user], playlist_id: '74Y6B6tpTtlX6mXtIDlaRI', device_id: '4c3c5c83a082baf4255e54cec7f9b61b595be57c', code: 'code')
     @service = PlaylistSpotifyService.new(@user)
   end
 

@@ -1,9 +1,18 @@
 # frozen_string_literal: true
 
 class PlaylistSpotifyService < SpotifyService
+  def send_play
+    conn.put('v1/me/player/play')
+  end
+
+  def send_pause
+    conn.put('v1/me/player/pause')
+  end
+
   def current_song
-    song = get_json('/v1/me/player/currently-playing')
-    song[:item] if song
+    @song ||= get_json('/v1/me/player/currently-playing')
+    toggle_play_or_pause
+    @song[:item] if @song
   end
 
   def populate_playlist(playlist_id)
@@ -32,6 +41,12 @@ class PlaylistSpotifyService < SpotifyService
   end
 
   private
+
+  def toggle_play_or_pause
+    if @song && @song[:is_playing] != @user.party.playing
+      @user.party.update(playing: @song[:is_playing])
+    end
+  end
 
   def send_playlist(track_uris, playlist_id)
     conn.put("/v1/playlists/#{playlist_id}/tracks") do |faraday|
