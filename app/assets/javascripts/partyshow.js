@@ -47,7 +47,6 @@ function subcribeToChannel() {
       received: function(data) {
         updateTrackInfo(data);
         userSavedTrack(data);
-        console.log(data);
     }
   });
 }
@@ -68,13 +67,11 @@ function userSavedTrack(data) {
   })
   .then(function(trackStatus){
     let track = trackStatus.data.attributes;
-    console.log(track.id)
     renderSaveButton(track.id, track.status);
   })
 }
 
 function renderSaveButton(trackId, type){
-  console.log(type)
   let target = document.getElementById("save-track");
   if (type === false) {
     target.src = "plus_template.png";
@@ -94,7 +91,6 @@ function renderSaveButton(trackId, type){
 
 function saveOrRemoveTrack(trackId, type) {
   const saveUrl = `api/v1/me/save_track?id=${trackId}&type=${type}`;
-  console.log(saveUrl)
   fetch(saveUrl)
   .then(function(response) {
     return response.json();
