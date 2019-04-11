@@ -110,8 +110,4 @@ function saveOrRemoveTrack(trackId, type) {
 function skipTrack() {
   const skipUrl = '/api/v1/me/tracks/skip_track';
   fetch(skipUrl)
-  .then(function(response) {
-    console.log(response)
-    return response.json();
-  })
 }
