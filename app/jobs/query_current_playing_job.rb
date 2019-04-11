@@ -3,11 +3,19 @@
 class QueryCurrentPlayingJob < ApplicationJob
   queue_as :default
   after_perform do |job|
-    self.class.set(wait: 5.seconds).perform_later(job.arguments.first) if @party
+    self.class.set(wait: 1.seconds).perform_later(job.arguments.first) if @party
   end
 
   def perform(id)
-    if party(id)&.new_song?
+    current_playback = party(id).playing
+    broadcast_song
+    broadcast_playback(id, current_playback)
+  end
+
+  private
+
+  def broadcast_song
+    if @party&.new_song?
       ActionCable.server.broadcast(
         "parties-#{@party.code}",
         message: PartyTrackSerializer.new(@party.current_song)
@@ -15,7 +23,15 @@ class QueryCurrentPlayingJob < ApplicationJob
     end
   end
 
-  private
+  def broadcast_playback(id, current_playback)
+    updated_playback = Party.find_by_id(id).playing
+    unless current_playback == updated_playback
+      ActionCable.server.broadcast(
+        "parties-#{@party.code}",
+        message: {playing: updated_playback}
+      )
+    end
+  end
 
   def party(id)
     @party ||= Party.find_by_id(id)

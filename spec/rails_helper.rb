@@ -93,4 +93,5 @@ VCR.configure do |config|
   config.filter_sensitive_data('<SPOTIFY_CLIENT_ID>') { ENV['SPOTIFY_CLIENT_ID'] }
   config.filter_sensitive_data('<SPOTIFY_CLIENT_SECRET>') { ENV['SPOTIFY_CLIENT_SECRET'] }
   config.filter_sensitive_data('<SPOTIFY_UID>') { ENV['SPOTIFY_UID'] }
+  config.ignore_localhost = true
 end

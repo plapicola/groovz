@@ -5,7 +5,7 @@ module Api
     module Me
       class TrackStatusController < ApplicationController
         skip_forgery_protection
-        
+
         def show
           render json: TrackStatusSerializer.new(TrackStatus.user_saved?(track_status_params, current_user))
         end

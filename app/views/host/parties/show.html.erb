@@ -17,11 +17,11 @@
     <p id="track-artist">Click 'Start Partying' to kick this off</p>
   </div>
   <div class="player-control-section hide" id='player-controls'>
-    <div class="save-button">
-      <%= image_tag("plus_template.png", class: 'icon', id: "save-track") %>
+    <div id="save-button">
+      <img src="plus_template.png" alt="Plus-button" class="icon" id="save-track">
     </div>
-    <div class="play-button">
-      <%= image_tag("plus_template.png", class: 'icon', onclick: "playSong()") %>
+    <div id="pause-play-button">
+      <img src="pause-button.png" alt="Pause-play-button" class="icon" id="pause-play" onclick="playSong()">
     </div>
     <div class="next-button">
       <img src="skip-button.png" alt="Plus-button" class="icon" onclick="skipSong()">
@@ -36,4 +36,6 @@
 <%= button_to 'Shut It Down', cancel_party_path, method: :delete, id: 'leave-party-button', class: 'btn btn-boxed' %>
 <script type="text/javascript">
   const roomCode = '<%= facade.code %>'
+</script>
+<script type="text/javascript" src="/partyshow.js">
 </script>

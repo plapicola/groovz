@@ -1,0 +1,481 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.spotify.com/v1/users/<SPOTIFY_UID>/playlists
+    body:
+      encoding: UTF-8
+      string: '{"name":"GroovzApp Playlist"}'
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Location:
+      - https://api.spotify.com/v1/playlists/32zZTwAHVUKVZ45m0P3Myx
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Thu, 11 Apr 2019 01:59:39 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "collaborative" : false,
+          "description" : null,
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/playlist/32zZTwAHVUKVZ45m0P3Myx"
+          },
+          "followers" : {
+            "href" : null,
+            "total" : 0
+          },
+          "href" : "https://api.spotify.com/v1/playlists/32zZTwAHVUKVZ45m0P3Myx",
+          "id" : "32zZTwAHVUKVZ45m0P3Myx",
+          "images" : [ ],
+          "name" : "GroovzApp Playlist",
+          "owner" : {
+            "display_name" : "Tim Allen",
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/user/<SPOTIFY_UID>"
+            },
+            "href" : "https://api.spotify.com/v1/users/<SPOTIFY_UID>",
+            "id" : "<SPOTIFY_UID>",
+            "type" : "user",
+            "uri" : "spotify:user:<SPOTIFY_UID>"
+          },
+          "primary_color" : null,
+          "public" : true,
+          "snapshot_id" : "MSw4OTkyNjQ3NjNiOTZjMGVmMGQyZWIyNDdjYTU5OWY0OGIzNjMxOWM5",
+          "tracks" : {
+            "href" : "https://api.spotify.com/v1/playlists/32zZTwAHVUKVZ45m0P3Myx/tracks",
+            "items" : [ ],
+            "limit" : 100,
+            "next" : null,
+            "offset" : 0,
+            "previous" : null,
+            "total" : 0
+          },
+          "type" : "playlist",
+          "uri" : "spotify:playlist:32zZTwAHVUKVZ45m0P3Myx"
+        }
+    http_version: 
+  recorded_at: Thu, 11 Apr 2019 01:59:39 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/recommendations?seed_artists=&target_acousticness&target_danceability&target_energy&target_mode=0&target_tempo&target_valence
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Thu, 11 Apr 2019 01:59:39 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error" : {
+            "status" : 400,
+            "message" : "invalid request"
+          }
+        }
+    http_version: 
+  recorded_at: Thu, 11 Apr 2019 01:59:39 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/player/devices
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Thu, 11 Apr 2019 01:59:39 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ewogICJkZXZpY2VzIiA6IFsgewogICAgImlkIiA6ICI0YzNjNWM4M2EwODJiYWY0MjU1ZTU0Y2VjN2Y5YjYxYjU5NWJlNTdjIiwKICAgICJpc19hY3RpdmUiIDogdHJ1ZSwKICAgICJpc19wcml2YXRlX3Nlc3Npb24iIDogZmFsc2UsCiAgICAiaXNfcmVzdHJpY3RlZCIgOiBmYWxzZSwKICAgICJuYW1lIiA6ICJUaW1vdGh54oCZcyBNYWNCb29rIFBybyIsCiAgICAidHlwZSIgOiAiQ29tcHV0ZXIiLAogICAgInZvbHVtZV9wZXJjZW50IiA6IDEwMAogIH0gXQp9
+    http_version: 
+  recorded_at: Thu, 11 Apr 2019 01:59:39 GMT
+- request:
+    method: put
+    uri: https://api.spotify.com/v1/playlists/32zZTwAHVUKVZ45m0P3Myx
+    body:
+      encoding: UTF-8
+      string: '{"name":"","description":"Groovz generated playlist for 2019-04-10."}'
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Thu, 11 Apr 2019 01:59:42 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error" : {
+            "status" : 400,
+            "message" : "Attribute name is empty"
+          }
+        }
+    http_version: 
+  recorded_at: Thu, 11 Apr 2019 01:59:42 GMT
+- request:
+    method: put
+    uri: https://api.spotify.com/v1/me/player/play?device_id=4c3c5c83a082baf4255e54cec7f9b61b595be57c
+    body:
+      encoding: UTF-8
+      string: '{"context_uri":"spotify:playlist:32zZTwAHVUKVZ45m0P3Myx"}'
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Content-Length:
+      - '0'
+      Date:
+      - Thu, 11 Apr 2019 01:59:42 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 11 Apr 2019 01:59:42 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/player/currently-playing
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Thu, 11 Apr 2019 01:59:42 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp" : -788,
+          "context" : {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/playlist/32zZTwAHVUKVZ45m0P3Myx"
+            },
+            "href" : "https://api.spotify.com/v1/playlists/32zZTwAHVUKVZ45m0P3Myx",
+            "type" : "playlist",
+            "uri" : "spotify:user:<SPOTIFY_UID>:playlist:32zZTwAHVUKVZ45m0P3Myx"
+          },
+          "progress_ms" : 0,
+          "item" : null,
+          "currently_playing_type" : "unknown",
+          "actions" : {
+            "disallows" : {
+              "resuming" : true,
+              "seeking" : true,
+              "skipping_prev" : true,
+              "skipping_next" : true
+            }
+          },
+          "is_playing" : true
+        }
+    http_version: 
+  recorded_at: Thu, 11 Apr 2019 01:59:42 GMT
+- request:
+    method: put
+    uri: https://api.spotify.com/v1/me/player/pause
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Content-Length:
+      - '0'
+      Date:
+      - Thu, 11 Apr 2019 01:59:42 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 11 Apr 2019 01:59:42 GMT
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/me/player/currently-playing
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Bearer <SPOTIFY_USER_TOKEN>
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - private, max-age=0
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type, Retry-After
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Date:
+      - Thu, 11 Apr 2019 01:59:43 GMT
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - clear
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "timestamp" : -787,
+          "context" : {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/playlist/32zZTwAHVUKVZ45m0P3Myx"
+            },
+            "href" : "https://api.spotify.com/v1/playlists/32zZTwAHVUKVZ45m0P3Myx",
+            "type" : "playlist",
+            "uri" : "spotify:user:<SPOTIFY_UID>:playlist:32zZTwAHVUKVZ45m0P3Myx"
+          },
+          "progress_ms" : 0,
+          "item" : null,
+          "currently_playing_type" : "unknown",
+          "actions" : {
+            "disallows" : {
+              "pausing" : true,
+              "seeking" : true,
+              "skipping_prev" : true,
+              "skipping_next" : true
+            }
+          },
+          "is_playing" : false
+        }
+    http_version: 
+  recorded_at: Thu, 11 Apr 2019 01:59:43 GMT
+recorded_with: VCR 4.0.0
