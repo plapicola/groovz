@@ -21,7 +21,7 @@
       <img src="plus_template.png" alt="Plus-button" class="icon" id="save-track">
     </div>
     <div id="pause-play-button">
-      <img src="pause-button.png" alt="Pause-play-button" class="icon" onclick="playSong()">
+      <img src="pause-button.png" alt="Pause-play-button" class="icon" id="pause-play" onclick="playSong()">
     </div>
     <div id="next-button">
       <img src="plus_template.png" alt="Plus-button" class="icon" onclick="skipSong()">
@@ -36,4 +36,6 @@
 <%= button_to 'Shut It Down', cancel_party_path, method: :delete, id: 'leave-party-button', class: 'btn btn-boxed' %>
 <script type="text/javascript">
   const roomCode = '<%= facade.code %>'
+</script>
+<script type="text/javascript" src="/partyshow.js">
 </script>

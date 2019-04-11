@@ -15,12 +15,6 @@ class PlaylistSpotifyService < SpotifyService
     @song[:item] if @song
   end
 
-  def toggle_play_or_pause
-    if @song && @song[:is_playing] != @user.party.playing
-      @user.party.update(playing: @song[:is_playing])
-    end
-  end
-
   def populate_playlist(playlist_id)
     artists = Artist.get_common_artists(@user.party)
     party_tastes = Party.get_party_tastes(@user.party)
@@ -47,6 +41,12 @@ class PlaylistSpotifyService < SpotifyService
   end
 
   private
+
+  def toggle_play_or_pause
+    if @song && @song[:is_playing] != @user.party.playing
+      @user.party.update(playing: @song[:is_playing])
+    end
+  end
 
   def send_playlist(track_uris, playlist_id)
     conn.put("/v1/playlists/#{playlist_id}/tracks") do |faraday|
