@@ -24,6 +24,9 @@ Rails.application.routes.draw do
         get '/save_track', to: 'track_status#create', as: :save_track
         get '/currently_playing', to: 'tracks#show', as: :currently_playing
         put '/start_playback', to: 'tracks#update', as: :start_playback
+        scope :playback, module: :playback do
+          put '/toggle', to: 'pause_play#update', as: :toggle_playback
+        end
       end
     end
   end
