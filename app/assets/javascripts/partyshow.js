@@ -47,6 +47,7 @@ function subcribeToChannel() {
       received: function(data) {
         updateTrackInfo(data);
         userSavedTrack(data);
+        console.log(data);
     }
   });
 }
@@ -67,6 +68,7 @@ function userSavedTrack(data) {
   })
   .then(function(trackStatus){
     let track = trackStatus.data.attributes;
+    console.log(track.id)
     renderSaveButton(track.id, track.status);
   })
 }
@@ -76,17 +78,17 @@ function renderSaveButton(trackId, type){
   let target = document.getElementById("save-track");
   if (type === false) {
     target.src = "plus_template.png";
-    target.addEventListener('click', function() {
+    target.onclick = function() {
       event.preventDefault();
       saveOrRemoveTrack(trackId, type)
-    }, {once: true});
+    };
   }
   else if (type === true) {
     target.src = "check-mark-template.png";
-    target.addEventListener('click', function(){
+    target.onclick = function(){
       event.preventDefault();
       saveOrRemoveTrack(trackId, type);
-    }, {once: true});
+    };
   }
 }
 
