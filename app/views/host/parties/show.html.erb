@@ -17,19 +17,18 @@
     <p id="track-artist">Click 'Start Partying' to kick this off</p>
   </div>
   <div class="player-control-section hide" id='player-controls'>
-    <div id="save-button">
+    <div id="save-button" class="icon">
       <img src="plus_template.png" alt="Plus-button" class="icon" id="save-track">
     </div>
-    <div id="pause-play-button">
+    <div id="pause-play-button" class="icon">
       <img src="pause-button.png" alt="Pause-play-button" class="icon" id="pause-play" onclick="playSong()">
     </div>
-    <div class="next-button">
-      <img src="skip-button.png" alt="Plus-button" class="icon" onclick="skipTrack()">
+    <div class="next-button icon">
+      <img src="skip-button.png" alt="Plus-button" class="icon" id='skip-icon' onclick="skipTrack()">
     </div>
   </div>
   <div id="start-party-button">
     <%= button_tag 'Start Partying', onclick: 'startPlayback()', class: 'btn btn-primary rounded' %>
-    <%= button_tag 'Manual Control', onclick: 'showPlaybackControls()', class: 'btn btn-secondary rounded' %>
   </div>
 </div>
 

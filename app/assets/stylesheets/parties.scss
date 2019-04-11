@@ -87,8 +87,12 @@ $spotify-grey: #222326;
   vertical-align: center;
 }
 
+.info-item {
+  width: 16vw;
+}
+
 .track-info {
-  margin-top: 3%;
+  width: 66vw;
   h4 {
     margin: 0;
   }
@@ -99,16 +103,44 @@ $spotify-grey: #222326;
 }
 
 .album-artwork {
+  margin-top: 5%;
   max-width: 100%;
   max-height: 70vh;
 }
 
 .icon {
-  max-width: 15vw;
+  width: 33vw;
 }
 
 .hide {
   display: none;
+}
+
+#device-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: center;
+  margin-bottom: 5%;
+}
+
+#device-list {
+  display: inline;
+  height: 8vw;
+  width: auto;
+  background-color: #E0E0E0;
+  font-size: 3vw;
+  text-align-last: center;
+  text-align: center;
+  margin-right: 7%;
+  border: none;
+  padding: 2%;
+}
+
+#refresh-button {
+  max-width: 8vw;
+  display: inline;
 }
 
 #index-primary-buttons {
@@ -154,4 +186,16 @@ $spotify-grey: #222326;
 #leave-party-button {
   position: absolute;
   bottom: 10%;
+}
+
+#save-track {
+  max-width: 12vw;
+}
+
+#skip-icon {
+  max-width: 8vw;
+}
+
+#pause-play {
+  max-width: 21vw;
 }
