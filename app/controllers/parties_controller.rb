@@ -4,6 +4,7 @@
 class PartiesController < ApplicationController
   before_action :require_login
   before_action :reentry, except: %i[show delete]
+  before_action :bounce_user, only: :show
 
   def index; end
 
@@ -30,6 +31,10 @@ class PartiesController < ApplicationController
   end
 
   private
+
+  def bounce_user
+    redirect_to root_path unless current_user.party
+  end
 
   def join_party_params
     params.permit(:code)
