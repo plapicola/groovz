@@ -11,8 +11,8 @@ function queryCurrentTrack() {
   })
   .then(function(currentTrack) {
     if (currentTrack.data !== null) {
-      showPlaybackControls();
       updateTrackInfo(currentTrack.data);
+      showPlaybackControls();
     }
   })
 }
