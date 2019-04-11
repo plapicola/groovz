@@ -3,7 +3,7 @@
 class QueryCurrentPlayingJob < ApplicationJob
   queue_as :default
   after_perform do |job|
-    self.class.set(wait: 1.seconds).perform_later(job.arguments.first) if @party
+    self.class.set(wait: 5.seconds).perform_later(job.arguments.first) if @party
   end
 
   def perform(id)

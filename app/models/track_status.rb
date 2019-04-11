@@ -21,6 +21,6 @@ class TrackStatus
   end
 
   def self.service(user)
-    @service ||= TracksSpotifyService.new(user)
+    TracksSpotifyService.new(user)
   end
 end
