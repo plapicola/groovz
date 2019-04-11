@@ -12,6 +12,7 @@ function queryCurrentTrack() {
   .then(function(currentTrack) {
     if (currentTrack.data !== null) {
       updateTrackInfo(currentTrack.data);
+      userSavedTrack(currentTrack.data);
       showPlaybackControls();
     }
   })
@@ -49,7 +50,7 @@ function subcribeToChannel() {
           updatePausePlayIcon(data.message.playing);
         } else {
           updateTrackInfo(data.message.data);
-          userSavedTrack(data);
+          userSavedTrack(data.message.data);
         }
       }
   });
@@ -63,7 +64,7 @@ function updateTrackInfo(data){
 }
 
 function userSavedTrack(data) {
-  let trackId = data.message.data.attributes.spotify_id
+  let trackId = data.attributes.spotify_id;
   const trackStatusUrl = `api/v1/me/track_status?id=${trackId}`;
   fetch(trackStatusUrl)
   .then(function(response){
