@@ -157,6 +157,10 @@ $spotify-grey: #222326;
   margin-bottom: 5vw;
 }
 
+#host-track-info {
+  width: 100%;
+}
+
 #host-party-create {
   width: 100%;
   position: absolute;
@@ -178,8 +182,7 @@ $spotify-grey: #222326;
 }
 
 #start-party-button {
-  position: absolute;
-  bottom: 40%;
+  margin-top: 5vh;
   width: 100%;
 }
 

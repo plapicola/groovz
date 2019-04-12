@@ -12,7 +12,7 @@
   <div id="host-album-art">
     <%= image_tag('album-loading.gif', class: 'album-artwork', id: 'album-art') %>
   </div>
-  <div class="track-info">
+  <div class="track-info" id="host-track-info">
     <h4 id="track-title">Welcome to Groovz!</h4>
     <p id="track-artist">Click 'Start Partying' to kick this off</p>
   </div>
@@ -36,5 +36,4 @@
 <script type="text/javascript">
   const roomCode = '<%= facade.code %>'
 </script>
-<script type="text/javascript" src="/partyshow.js">
-</script>
+<script type="text/javascript" src="/partyshow.js"></script>

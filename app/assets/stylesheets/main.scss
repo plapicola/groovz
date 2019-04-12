@@ -3,6 +3,10 @@ $spotify-darkblue: #404452;
 $spotify-black: #191414;
 $spotify-grey: #222326;
 
+button {
+ -webkit-appearance: none;
+}
+
 body {
   height: 100vh;
   width: 100vw;
@@ -11,7 +15,6 @@ body {
   font-family: 'Abel', sans-serif;
   color: white;
   margin: 0;
-  --webkit-appearance: none;
 }
 
 strong {
