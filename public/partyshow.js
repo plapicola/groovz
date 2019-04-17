@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
   subcribeToChannel();
 }, false);
 
+document.addEventListener('focus', function() {
+  queryCurrentTrack();
+});
+
 function queryCurrentTrack() {
   const currentTrackUrl = '/api/v1/me/currently_playing';
   fetch(currentTrackUrl)
