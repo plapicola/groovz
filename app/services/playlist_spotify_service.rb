@@ -71,6 +71,7 @@ class PlaylistSpotifyService < SpotifyService
       req.params['target_mode'] = target.avg_mode.to_i # Request wants int
       req.params['target_valence'] = target.avg_valence
       req.params['target_tempo'] = target.avg_tempo
+      req.params['limit'] = ENV['RECOMMENDATION_COUNT']&.to_i || 20
     end
   end
 
