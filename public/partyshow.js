@@ -7,6 +7,18 @@ document.addEventListener('focus', function() {
   queryCurrentTrack();
 });
 
+// Checks for device sleep and requeries current track if times do not align
+var TIMEOUT = 5000;
+var lastTime = (new Date()).getTime();
+
+setInterval(function() {
+  var currentTime = (new Date()).getTime();
+  if (currentTime > (lastTime + TIMEOUT + 1000)) {
+    queryCurrentTrack();
+  }
+  lastTime = currentTime;
+}, TIMEOUT);
+
 function queryCurrentTrack() {
   const currentTrackUrl = '/api/v1/me/currently_playing';
   fetch(currentTrackUrl)
@@ -108,7 +120,7 @@ function saveOrRemoveTrack(trackId, type) {
     console.log(message.data.attributes.status);
   });
   if (type === true) {
-  renderSaveButton(trackId, false)
+    renderSaveButton(trackId, false)
   }
   else if (type === false){
     renderSaveButton(trackId, true)
