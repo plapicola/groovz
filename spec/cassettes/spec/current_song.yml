@@ -1,6 +1,51 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 04:47:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQC9wJIH7dgGpE0dgzGaJlJr3NRJYoDmzByv9ADHLXhqNBI8q8KRxJv_EcDJN7pLUvzsHQKFizts2FHJamNNr81qA_E3Y8MROfThurlH3fqNJa7LWqv0lOo6ILJeywiN3VXgk6E3L6fgGfoMZ4tyuKREr2M0h6pvpwZh6rM8T70l2ad0M4LKWsxz68Ed1UOICs6JukONLDZFAxmDCqkuH7SlWOFEafDnpc9P","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 04:47:23 GMT
+- request:
     method: get
     uri: https://api.spotify.com/v1/me/player/currently-playing
     body:
@@ -8,7 +53,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQC9wJIH7dgGpE0dgzGaJlJr3NRJYoDmzByv9ADHLXhqNBI8q8KRxJv_EcDJN7pLUvzsHQKFizts2FHJamNNr81qA_E3Y8MROfThurlH3fqNJa7LWqv0lOo6ILJeywiN3VXgk6E3L6fgGfoMZ4tyuKREr2M0h6pvpwZh6rM8T70l2ad0M4LKWsxz68Ed1UOICs6JukONLDZFAxmDCqkuH7SlWOFEafDnpc9P
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -35,7 +80,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:55:52 GMT
+      - Mon, 29 Apr 2019 04:47:23 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -46,84 +91,84 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "timestamp" : 1554854102971,
+          "timestamp" : 1556513242268,
           "context" : {
             "external_urls" : {
-              "spotify" : "https://open.spotify.com/playlist/4TLNuRH12LUlCDvPZ2dgKn"
+              "spotify" : "https://open.spotify.com/playlist/4ZenWelYqdG7lVhcDerX9D"
             },
-            "href" : "https://api.spotify.com/v1/playlists/4TLNuRH12LUlCDvPZ2dgKn",
+            "href" : "https://api.spotify.com/v1/playlists/4ZenWelYqdG7lVhcDerX9D",
             "type" : "playlist",
-            "uri" : "spotify:user:69doss1dia7oz4kv1t74n0l6m:playlist:4TLNuRH12LUlCDvPZ2dgKn"
+            "uri" : "spotify:user:<SPOTIFY_UID>:playlist:4ZenWelYqdG7lVhcDerX9D"
           },
-          "progress_ms" : 266892,
+          "progress_ms" : 1946,
           "item" : {
             "album" : {
               "album_type" : "album",
               "artists" : [ {
                 "external_urls" : {
-                  "spotify" : "https://open.spotify.com/artist/3TOqt5oJwL9BE2NG9MEwDa"
+                  "spotify" : "https://open.spotify.com/artist/3w1Q754jb31h5CXQCcnLNL"
                 },
-                "href" : "https://api.spotify.com/v1/artists/3TOqt5oJwL9BE2NG9MEwDa",
-                "id" : "3TOqt5oJwL9BE2NG9MEwDa",
-                "name" : "Disturbed",
+                "href" : "https://api.spotify.com/v1/artists/3w1Q754jb31h5CXQCcnLNL",
+                "id" : "3w1Q754jb31h5CXQCcnLNL",
+                "name" : "Capcom Sound Team",
                 "type" : "artist",
-                "uri" : "spotify:artist:3TOqt5oJwL9BE2NG9MEwDa"
+                "uri" : "spotify:artist:3w1Q754jb31h5CXQCcnLNL"
               } ],
               "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
               "external_urls" : {
-                "spotify" : "https://open.spotify.com/album/1IpufqmucrxYUJQxf1AP0n"
+                "spotify" : "https://open.spotify.com/album/1moJ6fFO8yD6itUlDZXlwe"
               },
-              "href" : "https://api.spotify.com/v1/albums/1IpufqmucrxYUJQxf1AP0n",
-              "id" : "1IpufqmucrxYUJQxf1AP0n",
+              "href" : "https://api.spotify.com/v1/albums/1moJ6fFO8yD6itUlDZXlwe",
+              "id" : "1moJ6fFO8yD6itUlDZXlwe",
               "images" : [ {
                 "height" : 640,
-                "url" : "https://i.scdn.co/image/7b5d558389f39c65a152f0885d584634df3c2dc0",
+                "url" : "https://i.scdn.co/image/eb506034a4d533dfd650e6292dfdab72110b99b6",
                 "width" : 640
               }, {
                 "height" : 300,
-                "url" : "https://i.scdn.co/image/c62ef2c6aef03b08ddedc18d7c699d425e427ff8",
+                "url" : "https://i.scdn.co/image/d041c1ced181ed28ea5d8a34947db05b8d1ba6ae",
                 "width" : 300
               }, {
                 "height" : 64,
-                "url" : "https://i.scdn.co/image/c7bfb8a6693b6a419bf1f1a868179351984c5f25",
+                "url" : "https://i.scdn.co/image/d85633184fa9c1957c8932f913cc964ed4755088",
                 "width" : 64
               } ],
-              "name" : "Evolution (Deluxe)",
-              "release_date" : "2018-10-19",
+              "name" : "DEVIL MAY CRY 5 Original SoundTrack",
+              "release_date" : "2019-03-20",
               "release_date_precision" : "day",
-              "total_tracks" : 14,
+              "total_tracks" : 136,
               "type" : "album",
-              "uri" : "spotify:album:1IpufqmucrxYUJQxf1AP0n"
+              "uri" : "spotify:album:1moJ6fFO8yD6itUlDZXlwe"
             },
             "artists" : [ {
               "external_urls" : {
-                "spotify" : "https://open.spotify.com/artist/3TOqt5oJwL9BE2NG9MEwDa"
+                "spotify" : "https://open.spotify.com/artist/1hGdQOfaZ5saQ6JWVuxVDZ"
               },
-              "href" : "https://api.spotify.com/v1/artists/3TOqt5oJwL9BE2NG9MEwDa",
-              "id" : "3TOqt5oJwL9BE2NG9MEwDa",
-              "name" : "Disturbed",
+              "href" : "https://api.spotify.com/v1/artists/1hGdQOfaZ5saQ6JWVuxVDZ",
+              "id" : "1hGdQOfaZ5saQ6JWVuxVDZ",
+              "name" : "Casey Edwards",
               "type" : "artist",
-              "uri" : "spotify:artist:3TOqt5oJwL9BE2NG9MEwDa"
+              "uri" : "spotify:artist:1hGdQOfaZ5saQ6JWVuxVDZ"
             } ],
             "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
-            "disc_number" : 1,
-            "duration_ms" : 284293,
+            "disc_number" : 4,
+            "duration_ms" : 191134,
             "explicit" : false,
             "external_ids" : {
-              "isrc" : "USRE11800601"
+              "isrc" : "JPE101902040"
             },
             "external_urls" : {
-              "spotify" : "https://open.spotify.com/track/1IbaGRC0Yrovu3MP1ipf1u"
+              "spotify" : "https://open.spotify.com/track/4vnukzBCfcOHeBYp1N7dDz"
             },
-            "href" : "https://api.spotify.com/v1/tracks/1IbaGRC0Yrovu3MP1ipf1u",
-            "id" : "1IbaGRC0Yrovu3MP1ipf1u",
+            "href" : "https://api.spotify.com/v1/tracks/4vnukzBCfcOHeBYp1N7dDz",
+            "id" : "4vnukzBCfcOHeBYp1N7dDz",
             "is_local" : false,
-            "name" : "A Reason to Fight",
-            "popularity" : 66,
-            "preview_url" : "https://p.scdn.co/mp3-preview/93bc0f656ecc63ecc4f37fbbe4d78034908a1005?cid=<SPOTIFY_CLIENT_ID>",
-            "track_number" : 3,
+            "name" : "Silver Bullet",
+            "popularity" : 53,
+            "preview_url" : "https://p.scdn.co/mp3-preview/20f12df94b6524eaf25e47d66b38d107ac9d4c1b?cid=<SPOTIFY_CLIENT_ID>",
+            "track_number" : 25,
             "type" : "track",
-            "uri" : "spotify:track:1IbaGRC0Yrovu3MP1ipf1u"
+            "uri" : "spotify:track:4vnukzBCfcOHeBYp1N7dDz"
           },
           "currently_playing_type" : "track",
           "actions" : {
@@ -134,5 +179,5 @@ http_interactions:
           "is_playing" : true
         }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:55:50 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:23 GMT
 recorded_with: VCR 4.0.0

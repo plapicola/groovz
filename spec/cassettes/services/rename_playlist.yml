@@ -1,17 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: put
-    uri: https://api.spotify.com/v1/playlists/2iyYsK01c4lPHyolL9lCqY
+    method: post
+    uri: https://accounts.spotify.com/api/token
     body:
       encoding: UTF-8
-      string: '{"name":"Cool Playlist","description":"Groovz generated playlist for
-        2019-04-09."}'
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
     headers:
-      Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
       User-Agent:
       - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,6 +20,54 @@ http_interactions:
       code: 200
       message: OK
     headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 04:47:24 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQAlGH6oCNLaGMGTKxbe6UotCkvFpjsTTaEt2v_LnOwTp-5M2O2zSf_kz65jPusOI7CQ6Cb-YCVGUcm_mhtpq80ecwRKsrNhDB50dKQpr-CAxWP60MX8YoVoVHZLj-yRa8TDyJHPrUoMAeygNOhWKNnb8sMP48kmbRH98TtoUiUdQoleDsOk78969Xx8iMkEa2W-4E0UCGeCfDNGgWw0AVVYAEoYANBatsPz","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 04:47:24 GMT
+- request:
+    method: put
+    uri: https://api.spotify.com/v1/playlists/2iyYsK01c4lPHyolL9lCqY
+    body:
+      encoding: UTF-8
+      string: '{"name":"Cool Playlist","description":"Groovz generated playlist for
+        2019-04-28."}'
+    headers:
+      Authorization:
+      - Bearer BQAlGH6oCNLaGMGTKxbe6UotCkvFpjsTTaEt2v_LnOwTp-5M2O2zSf_kz65jPusOI7CQ6Cb-YCVGUcm_mhtpq80ecwRKsrNhDB50dKQpr-CAxWP60MX8YoVoVHZLj-yRa8TDyJHPrUoMAeygNOhWKNnb8sMP48kmbRH98TtoUiUdQoleDsOk78969Xx8iMkEa2W-4E0UCGeCfDNGgWw0AVVYAEoYANBatsPz
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
       Cache-Control:
       - private, max-age=0
       Access-Control-Allow-Origin:
@@ -33,17 +80,23 @@ http_interactions:
       - 'true'
       Access-Control-Max-Age:
       - '604800'
-      Content-Length:
-      - '0'
       Date:
-      - Tue, 09 Apr 2019 23:53:39 GMT
+      - Mon, 29 Apr 2019 04:47:24 GMT
       Via:
       - 1.1 google
       Alt-Svc:
       - clear
+      Transfer-Encoding:
+      - chunked
     body:
-      encoding: UTF-8
-      string: ''
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error" : {
+            "status" : 403,
+            "message" : "Not allowed"
+          }
+        }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:53:37 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:24 GMT
 recorded_with: VCR 4.0.0

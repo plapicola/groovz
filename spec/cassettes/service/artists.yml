@@ -1,6 +1,51 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 04:47:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQAUbokE_-jYXaLPq5r4LECpYtkgzX7ZgZFB17_w6cq_soKE_tz3FjNuL8J5WlS-VrCXPLWycdwy3uHDu4nYrg353P_oDyBjiEMtklOvflIsftXVzoyxK3t6X8uZLcbUYVi2eRGrj4Wb0yd3KDBq5XTNWiNnkcWcBdWC13tIkPPIOj8S-6JekjCjlcRD-A1y8o8mLk3Sb5BYS6kQI-9hghIZzkZAxf4yBpKK","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 04:47:23 GMT
+- request:
     method: get
     uri: https://api.spotify.com/v1/me/top/artists?limit=10
     body:
@@ -8,7 +53,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQAUbokE_-jYXaLPq5r4LECpYtkgzX7ZgZFB17_w6cq_soKE_tz3FjNuL8J5WlS-VrCXPLWycdwy3uHDu4nYrg353P_oDyBjiEMtklOvflIsftXVzoyxK3t6X8uZLcbUYVi2eRGrj4Wb0yd3KDBq5XTNWiNnkcWcBdWC13tIkPPIOj8S-6JekjCjlcRD-A1y8o8mLk3Sb5BYS6kQI-9hghIZzkZAxf4yBpKK
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -35,7 +80,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:45:32 GMT
+      - Mon, 29 Apr 2019 04:47:23 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -52,7 +97,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 95904
+              "total" : 96771
             },
             "genres" : [ "catstep", "chillstep", "edm", "indie poptimism" ],
             "href" : "https://api.spotify.com/v1/artists/33o00sXuyWiApOFzo0vr0z",
@@ -71,7 +116,7 @@ http_interactions:
               "width" : 160
             } ],
             "name" : "Crywolf",
-            "popularity" : 55,
+            "popularity" : 54,
             "type" : "artist",
             "uri" : "spotify:artist:33o00sXuyWiApOFzo0vr0z"
           }, {
@@ -80,7 +125,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 2288554
+              "total" : 2314120
             },
             "genres" : [ "melodic metalcore", "metalcore", "rock", "screamo" ],
             "href" : "https://api.spotify.com/v1/artists/1Ffb6ejR6Fe5IamqA5oRUF",
@@ -99,7 +144,7 @@ http_interactions:
               "width" : 160
             } ],
             "name" : "Bring Me The Horizon",
-            "popularity" : 80,
+            "popularity" : 79,
             "type" : "artist",
             "uri" : "spotify:artist:1Ffb6ejR6Fe5IamqA5oRUF"
           }, {
@@ -108,7 +153,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 2828394
+              "total" : 2877677
             },
             "genres" : [ "alternative metal", "nu metal", "post-grunge", "rap metal" ],
             "href" : "https://api.spotify.com/v1/artists/3TOqt5oJwL9BE2NG9MEwDa",
@@ -127,44 +172,16 @@ http_interactions:
               "width" : 160
             } ],
             "name" : "Disturbed",
-            "popularity" : 80,
+            "popularity" : 79,
             "type" : "artist",
             "uri" : "spotify:artist:3TOqt5oJwL9BE2NG9MEwDa"
-          }, {
-            "external_urls" : {
-              "spotify" : "https://open.spotify.com/artist/39VNwvlQTqE9SvgPjjnMpc"
-            },
-            "followers" : {
-              "href" : null,
-              "total" : 193670
-            },
-            "genres" : [ "alternative metal", "nu metal", "post-grunge" ],
-            "href" : "https://api.spotify.com/v1/artists/39VNwvlQTqE9SvgPjjnMpc",
-            "id" : "39VNwvlQTqE9SvgPjjnMpc",
-            "images" : [ {
-              "height" : 640,
-              "url" : "https://i.scdn.co/image/1ffb913e493274b5c945167a66653ed4b0015df3",
-              "width" : 640
-            }, {
-              "height" : 320,
-              "url" : "https://i.scdn.co/image/e70356e733652cd4195a1313194c07df185f0b7e",
-              "width" : 320
-            }, {
-              "height" : 160,
-              "url" : "https://i.scdn.co/image/10c42f474b8e12813fac6cae4a4e2aaaf7a31316",
-              "width" : 160
-            } ],
-            "name" : "Nothing More",
-            "popularity" : 64,
-            "type" : "artist",
-            "uri" : "spotify:artist:39VNwvlQTqE9SvgPjjnMpc"
           }, {
             "external_urls" : {
               "spotify" : "https://open.spotify.com/artist/5t28BP42x2axFnqOOMg3CM"
             },
             "followers" : {
               "href" : null,
-              "total" : 3032036
+              "total" : 3078036
             },
             "genres" : [ "alternative metal", "groove metal", "nu metal", "post-grunge" ],
             "href" : "https://api.spotify.com/v1/artists/5t28BP42x2axFnqOOMg3CM",
@@ -183,16 +200,44 @@ http_interactions:
               "width" : 160
             } ],
             "name" : "Five Finger Death Punch",
-            "popularity" : 80,
+            "popularity" : 79,
             "type" : "artist",
             "uri" : "spotify:artist:5t28BP42x2axFnqOOMg3CM"
+          }, {
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/artist/39VNwvlQTqE9SvgPjjnMpc"
+            },
+            "followers" : {
+              "href" : null,
+              "total" : 196163
+            },
+            "genres" : [ "alternative metal", "nu metal", "post-grunge" ],
+            "href" : "https://api.spotify.com/v1/artists/39VNwvlQTqE9SvgPjjnMpc",
+            "id" : "39VNwvlQTqE9SvgPjjnMpc",
+            "images" : [ {
+              "height" : 640,
+              "url" : "https://i.scdn.co/image/1ffb913e493274b5c945167a66653ed4b0015df3",
+              "width" : 640
+            }, {
+              "height" : 320,
+              "url" : "https://i.scdn.co/image/e70356e733652cd4195a1313194c07df185f0b7e",
+              "width" : 320
+            }, {
+              "height" : 160,
+              "url" : "https://i.scdn.co/image/10c42f474b8e12813fac6cae4a4e2aaaf7a31316",
+              "width" : 160
+            } ],
+            "name" : "Nothing More",
+            "popularity" : 63,
+            "type" : "artist",
+            "uri" : "spotify:artist:39VNwvlQTqE9SvgPjjnMpc"
           }, {
             "external_urls" : {
               "spotify" : "https://open.spotify.com/artist/1Qp56T7n950O3EGMsSl81D"
             },
             "followers" : {
               "href" : null,
-              "total" : 629655
+              "total" : 638624
             },
             "genres" : [ "metal" ],
             "href" : "https://api.spotify.com/v1/artists/1Qp56T7n950O3EGMsSl81D",
@@ -211,7 +256,7 @@ http_interactions:
               "width" : 160
             } ],
             "name" : "Ghost",
-            "popularity" : 72,
+            "popularity" : 71,
             "type" : "artist",
             "uri" : "spotify:artist:1Qp56T7n950O3EGMsSl81D"
           }, {
@@ -220,7 +265,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 1547558
+              "total" : 1562994
             },
             "genres" : [ "alternative metal", "melodic metalcore", "metalcore", "nu metal", "pop punk", "post-grunge", "rap rock", "screamo", "welsh metal" ],
             "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
@@ -239,7 +284,7 @@ http_interactions:
               "width" : 160
             } ],
             "name" : "Bullet For My Valentine",
-            "popularity" : 73,
+            "popularity" : 72,
             "type" : "artist",
             "uri" : "spotify:artist:7iWiAD5LLKyiox2grgfmUT"
           }, {
@@ -248,9 +293,9 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 1523537
+              "total" : 1543604
             },
-            "genres" : [ "alternative metal", "nu metal", "post-grunge", "rap rock", "south african rock" ],
+            "genres" : [ "alternative metal", "nu metal", "post-grunge", "rap rock", "rock", "south african rock" ],
             "href" : "https://api.spotify.com/v1/artists/6B5c4sch27tWHAGdarpPaW",
             "id" : "6B5c4sch27tWHAGdarpPaW",
             "images" : [ {
@@ -267,7 +312,7 @@ http_interactions:
               "width" : 160
             } ],
             "name" : "Seether",
-            "popularity" : 73,
+            "popularity" : 72,
             "type" : "artist",
             "uri" : "spotify:artist:6B5c4sch27tWHAGdarpPaW"
           }, {
@@ -276,7 +321,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 387811
+              "total" : 398312
             },
             "genres" : [ "screamo" ],
             "href" : "https://api.spotify.com/v1/artists/3Uobr6LgQpBbk6k4QGAb3V",
@@ -295,7 +340,7 @@ http_interactions:
               "width" : 160
             } ],
             "name" : "I Prevail",
-            "popularity" : 75,
+            "popularity" : 74,
             "type" : "artist",
             "uri" : "spotify:artist:3Uobr6LgQpBbk6k4QGAb3V"
           }, {
@@ -304,7 +349,7 @@ http_interactions:
             },
             "followers" : {
               "href" : null,
-              "total" : 83303
+              "total" : 84886
             },
             "genres" : [ "deep chiptune", "nightrun", "retro electro" ],
             "href" : "https://api.spotify.com/v1/artists/2KtnZQwMQJN3uyI8eHZRvm",
@@ -323,7 +368,7 @@ http_interactions:
               "width" : 64
             } ],
             "name" : "Dance With the Dead",
-            "popularity" : 59,
+            "popularity" : 58,
             "type" : "artist",
             "uri" : "spotify:artist:2KtnZQwMQJN3uyI8eHZRvm"
           } ],
@@ -335,5 +380,5 @@ http_interactions:
           "next" : "https://api.spotify.com/v1/me/top/artists?limit=10&offset=10"
         }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:45:31 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:23 GMT
 recorded_with: VCR 4.0.0

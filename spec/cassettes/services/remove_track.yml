@@ -1,6 +1,51 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 04:47:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQCKE48eX7xGv03mJkH5ei_RJ7gm_f6voXGHDZO5wbnLxFxPR91NTeppTctZqqczwIBPsybxWOs_aydLla92a5PMINJm4OZnlhkykd0m-TrG8QWRrpxQMZm2Wr-LU9vwxtfb4fy10kp32G8PTWTiIbHlsS3SMMV5CS_G24AgV566T_34s5BycmVnZS9icfhJRw3QjaWnF7D5bX7kxdYG1khUjVf-XS_DetHS","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 04:47:28 GMT
+- request:
     method: delete
     uri: https://api.spotify.com/v1/me/tracks?ids=4VqPOruhp5EdPBeR92t6lQ
     body:
@@ -8,7 +53,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQCKE48eX7xGv03mJkH5ei_RJ7gm_f6voXGHDZO5wbnLxFxPR91NTeppTctZqqczwIBPsybxWOs_aydLla92a5PMINJm4OZnlhkykd0m-TrG8QWRrpxQMZm2Wr-LU9vwxtfb4fy10kp32G8PTWTiIbHlsS3SMMV5CS_G24AgV566T_34s5BycmVnZS9icfhJRw3QjaWnF7D5bX7kxdYG1khUjVf-XS_DetHS
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -37,7 +82,7 @@ http_interactions:
       Content-Length:
       - '0'
       Date:
-      - Wed, 10 Apr 2019 16:49:53 GMT
+      - Mon, 29 Apr 2019 04:47:28 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -46,5 +91,5 @@ http_interactions:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 10 Apr 2019 16:49:51 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:28 GMT
 recorded_with: VCR 4.0.0

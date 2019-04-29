@@ -1,14 +1,59 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 04:47:24 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQAQt0g1g6_UEUMBmxVqtEf3eDU9_JOdbctUQgyV2dBTx_s-4nWrGminkpNw1-HLk67f7nerA8P_wnXUwscOXlSELWb6UoklLVK-LcfFvlYtbO3w6esIEuRNi4NU-RRpkeuDLpWtDTGp4PwKnS3FmusI4U4bJqnU7hKFWXV8_wlr0Y4IPpwWRAKUgXQ2hJ_oRAz7H73bxo1AUgnJ0cBqlm83ntoQ5WOIebHC","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 04:47:24 GMT
+- request:
     method: get
-    uri: https://api.spotify.com/v1/recommendations?seed_artists=3TOqt5oJwL9BE2NG9MEwDa&target_acousticness=0.0337308434&target_danceability=0.24806&target_energy=0.38735&target_mode=0&target_tempo=63.56895&target_valence=0.166571
+    uri: https://api.spotify.com/v1/recommendations?limit=20&seed_artists=3TOqt5oJwL9BE2NG9MEwDa&target_acousticness=0.0337308434&target_danceability=0.24806&target_energy=0.38735&target_mode=0&target_tempo=63.56895&target_valence=0.166571
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQAQt0g1g6_UEUMBmxVqtEf3eDU9_JOdbctUQgyV2dBTx_s-4nWrGminkpNw1-HLk67f7nerA8P_wnXUwscOXlSELWb6UoklLVK-LcfFvlYtbO3w6esIEuRNi4NU-RRpkeuDLpWtDTGp4PwKnS3FmusI4U4bJqnU7hKFWXV8_wlr0Y4IPpwWRAKUgXQ2hJ_oRAz7H73bxo1AUgnJ0cBqlm83ntoQ5WOIebHC
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -35,7 +80,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:45:32 GMT
+      - Mon, 29 Apr 2019 04:47:24 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -109,7 +154,7 @@ http_interactions:
             "id" : "1IbaGRC0Yrovu3MP1ipf1u",
             "is_local" : false,
             "name" : "A Reason to Fight",
-            "popularity" : 66,
+            "popularity" : 65,
             "preview_url" : "https://p.scdn.co/mp3-preview/93bc0f656ecc63ecc4f37fbbe4d78034908a1005?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 3,
             "type" : "track",
@@ -177,7 +222,7 @@ http_interactions:
             "id" : "4e9eGQYsOiBcftrWXwsVco",
             "is_local" : false,
             "name" : "Aerials",
-            "popularity" : 74,
+            "popularity" : 73,
             "preview_url" : "https://p.scdn.co/mp3-preview/17c08cf40c2f21a4b3e65fd092749a3e35e59b68?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 14,
             "type" : "track",
@@ -245,7 +290,7 @@ http_interactions:
             "id" : "1LHZMWefF9502NPfArRfvP",
             "is_local" : false,
             "name" : "Lift Me Up (feat. Rob Halford of Judas Priest)",
-            "popularity" : 64,
+            "popularity" : 63,
             "preview_url" : "https://p.scdn.co/mp3-preview/be310aa769bd7221b89d801f8ca55778ac338215?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 1,
             "type" : "track",
@@ -322,7 +367,7 @@ http_interactions:
             "id" : "507bYMYfbm6sUS9iEAaeSd",
             "is_local" : false,
             "name" : "Broken",
-            "popularity" : 69,
+            "popularity" : 68,
             "preview_url" : null,
             "track_number" : 20,
             "type" : "track",
@@ -390,7 +435,7 @@ http_interactions:
             "id" : "2nBWxgSZ79w9l6t2rUg6pl",
             "is_local" : false,
             "name" : "Call Me",
-            "popularity" : 64,
+            "popularity" : 63,
             "preview_url" : "https://p.scdn.co/mp3-preview/cb1e0b32d0ca5332bb12a4f4b65b53941f73c263?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 11,
             "type" : "track",
@@ -458,7 +503,7 @@ http_interactions:
             "id" : "7egnrHJAANlNymbrmQNKcG",
             "is_local" : false,
             "name" : "The Dark of You",
-            "popularity" : 62,
+            "popularity" : 61,
             "preview_url" : null,
             "track_number" : 6,
             "type" : "track",
@@ -526,7 +571,7 @@ http_interactions:
             "id" : "1Cj2vqUwlJVG27gJrun92y",
             "is_local" : false,
             "name" : "The Sound Of Silence",
-            "popularity" : 76,
+            "popularity" : 75,
             "preview_url" : "https://p.scdn.co/mp3-preview/27a108ea31c7a2e5b3622696d2cfe3885c59f913?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 11,
             "type" : "track",
@@ -594,7 +639,7 @@ http_interactions:
             "id" : "6gCVA6ja6g0foIsWv0RuSZ",
             "is_local" : false,
             "name" : "ATWA",
-            "popularity" : 65,
+            "popularity" : 64,
             "preview_url" : "https://p.scdn.co/mp3-preview/9746e630b909c775cf024db2e2af52cec8f83d79?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 9,
             "type" : "track",
@@ -614,29 +659,29 @@ http_interactions:
               } ],
               "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
               "external_urls" : {
-                "spotify" : "https://open.spotify.com/album/5pIRVyUOJ8H2ix9bXiAg0t"
+                "spotify" : "https://open.spotify.com/album/14EUES6TzmB5nuyLvxTo9b"
               },
-              "href" : "https://api.spotify.com/v1/albums/5pIRVyUOJ8H2ix9bXiAg0t",
-              "id" : "5pIRVyUOJ8H2ix9bXiAg0t",
+              "href" : "https://api.spotify.com/v1/albums/14EUES6TzmB5nuyLvxTo9b",
+              "id" : "14EUES6TzmB5nuyLvxTo9b",
               "images" : [ {
                 "height" : 640,
-                "url" : "https://i.scdn.co/image/9711b3405eeb065524d6ae82ec2bbd50b25e5e85",
+                "url" : "https://i.scdn.co/image/8eb7a5a5addb6de89116222c5a95d488ae289dcd",
                 "width" : 640
               }, {
                 "height" : 300,
-                "url" : "https://i.scdn.co/image/fbd3cec4f19549a0ef222c4086afe0d53246de36",
+                "url" : "https://i.scdn.co/image/44ce9ac73d02fe81512a657fdb1ad6bd1f2c713c",
                 "width" : 300
               }, {
                 "height" : 64,
-                "url" : "https://i.scdn.co/image/025543bcb7e644dbecbd079b7603a1d0b64676f8",
+                "url" : "https://i.scdn.co/image/9c2ebd50c6c543d24dda9a062e99836472a21b14",
                 "width" : 64
               } ],
-              "name" : "American Capitalist",
-              "release_date" : "2007-10-11",
+              "name" : "The Wrong Side of Heaven and the Righteous Side of Hell, Vol. 2",
+              "release_date" : "2013-11-19",
               "release_date_precision" : "day",
               "total_tracks" : 0,
               "type" : "album",
-              "uri" : "spotify:album:5pIRVyUOJ8H2ix9bXiAg0t"
+              "uri" : "spotify:album:14EUES6TzmB5nuyLvxTo9b"
             },
             "artists" : [ {
               "external_urls" : {
@@ -650,91 +695,23 @@ http_interactions:
             } ],
             "available_markets" : [ "CA", "US" ],
             "disc_number" : 1,
-            "duration_ms" : 218133,
+            "duration_ms" : 247388,
             "explicit" : true,
             "external_ids" : {
-              "isrc" : "US5Z50900074"
+              "isrc" : "US5Z51300416"
             },
             "external_urls" : {
-              "spotify" : "https://open.spotify.com/track/4QksBPOns9inxD6gaAo4Zc"
+              "spotify" : "https://open.spotify.com/track/3cZr1Z832aXANu6a9fifkx"
             },
-            "href" : "https://api.spotify.com/v1/tracks/4QksBPOns9inxD6gaAo4Zc",
-            "id" : "4QksBPOns9inxD6gaAo4Zc",
+            "href" : "https://api.spotify.com/v1/tracks/3cZr1Z832aXANu6a9fifkx",
+            "id" : "3cZr1Z832aXANu6a9fifkx",
             "is_local" : false,
-            "name" : "Under and Over It",
+            "name" : "House of the Rising Sun",
             "popularity" : 62,
-            "preview_url" : "https://p.scdn.co/mp3-preview/9c16f5546a802d5162aea0ee3a0eca115eac8699?cid=<SPOTIFY_CLIENT_ID>",
-            "track_number" : 2,
+            "preview_url" : "https://p.scdn.co/mp3-preview/614ccc78408dc8460d21555624ce7db025db0b33?cid=<SPOTIFY_CLIENT_ID>",
+            "track_number" : 12,
             "type" : "track",
-            "uri" : "spotify:track:4QksBPOns9inxD6gaAo4Zc"
-          }, {
-            "album" : {
-              "album_type" : "ALBUM",
-              "artists" : [ {
-                "external_urls" : {
-                  "spotify" : "https://open.spotify.com/artist/7iWiAD5LLKyiox2grgfmUT"
-                },
-                "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
-                "id" : "7iWiAD5LLKyiox2grgfmUT",
-                "name" : "Bullet For My Valentine",
-                "type" : "artist",
-                "uri" : "spotify:artist:7iWiAD5LLKyiox2grgfmUT"
-              } ],
-              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
-              "external_urls" : {
-                "spotify" : "https://open.spotify.com/album/28sCbClwbAhHN6ovutizQg"
-              },
-              "href" : "https://api.spotify.com/v1/albums/28sCbClwbAhHN6ovutizQg",
-              "id" : "28sCbClwbAhHN6ovutizQg",
-              "images" : [ {
-                "height" : 640,
-                "url" : "https://i.scdn.co/image/0d3245084d69843da5de268251fb5aae5e1ab23c",
-                "width" : 640
-              }, {
-                "height" : 300,
-                "url" : "https://i.scdn.co/image/7f547c928e8c408f3cb2a8d1a11313dc7614f22f",
-                "width" : 300
-              }, {
-                "height" : 64,
-                "url" : "https://i.scdn.co/image/965223251adc2b144b9dcc429fd592242ac25286",
-                "width" : 64
-              } ],
-              "name" : "Gravity",
-              "release_date" : "2018-06-29",
-              "release_date_precision" : "day",
-              "total_tracks" : 0,
-              "type" : "album",
-              "uri" : "spotify:album:28sCbClwbAhHN6ovutizQg"
-            },
-            "artists" : [ {
-              "external_urls" : {
-                "spotify" : "https://open.spotify.com/artist/7iWiAD5LLKyiox2grgfmUT"
-              },
-              "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
-              "id" : "7iWiAD5LLKyiox2grgfmUT",
-              "name" : "Bullet For My Valentine",
-              "type" : "artist",
-              "uri" : "spotify:artist:7iWiAD5LLKyiox2grgfmUT"
-            } ],
-            "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
-            "disc_number" : 1,
-            "duration_ms" : 223655,
-            "explicit" : false,
-            "external_ids" : {
-              "isrc" : "GBUM71800992"
-            },
-            "external_urls" : {
-              "spotify" : "https://open.spotify.com/track/7rGN3oqzCpG2mLcwoPwDQm"
-            },
-            "href" : "https://api.spotify.com/v1/tracks/7rGN3oqzCpG2mLcwoPwDQm",
-            "id" : "7rGN3oqzCpG2mLcwoPwDQm",
-            "is_local" : false,
-            "name" : "Letting You Go",
-            "popularity" : 66,
-            "preview_url" : null,
-            "track_number" : 3,
-            "type" : "track",
-            "uri" : "spotify:track:7rGN3oqzCpG2mLcwoPwDQm"
+            "uri" : "spotify:track:3cZr1Z832aXANu6a9fifkx"
           }, {
             "album" : {
               "album_type" : "ALBUM",
@@ -798,11 +775,147 @@ http_interactions:
             "id" : "2imkodSyg1hOZwZuE2fJdU",
             "is_local" : false,
             "name" : "Chaos And Earthquakes",
-            "popularity" : 65,
+            "popularity" : 63,
             "preview_url" : null,
             "track_number" : 1,
             "type" : "track",
             "uri" : "spotify:track:2imkodSyg1hOZwZuE2fJdU"
+          }, {
+            "album" : {
+              "album_type" : "ALBUM",
+              "artists" : [ {
+                "external_urls" : {
+                  "spotify" : "https://open.spotify.com/artist/70BYFdaZbEKbeauJ670ysI"
+                },
+                "href" : "https://api.spotify.com/v1/artists/70BYFdaZbEKbeauJ670ysI",
+                "id" : "70BYFdaZbEKbeauJ670ysI",
+                "name" : "Shinedown",
+                "type" : "artist",
+                "uri" : "spotify:artist:70BYFdaZbEKbeauJ670ysI"
+              } ],
+              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/album/4PeRcYNYVB1mD4wemj5zld"
+              },
+              "href" : "https://api.spotify.com/v1/albums/4PeRcYNYVB1mD4wemj5zld",
+              "id" : "4PeRcYNYVB1mD4wemj5zld",
+              "images" : [ {
+                "height" : 640,
+                "url" : "https://i.scdn.co/image/fec570c176a12d329482f22a70677f2f3f9c1255",
+                "width" : 640
+              }, {
+                "height" : 300,
+                "url" : "https://i.scdn.co/image/4787cabb6114342e2533f55c6c67c3d654930079",
+                "width" : 300
+              }, {
+                "height" : 64,
+                "url" : "https://i.scdn.co/image/77d421b3c0e76eacae5bd7003fe74d35969c1ef2",
+                "width" : 64
+              } ],
+              "name" : "The Sound of Madness",
+              "release_date" : "2008-06-24",
+              "release_date_precision" : "day",
+              "total_tracks" : 0,
+              "type" : "album",
+              "uri" : "spotify:album:4PeRcYNYVB1mD4wemj5zld"
+            },
+            "artists" : [ {
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/artist/70BYFdaZbEKbeauJ670ysI"
+              },
+              "href" : "https://api.spotify.com/v1/artists/70BYFdaZbEKbeauJ670ysI",
+              "id" : "70BYFdaZbEKbeauJ670ysI",
+              "name" : "Shinedown",
+              "type" : "artist",
+              "uri" : "spotify:artist:70BYFdaZbEKbeauJ670ysI"
+            } ],
+            "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+            "disc_number" : 1,
+            "duration_ms" : 222066,
+            "explicit" : false,
+            "external_ids" : {
+              "isrc" : "USAT20802281"
+            },
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/track/0CwYG1UnRmOx8Q1EzElCIL"
+            },
+            "href" : "https://api.spotify.com/v1/tracks/0CwYG1UnRmOx8Q1EzElCIL",
+            "id" : "0CwYG1UnRmOx8Q1EzElCIL",
+            "is_local" : false,
+            "name" : "Second Chance",
+            "popularity" : 67,
+            "preview_url" : "https://p.scdn.co/mp3-preview/211f45f3ce70396abcf70a0d1208455bfbf8476b?cid=<SPOTIFY_CLIENT_ID>",
+            "track_number" : 3,
+            "type" : "track",
+            "uri" : "spotify:track:0CwYG1UnRmOx8Q1EzElCIL"
+          }, {
+            "album" : {
+              "album_type" : "ALBUM",
+              "artists" : [ {
+                "external_urls" : {
+                  "spotify" : "https://open.spotify.com/artist/7iWiAD5LLKyiox2grgfmUT"
+                },
+                "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
+                "id" : "7iWiAD5LLKyiox2grgfmUT",
+                "name" : "Bullet For My Valentine",
+                "type" : "artist",
+                "uri" : "spotify:artist:7iWiAD5LLKyiox2grgfmUT"
+              } ],
+              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/album/28sCbClwbAhHN6ovutizQg"
+              },
+              "href" : "https://api.spotify.com/v1/albums/28sCbClwbAhHN6ovutizQg",
+              "id" : "28sCbClwbAhHN6ovutizQg",
+              "images" : [ {
+                "height" : 640,
+                "url" : "https://i.scdn.co/image/0d3245084d69843da5de268251fb5aae5e1ab23c",
+                "width" : 640
+              }, {
+                "height" : 300,
+                "url" : "https://i.scdn.co/image/7f547c928e8c408f3cb2a8d1a11313dc7614f22f",
+                "width" : 300
+              }, {
+                "height" : 64,
+                "url" : "https://i.scdn.co/image/965223251adc2b144b9dcc429fd592242ac25286",
+                "width" : 64
+              } ],
+              "name" : "Gravity",
+              "release_date" : "2018-06-29",
+              "release_date_precision" : "day",
+              "total_tracks" : 0,
+              "type" : "album",
+              "uri" : "spotify:album:28sCbClwbAhHN6ovutizQg"
+            },
+            "artists" : [ {
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/artist/7iWiAD5LLKyiox2grgfmUT"
+              },
+              "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
+              "id" : "7iWiAD5LLKyiox2grgfmUT",
+              "name" : "Bullet For My Valentine",
+              "type" : "artist",
+              "uri" : "spotify:artist:7iWiAD5LLKyiox2grgfmUT"
+            } ],
+            "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+            "disc_number" : 1,
+            "duration_ms" : 223655,
+            "explicit" : false,
+            "external_ids" : {
+              "isrc" : "GBUM71800992"
+            },
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/track/7rGN3oqzCpG2mLcwoPwDQm"
+            },
+            "href" : "https://api.spotify.com/v1/tracks/7rGN3oqzCpG2mLcwoPwDQm",
+            "id" : "7rGN3oqzCpG2mLcwoPwDQm",
+            "is_local" : false,
+            "name" : "Letting You Go",
+            "popularity" : 65,
+            "preview_url" : null,
+            "track_number" : 3,
+            "type" : "track",
+            "uri" : "spotify:track:7rGN3oqzCpG2mLcwoPwDQm"
           }, {
             "album" : {
               "album_type" : "ALBUM",
@@ -866,7 +979,7 @@ http_interactions:
             "id" : "2qJkesdHu9sMMVFgkRkqhQ",
             "is_local" : false,
             "name" : "Angel",
-            "popularity" : 68,
+            "popularity" : 67,
             "preview_url" : "https://p.scdn.co/mp3-preview/303f1e77ff52f67c85a755ed3bf1470acdb953ed?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 6,
             "type" : "track",
@@ -934,11 +1047,79 @@ http_interactions:
             "id" : "7Hr1Ignop7cymbE3FbOtXa",
             "is_local" : false,
             "name" : "So Far Away",
-            "popularity" : 67,
+            "popularity" : 66,
             "preview_url" : "https://p.scdn.co/mp3-preview/d6b31caf1621917b9fb7390ea35e70a131651ad6?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 6,
             "type" : "track",
             "uri" : "spotify:track:7Hr1Ignop7cymbE3FbOtXa"
+          }, {
+            "album" : {
+              "album_type" : "ALBUM",
+              "artists" : [ {
+                "external_urls" : {
+                  "spotify" : "https://open.spotify.com/artist/5t28BP42x2axFnqOOMg3CM"
+                },
+                "href" : "https://api.spotify.com/v1/artists/5t28BP42x2axFnqOOMg3CM",
+                "id" : "5t28BP42x2axFnqOOMg3CM",
+                "name" : "Five Finger Death Punch",
+                "type" : "artist",
+                "uri" : "spotify:artist:5t28BP42x2axFnqOOMg3CM"
+              } ],
+              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/album/5pIRVyUOJ8H2ix9bXiAg0t"
+              },
+              "href" : "https://api.spotify.com/v1/albums/5pIRVyUOJ8H2ix9bXiAg0t",
+              "id" : "5pIRVyUOJ8H2ix9bXiAg0t",
+              "images" : [ {
+                "height" : 640,
+                "url" : "https://i.scdn.co/image/9711b3405eeb065524d6ae82ec2bbd50b25e5e85",
+                "width" : 640
+              }, {
+                "height" : 300,
+                "url" : "https://i.scdn.co/image/fbd3cec4f19549a0ef222c4086afe0d53246de36",
+                "width" : 300
+              }, {
+                "height" : 64,
+                "url" : "https://i.scdn.co/image/025543bcb7e644dbecbd079b7603a1d0b64676f8",
+                "width" : 64
+              } ],
+              "name" : "American Capitalist",
+              "release_date" : "2007-10-11",
+              "release_date_precision" : "day",
+              "total_tracks" : 0,
+              "type" : "album",
+              "uri" : "spotify:album:5pIRVyUOJ8H2ix9bXiAg0t"
+            },
+            "artists" : [ {
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/artist/5t28BP42x2axFnqOOMg3CM"
+              },
+              "href" : "https://api.spotify.com/v1/artists/5t28BP42x2axFnqOOMg3CM",
+              "id" : "5t28BP42x2axFnqOOMg3CM",
+              "name" : "Five Finger Death Punch",
+              "type" : "artist",
+              "uri" : "spotify:artist:5t28BP42x2axFnqOOMg3CM"
+            } ],
+            "available_markets" : [ "CA", "US" ],
+            "disc_number" : 1,
+            "duration_ms" : 218133,
+            "explicit" : true,
+            "external_ids" : {
+              "isrc" : "US5Z50900074"
+            },
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/track/4QksBPOns9inxD6gaAo4Zc"
+            },
+            "href" : "https://api.spotify.com/v1/tracks/4QksBPOns9inxD6gaAo4Zc",
+            "id" : "4QksBPOns9inxD6gaAo4Zc",
+            "is_local" : false,
+            "name" : "Under and Over It",
+            "popularity" : 61,
+            "preview_url" : "https://p.scdn.co/mp3-preview/9c16f5546a802d5162aea0ee3a0eca115eac8699?cid=<SPOTIFY_CLIENT_ID>",
+            "track_number" : 2,
+            "type" : "track",
+            "uri" : "spotify:track:4QksBPOns9inxD6gaAo4Zc"
           }, {
             "album" : {
               "album_type" : "ALBUM",
@@ -1002,147 +1183,11 @@ http_interactions:
             "id" : "6ZfPmIbwzz6fopTNwAJTPs",
             "is_local" : false,
             "name" : "Red Cold River",
-            "popularity" : 66,
+            "popularity" : 65,
             "preview_url" : null,
             "track_number" : 3,
             "type" : "track",
             "uri" : "spotify:track:6ZfPmIbwzz6fopTNwAJTPs"
-          }, {
-            "album" : {
-              "album_type" : "ALBUM",
-              "artists" : [ {
-                "external_urls" : {
-                  "spotify" : "https://open.spotify.com/artist/5t28BP42x2axFnqOOMg3CM"
-                },
-                "href" : "https://api.spotify.com/v1/artists/5t28BP42x2axFnqOOMg3CM",
-                "id" : "5t28BP42x2axFnqOOMg3CM",
-                "name" : "Five Finger Death Punch",
-                "type" : "artist",
-                "uri" : "spotify:artist:5t28BP42x2axFnqOOMg3CM"
-              } ],
-              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
-              "external_urls" : {
-                "spotify" : "https://open.spotify.com/album/14EUES6TzmB5nuyLvxTo9b"
-              },
-              "href" : "https://api.spotify.com/v1/albums/14EUES6TzmB5nuyLvxTo9b",
-              "id" : "14EUES6TzmB5nuyLvxTo9b",
-              "images" : [ {
-                "height" : 640,
-                "url" : "https://i.scdn.co/image/8eb7a5a5addb6de89116222c5a95d488ae289dcd",
-                "width" : 640
-              }, {
-                "height" : 300,
-                "url" : "https://i.scdn.co/image/44ce9ac73d02fe81512a657fdb1ad6bd1f2c713c",
-                "width" : 300
-              }, {
-                "height" : 64,
-                "url" : "https://i.scdn.co/image/9c2ebd50c6c543d24dda9a062e99836472a21b14",
-                "width" : 64
-              } ],
-              "name" : "The Wrong Side of Heaven and the Righteous Side of Hell, Vol. 2",
-              "release_date" : "2013-11-19",
-              "release_date_precision" : "day",
-              "total_tracks" : 0,
-              "type" : "album",
-              "uri" : "spotify:album:14EUES6TzmB5nuyLvxTo9b"
-            },
-            "artists" : [ {
-              "external_urls" : {
-                "spotify" : "https://open.spotify.com/artist/5t28BP42x2axFnqOOMg3CM"
-              },
-              "href" : "https://api.spotify.com/v1/artists/5t28BP42x2axFnqOOMg3CM",
-              "id" : "5t28BP42x2axFnqOOMg3CM",
-              "name" : "Five Finger Death Punch",
-              "type" : "artist",
-              "uri" : "spotify:artist:5t28BP42x2axFnqOOMg3CM"
-            } ],
-            "available_markets" : [ "CA", "US" ],
-            "disc_number" : 1,
-            "duration_ms" : 247388,
-            "explicit" : true,
-            "external_ids" : {
-              "isrc" : "US5Z51300416"
-            },
-            "external_urls" : {
-              "spotify" : "https://open.spotify.com/track/3cZr1Z832aXANu6a9fifkx"
-            },
-            "href" : "https://api.spotify.com/v1/tracks/3cZr1Z832aXANu6a9fifkx",
-            "id" : "3cZr1Z832aXANu6a9fifkx",
-            "is_local" : false,
-            "name" : "House of the Rising Sun",
-            "popularity" : 63,
-            "preview_url" : "https://p.scdn.co/mp3-preview/614ccc78408dc8460d21555624ce7db025db0b33?cid=<SPOTIFY_CLIENT_ID>",
-            "track_number" : 12,
-            "type" : "track",
-            "uri" : "spotify:track:3cZr1Z832aXANu6a9fifkx"
-          }, {
-            "album" : {
-              "album_type" : "ALBUM",
-              "artists" : [ {
-                "external_urls" : {
-                  "spotify" : "https://open.spotify.com/artist/70BYFdaZbEKbeauJ670ysI"
-                },
-                "href" : "https://api.spotify.com/v1/artists/70BYFdaZbEKbeauJ670ysI",
-                "id" : "70BYFdaZbEKbeauJ670ysI",
-                "name" : "Shinedown",
-                "type" : "artist",
-                "uri" : "spotify:artist:70BYFdaZbEKbeauJ670ysI"
-              } ],
-              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
-              "external_urls" : {
-                "spotify" : "https://open.spotify.com/album/4PeRcYNYVB1mD4wemj5zld"
-              },
-              "href" : "https://api.spotify.com/v1/albums/4PeRcYNYVB1mD4wemj5zld",
-              "id" : "4PeRcYNYVB1mD4wemj5zld",
-              "images" : [ {
-                "height" : 640,
-                "url" : "https://i.scdn.co/image/fec570c176a12d329482f22a70677f2f3f9c1255",
-                "width" : 640
-              }, {
-                "height" : 300,
-                "url" : "https://i.scdn.co/image/4787cabb6114342e2533f55c6c67c3d654930079",
-                "width" : 300
-              }, {
-                "height" : 64,
-                "url" : "https://i.scdn.co/image/77d421b3c0e76eacae5bd7003fe74d35969c1ef2",
-                "width" : 64
-              } ],
-              "name" : "The Sound of Madness",
-              "release_date" : "2008-06-24",
-              "release_date_precision" : "day",
-              "total_tracks" : 0,
-              "type" : "album",
-              "uri" : "spotify:album:4PeRcYNYVB1mD4wemj5zld"
-            },
-            "artists" : [ {
-              "external_urls" : {
-                "spotify" : "https://open.spotify.com/artist/70BYFdaZbEKbeauJ670ysI"
-              },
-              "href" : "https://api.spotify.com/v1/artists/70BYFdaZbEKbeauJ670ysI",
-              "id" : "70BYFdaZbEKbeauJ670ysI",
-              "name" : "Shinedown",
-              "type" : "artist",
-              "uri" : "spotify:artist:70BYFdaZbEKbeauJ670ysI"
-            } ],
-            "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
-            "disc_number" : 1,
-            "duration_ms" : 222066,
-            "explicit" : false,
-            "external_ids" : {
-              "isrc" : "USAT20802281"
-            },
-            "external_urls" : {
-              "spotify" : "https://open.spotify.com/track/0CwYG1UnRmOx8Q1EzElCIL"
-            },
-            "href" : "https://api.spotify.com/v1/tracks/0CwYG1UnRmOx8Q1EzElCIL",
-            "id" : "0CwYG1UnRmOx8Q1EzElCIL",
-            "is_local" : false,
-            "name" : "Second Chance",
-            "popularity" : 68,
-            "preview_url" : "https://p.scdn.co/mp3-preview/211f45f3ce70396abcf70a0d1208455bfbf8476b?cid=<SPOTIFY_CLIENT_ID>",
-            "track_number" : 3,
-            "type" : "track",
-            "uri" : "spotify:track:0CwYG1UnRmOx8Q1EzElCIL"
           }, {
             "album" : {
               "album_type" : "ALBUM",
@@ -1206,7 +1251,7 @@ http_interactions:
             "id" : "5hheGdf1cb4rK0FNiedCfK",
             "is_local" : false,
             "name" : "The Devil In I",
-            "popularity" : 72,
+            "popularity" : 71,
             "preview_url" : "https://p.scdn.co/mp3-preview/7403b6a13701d54ed89cd5134b38997971123938?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 4,
             "type" : "track",
@@ -1274,11 +1319,79 @@ http_interactions:
             "id" : "2UDumaw7osnyjH7RZ2DLpB",
             "is_local" : false,
             "name" : "I Am Machine",
-            "popularity" : 68,
+            "popularity" : 67,
             "preview_url" : "https://p.scdn.co/mp3-preview/2455cf008a7dfe31ae9d99755d1b563e3c46e2ca?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 6,
             "type" : "track",
             "uri" : "spotify:track:2UDumaw7osnyjH7RZ2DLpB"
+          }, {
+            "album" : {
+              "album_type" : "ALBUM",
+              "artists" : [ {
+                "external_urls" : {
+                  "spotify" : "https://open.spotify.com/artist/70BYFdaZbEKbeauJ670ysI"
+                },
+                "href" : "https://api.spotify.com/v1/artists/70BYFdaZbEKbeauJ670ysI",
+                "id" : "70BYFdaZbEKbeauJ670ysI",
+                "name" : "Shinedown",
+                "type" : "artist",
+                "uri" : "spotify:artist:70BYFdaZbEKbeauJ670ysI"
+              } ],
+              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/album/7969zwJB8p021EBcCUjsv9"
+              },
+              "href" : "https://api.spotify.com/v1/albums/7969zwJB8p021EBcCUjsv9",
+              "id" : "7969zwJB8p021EBcCUjsv9",
+              "images" : [ {
+                "height" : 640,
+                "url" : "https://i.scdn.co/image/599f6e9a89a7844d726446b4aad97f987c0e59e3",
+                "width" : 640
+              }, {
+                "height" : 300,
+                "url" : "https://i.scdn.co/image/30b5e0dd3c153004588fb1e6b657986e8c2f21a7",
+                "width" : 300
+              }, {
+                "height" : 64,
+                "url" : "https://i.scdn.co/image/58dcfc43f81fb4ec3f7d39dbc56a58edd78f063e",
+                "width" : 64
+              } ],
+              "name" : "Threat To Survival",
+              "release_date" : "2015-09-18",
+              "release_date_precision" : "day",
+              "total_tracks" : 0,
+              "type" : "album",
+              "uri" : "spotify:album:7969zwJB8p021EBcCUjsv9"
+            },
+            "artists" : [ {
+              "external_urls" : {
+                "spotify" : "https://open.spotify.com/artist/70BYFdaZbEKbeauJ670ysI"
+              },
+              "href" : "https://api.spotify.com/v1/artists/70BYFdaZbEKbeauJ670ysI",
+              "id" : "70BYFdaZbEKbeauJ670ysI",
+              "name" : "Shinedown",
+              "type" : "artist",
+              "uri" : "spotify:artist:70BYFdaZbEKbeauJ670ysI"
+            } ],
+            "available_markets" : [ "AE", "AR", "AT", "AU", "BE", "BG", "BH", "CA", "CH", "CY", "CZ", "DE", "DK", "DZ", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "HK", "HU", "ID", "IE", "IL", "IT", "JO", "JP", "KW", "LB", "LT", "LU", "LV", "MA", "MT", "MY", "NL", "NO", "NZ", "OM", "PH", "PL", "PT", "QA", "RO", "SA", "SE", "SG", "SK", "TH", "TN", "TR", "TW", "US", "VN", "ZA" ],
+            "disc_number" : 1,
+            "duration_ms" : 205653,
+            "explicit" : false,
+            "external_ids" : {
+              "isrc" : "USAT21502573"
+            },
+            "external_urls" : {
+              "spotify" : "https://open.spotify.com/track/1fnULsZuORnAgCFFbM8nTZ"
+            },
+            "href" : "https://api.spotify.com/v1/tracks/1fnULsZuORnAgCFFbM8nTZ",
+            "id" : "1fnULsZuORnAgCFFbM8nTZ",
+            "is_local" : false,
+            "name" : "State Of My Head",
+            "popularity" : 66,
+            "preview_url" : "https://p.scdn.co/mp3-preview/3dab5a9fb54504d1b1d089107ae6cb635251a163?cid=<SPOTIFY_CLIENT_ID>",
+            "track_number" : 3,
+            "type" : "track",
+            "uri" : "spotify:track:1fnULsZuORnAgCFFbM8nTZ"
           }, {
             "album" : {
               "album_type" : "ALBUM",
@@ -1342,79 +1455,11 @@ http_interactions:
             "id" : "4hTg9q0AnxtH4yZKeRcMin",
             "is_local" : false,
             "name" : "Hallelujah",
-            "popularity" : 62,
+            "popularity" : 60,
             "preview_url" : "https://p.scdn.co/mp3-preview/a70eaaeb88049a9a1109bfb86e5fd1bd3ffc8288?cid=<SPOTIFY_CLIENT_ID>",
             "track_number" : 1,
             "type" : "track",
             "uri" : "spotify:track:4hTg9q0AnxtH4yZKeRcMin"
-          }, {
-            "album" : {
-              "album_type" : "ALBUM",
-              "artists" : [ {
-                "external_urls" : {
-                  "spotify" : "https://open.spotify.com/artist/7iWiAD5LLKyiox2grgfmUT"
-                },
-                "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
-                "id" : "7iWiAD5LLKyiox2grgfmUT",
-                "name" : "Bullet For My Valentine",
-                "type" : "artist",
-                "uri" : "spotify:artist:7iWiAD5LLKyiox2grgfmUT"
-              } ],
-              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
-              "external_urls" : {
-                "spotify" : "https://open.spotify.com/album/4uNzDULQ9RAy0nxGaPbCDn"
-              },
-              "href" : "https://api.spotify.com/v1/albums/4uNzDULQ9RAy0nxGaPbCDn",
-              "id" : "4uNzDULQ9RAy0nxGaPbCDn",
-              "images" : [ {
-                "height" : 635,
-                "url" : "https://i.scdn.co/image/7c6208595c51ea89f9322af9cbaefd0cb0dd89e3",
-                "width" : 640
-              }, {
-                "height" : 298,
-                "url" : "https://i.scdn.co/image/7e4bb888ac02fca8332d51be3b1b561a72420d6b",
-                "width" : 300
-              }, {
-                "height" : 63,
-                "url" : "https://i.scdn.co/image/bb8dff0323e128263c3457c96ca04a3f51249906",
-                "width" : 64
-              } ],
-              "name" : "The Poison (Deluxe Version)",
-              "release_date" : "2007-06-12",
-              "release_date_precision" : "day",
-              "total_tracks" : 0,
-              "type" : "album",
-              "uri" : "spotify:album:4uNzDULQ9RAy0nxGaPbCDn"
-            },
-            "artists" : [ {
-              "external_urls" : {
-                "spotify" : "https://open.spotify.com/artist/7iWiAD5LLKyiox2grgfmUT"
-              },
-              "href" : "https://api.spotify.com/v1/artists/7iWiAD5LLKyiox2grgfmUT",
-              "id" : "7iWiAD5LLKyiox2grgfmUT",
-              "name" : "Bullet For My Valentine",
-              "type" : "artist",
-              "uri" : "spotify:artist:7iWiAD5LLKyiox2grgfmUT"
-            } ],
-            "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
-            "disc_number" : 1,
-            "duration_ms" : 348386,
-            "explicit" : true,
-            "external_ids" : {
-              "isrc" : "GBHQD0500017"
-            },
-            "external_urls" : {
-              "spotify" : "https://open.spotify.com/track/3iWlbqAaoIR7H7gyO3a6rV"
-            },
-            "href" : "https://api.spotify.com/v1/tracks/3iWlbqAaoIR7H7gyO3a6rV",
-            "id" : "3iWlbqAaoIR7H7gyO3a6rV",
-            "is_local" : false,
-            "name" : "Tears Don't Fall",
-            "popularity" : 64,
-            "preview_url" : "https://p.scdn.co/mp3-preview/33328221bdb4b558539e5a26aa12798f963a4b4a?cid=<SPOTIFY_CLIENT_ID>",
-            "track_number" : 4,
-            "type" : "track",
-            "uri" : "spotify:track:3iWlbqAaoIR7H7gyO3a6rV"
           } ],
           "seeds" : [ {
             "initialPoolSize" : 250,
@@ -1426,16 +1471,16 @@ http_interactions:
           } ]
         }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:45:31 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:24 GMT
 - request:
     method: put
     uri: https://api.spotify.com/v1/playlists/2iyYsK01c4lPHyolL9lCqY/tracks
     body:
       encoding: UTF-8
-      string: '{"uris":["spotify:track:1IbaGRC0Yrovu3MP1ipf1u","spotify:track:4e9eGQYsOiBcftrWXwsVco","spotify:track:1LHZMWefF9502NPfArRfvP","spotify:track:507bYMYfbm6sUS9iEAaeSd","spotify:track:2nBWxgSZ79w9l6t2rUg6pl","spotify:track:7egnrHJAANlNymbrmQNKcG","spotify:track:1Cj2vqUwlJVG27gJrun92y","spotify:track:6gCVA6ja6g0foIsWv0RuSZ","spotify:track:4QksBPOns9inxD6gaAo4Zc","spotify:track:7rGN3oqzCpG2mLcwoPwDQm","spotify:track:2imkodSyg1hOZwZuE2fJdU","spotify:track:2qJkesdHu9sMMVFgkRkqhQ","spotify:track:7Hr1Ignop7cymbE3FbOtXa","spotify:track:6ZfPmIbwzz6fopTNwAJTPs","spotify:track:3cZr1Z832aXANu6a9fifkx","spotify:track:0CwYG1UnRmOx8Q1EzElCIL","spotify:track:5hheGdf1cb4rK0FNiedCfK","spotify:track:2UDumaw7osnyjH7RZ2DLpB","spotify:track:4hTg9q0AnxtH4yZKeRcMin","spotify:track:3iWlbqAaoIR7H7gyO3a6rV"]}'
+      string: '{"uris":["spotify:track:1IbaGRC0Yrovu3MP1ipf1u","spotify:track:4e9eGQYsOiBcftrWXwsVco","spotify:track:1LHZMWefF9502NPfArRfvP","spotify:track:507bYMYfbm6sUS9iEAaeSd","spotify:track:2nBWxgSZ79w9l6t2rUg6pl","spotify:track:7egnrHJAANlNymbrmQNKcG","spotify:track:1Cj2vqUwlJVG27gJrun92y","spotify:track:6gCVA6ja6g0foIsWv0RuSZ","spotify:track:3cZr1Z832aXANu6a9fifkx","spotify:track:2imkodSyg1hOZwZuE2fJdU","spotify:track:0CwYG1UnRmOx8Q1EzElCIL","spotify:track:7rGN3oqzCpG2mLcwoPwDQm","spotify:track:2qJkesdHu9sMMVFgkRkqhQ","spotify:track:7Hr1Ignop7cymbE3FbOtXa","spotify:track:4QksBPOns9inxD6gaAo4Zc","spotify:track:6ZfPmIbwzz6fopTNwAJTPs","spotify:track:5hheGdf1cb4rK0FNiedCfK","spotify:track:2UDumaw7osnyjH7RZ2DLpB","spotify:track:1fnULsZuORnAgCFFbM8nTZ","spotify:track:4hTg9q0AnxtH4yZKeRcMin"]}'
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQAQt0g1g6_UEUMBmxVqtEf3eDU9_JOdbctUQgyV2dBTx_s-4nWrGminkpNw1-HLk67f7nerA8P_wnXUwscOXlSELWb6UoklLVK-LcfFvlYtbO3w6esIEuRNi4NU-RRpkeuDLpWtDTGp4PwKnS3FmusI4U4bJqnU7hKFWXV8_wlr0Y4IPpwWRAKUgXQ2hJ_oRAz7H73bxo1AUgnJ0cBqlm83ntoQ5WOIebHC
       User-Agent:
       - Faraday v0.15.4
       Content-Type:
@@ -1446,8 +1491,8 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
     status:
-      code: 201
-      message: Created
+      code: 403
+      message: Forbidden
     headers:
       Content-Type:
       - application/json; charset=utf-8
@@ -1464,7 +1509,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:45:32 GMT
+      - Mon, 29 Apr 2019 04:47:24 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -1475,8 +1520,11 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "snapshot_id" : "MiwzNjdhNjdmOTUyODUyY2ExMzZhMWE5ODE0NDQ3YjBhMzQ1YjM5MmIw"
+          "error" : {
+            "status" : 403,
+            "message" : "Insufficient client scope"
+          }
         }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:45:31 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:24 GMT
 recorded_with: VCR 4.0.0

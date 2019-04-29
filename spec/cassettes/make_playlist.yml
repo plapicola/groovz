@@ -2,13 +2,58 @@
 http_interactions:
 - request:
     method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 04:47:17 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQC6zJ_-VaRQVGWAKUFCgmazlgXQpJSTvXCVHbqA1WsNn7AREFhUpZ8E02QjMbqDEImeWU_X-J-s4BWZ-gUvJSLm5EBgNClK_s2jWm52z5e0lkYhedOQ075TzDvXfgxQYULQqWA2r8zdVbtOTQue13nTLsEY3KSr0YtZ9V2ahcyUwEZ8jot5DImh4SQ-G6xey_CraS-vgpUAILY3_OTA2Gkly0NNixq1thik","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 04:47:17 GMT
+- request:
+    method: post
     uri: https://api.spotify.com/v1/users/<SPOTIFY_UID>/playlists
     body:
       encoding: UTF-8
       string: '{"name":"GroovzApp Playlist"}'
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQC6zJ_-VaRQVGWAKUFCgmazlgXQpJSTvXCVHbqA1WsNn7AREFhUpZ8E02QjMbqDEImeWU_X-J-s4BWZ-gUvJSLm5EBgNClK_s2jWm52z5e0lkYhedOQ075TzDvXfgxQYULQqWA2r8zdVbtOTQue13nTLsEY3KSr0YtZ9V2ahcyUwEZ8jot5DImh4SQ-G6xey_CraS-vgpUAILY3_OTA2Gkly0NNixq1thik
       User-Agent:
       - Faraday v0.15.4
       Content-Type:
@@ -27,7 +72,7 @@ http_interactions:
       Cache-Control:
       - private, max-age=0
       Location:
-      - https://api.spotify.com/v1/playlists/54FMH2qVtFm85IAI37mE5I
+      - https://api.spotify.com/v1/playlists/6ZxjXILdCS8WTksxzvtvMT
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Headers:
@@ -39,7 +84,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Wed, 10 Apr 2019 03:52:23 GMT
+      - Mon, 29 Apr 2019 04:47:17 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -53,18 +98,18 @@ http_interactions:
           "collaborative" : false,
           "description" : null,
           "external_urls" : {
-            "spotify" : "https://open.spotify.com/playlist/54FMH2qVtFm85IAI37mE5I"
+            "spotify" : "https://open.spotify.com/playlist/6ZxjXILdCS8WTksxzvtvMT"
           },
           "followers" : {
             "href" : null,
             "total" : 0
           },
-          "href" : "https://api.spotify.com/v1/playlists/54FMH2qVtFm85IAI37mE5I",
-          "id" : "54FMH2qVtFm85IAI37mE5I",
+          "href" : "https://api.spotify.com/v1/playlists/6ZxjXILdCS8WTksxzvtvMT",
+          "id" : "6ZxjXILdCS8WTksxzvtvMT",
           "images" : [ ],
           "name" : "GroovzApp Playlist",
           "owner" : {
-            "display_name" : "Tim Allen",
+            "display_name" : "Peter Lapicola",
             "external_urls" : {
               "spotify" : "https://open.spotify.com/user/<SPOTIFY_UID>"
             },
@@ -75,9 +120,9 @@ http_interactions:
           },
           "primary_color" : null,
           "public" : true,
-          "snapshot_id" : "MSxiMjZmYjVkNWMxOGJkY2FiNTJjODg0YmYxNDhiNzVmNDA3YTVkNTcx",
+          "snapshot_id" : "MSxlMzBlMGZjMzUwYTRhNDYwNmRhZjFiNzg3ZTU3OTEwODQ5MGE0ZGVk",
           "tracks" : {
-            "href" : "https://api.spotify.com/v1/playlists/54FMH2qVtFm85IAI37mE5I/tracks",
+            "href" : "https://api.spotify.com/v1/playlists/6ZxjXILdCS8WTksxzvtvMT/tracks",
             "items" : [ ],
             "limit" : 100,
             "next" : null,
@@ -86,8 +131,8 @@ http_interactions:
             "total" : 0
           },
           "type" : "playlist",
-          "uri" : "spotify:playlist:54FMH2qVtFm85IAI37mE5I"
+          "uri" : "spotify:playlist:6ZxjXILdCS8WTksxzvtvMT"
         }
     http_version: 
-  recorded_at: Wed, 10 Apr 2019 03:52:23 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:17 GMT
 recorded_with: VCR 4.0.0

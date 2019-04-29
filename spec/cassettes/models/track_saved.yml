@@ -1,6 +1,51 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 04:47:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQAABE9NfWsnX85fJd-p4xYocsWudNu4D2M9ChmBIPQtil4DaywVp5EF-WRhfkrMKkUgNarLpYXhZ809nRCtmr0l5lwawAuLMmt95mOoXW7RBSwUZZHQWdSNTW4yBBYXsLnHBq-Gyx3KIWpj74i4uwqFbu9RN-R2znhAarHNIrZXtT_HmwbycG6_jhUIQb2IUPVzT-P-aeWunvR8pcuoLQ17FsJbQ5g7DH66","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 04:47:18 GMT
+- request:
     method: get
     uri: https://api.spotify.com/v1/me/tracks/contains?ids=4vnukzBCfcOHeBYp1N7dDz
     body:
@@ -8,7 +53,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQAABE9NfWsnX85fJd-p4xYocsWudNu4D2M9ChmBIPQtil4DaywVp5EF-WRhfkrMKkUgNarLpYXhZ809nRCtmr0l5lwawAuLMmt95mOoXW7RBSwUZZHQWdSNTW4yBBYXsLnHBq-Gyx3KIWpj74i4uwqFbu9RN-R2znhAarHNIrZXtT_HmwbycG6_jhUIQb2IUPVzT-P-aeWunvR8pcuoLQ17FsJbQ5g7DH66
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -39,7 +84,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Wed, 10 Apr 2019 17:12:56 GMT
+      - Mon, 29 Apr 2019 04:47:18 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -50,7 +95,7 @@ http_interactions:
       encoding: ASCII-8BIT
       string: "[ true ]"
     http_version: 
-  recorded_at: Wed, 10 Apr 2019 17:12:54 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:18 GMT
 - request:
     method: get
     uri: https://api.spotify.com/v1/me/tracks/contains?ids=15eW0q4UnnNT1W5A2nlibq
@@ -59,7 +104,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQAABE9NfWsnX85fJd-p4xYocsWudNu4D2M9ChmBIPQtil4DaywVp5EF-WRhfkrMKkUgNarLpYXhZ809nRCtmr0l5lwawAuLMmt95mOoXW7RBSwUZZHQWdSNTW4yBBYXsLnHBq-Gyx3KIWpj74i4uwqFbu9RN-R2znhAarHNIrZXtT_HmwbycG6_jhUIQb2IUPVzT-P-aeWunvR8pcuoLQ17FsJbQ5g7DH66
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -90,7 +135,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Wed, 10 Apr 2019 17:12:56 GMT
+      - Mon, 29 Apr 2019 04:47:18 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -101,5 +146,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: "[ false ]"
     http_version: 
-  recorded_at: Wed, 10 Apr 2019 17:12:54 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:18 GMT
 recorded_with: VCR 4.0.0

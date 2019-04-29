@@ -51,7 +51,6 @@ class Party < ApplicationRecord
   def self.generate_code
     RandomWord.exclude_list << /^[a-z]{6,}$/ if RandomWord.exclude_list.empty?
     RandomWord.exclude_list << /_/ if RandomWord.exclude_list.length == 1
-    binding.pry
     "#{RandomWord.adjs.first}-#{RandomWord.nouns.first}"
   end
 
