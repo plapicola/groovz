@@ -37,6 +37,7 @@ class PartiesController < ApplicationController
   end
 
   def join_party_params
+    params[:code]&.downcase!
     params.permit(:code)
   end
 end

@@ -1,6 +1,51 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://accounts.spotify.com/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<SPOTIFY_CLIENT_ID>&client_secret=<SPOTIFY_CLIENT_SECRET>&grant_type=refresh_token&redirect_uri=groovzapp.com%2Fauth%2Fspotify%2Fcallback&refresh_token=<SPOTIFY_USER_REFRESH>
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 29 Apr 2019 04:47:16 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"BQAsEB6gfqpp7wZgg7eQe9GcF8yVug8qJp4vFeINRSxoktcQtd7CmvO_Ab0X19VpycMLgLNAH6VfOP5v695dy20INWMHVKCpVo7syDh4JYQTjlGhjsea17BVjp-kfsKZ5-hyxJPd5Ep-thUsURE5etrgVZ2SS6NIvRXZGdx0A0xrG_DFWPa_7T9PMl2Qar1G6AKxZ6v00fb3FxWpayBFgw2joagR8BG_yZeY","token_type":"Bearer","expires_in":3600,"scope":"user-modify-playback-state
+        user-library-read user-library-modify playlist-modify-public user-read-playback-state
+        user-top-read"}'
+    http_version: 
+  recorded_at: Mon, 29 Apr 2019 04:47:16 GMT
+- request:
     method: get
     uri: https://api.spotify.com/v1/me/player/currently-playing
     body:
@@ -8,7 +53,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer <SPOTIFY_USER_TOKEN>
+      - Bearer BQAsEB6gfqpp7wZgg7eQe9GcF8yVug8qJp4vFeINRSxoktcQtd7CmvO_Ab0X19VpycMLgLNAH6VfOP5v695dy20INWMHVKCpVo7syDh4JYQTjlGhjsea17BVjp-kfsKZ5-hyxJPd5Ep-thUsURE5etrgVZ2SS6NIvRXZGdx0A0xrG_DFWPa_7T9PMl2Qar1G6AKxZ6v00fb3FxWpayBFgw2joagR8BG_yZeY
       User-Agent:
       - Faraday v0.15.4
       Accept-Encoding:
@@ -35,7 +80,7 @@ http_interactions:
       Access-Control-Max-Age:
       - '604800'
       Date:
-      - Tue, 09 Apr 2019 23:37:49 GMT
+      - Mon, 29 Apr 2019 04:47:16 GMT
       Via:
       - 1.1 google
       Alt-Svc:
@@ -46,94 +91,93 @@ http_interactions:
       encoding: ASCII-8BIT
       string: |-
         {
-          "timestamp" : 1554853061233,
+          "timestamp" : 1556513062076,
           "context" : {
             "external_urls" : {
-              "spotify" : "https://open.spotify.com/playlist/61iEtzuSHts9q9JR7lTAy9"
+              "spotify" : "https://open.spotify.com/playlist/4ZenWelYqdG7lVhcDerX9D"
             },
-            "href" : "https://api.spotify.com/v1/playlists/61iEtzuSHts9q9JR7lTAy9",
+            "href" : "https://api.spotify.com/v1/playlists/4ZenWelYqdG7lVhcDerX9D",
             "type" : "playlist",
-            "uri" : "spotify:user:<SPOTIFY_UID>:playlist:61iEtzuSHts9q9JR7lTAy9"
+            "uri" : "spotify:user:<SPOTIFY_UID>:playlist:4ZenWelYqdG7lVhcDerX9D"
           },
-          "progress_ms" : 56419,
+          "progress_ms" : 174859,
           "item" : {
             "album" : {
               "album_type" : "album",
               "artists" : [ {
                 "external_urls" : {
-                  "spotify" : "https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d"
+                  "spotify" : "https://open.spotify.com/artist/3w1Q754jb31h5CXQCcnLNL"
                 },
-                "href" : "https://api.spotify.com/v1/artists/1dfeR4HaWDbWqFHLkxsg1d",
-                "id" : "1dfeR4HaWDbWqFHLkxsg1d",
-                "name" : "Queen",
+                "href" : "https://api.spotify.com/v1/artists/3w1Q754jb31h5CXQCcnLNL",
+                "id" : "3w1Q754jb31h5CXQCcnLNL",
+                "name" : "Capcom Sound Team",
                 "type" : "artist",
-                "uri" : "spotify:artist:1dfeR4HaWDbWqFHLkxsg1d"
+                "uri" : "spotify:artist:3w1Q754jb31h5CXQCcnLNL"
               } ],
-              "available_markets" : [ ],
+              "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
               "external_urls" : {
-                "spotify" : "https://open.spotify.com/album/1GbtB4zTqAsyfZEsm1RZfx"
+                "spotify" : "https://open.spotify.com/album/1moJ6fFO8yD6itUlDZXlwe"
               },
-              "href" : "https://api.spotify.com/v1/albums/1GbtB4zTqAsyfZEsm1RZfx",
-              "id" : "1GbtB4zTqAsyfZEsm1RZfx",
+              "href" : "https://api.spotify.com/v1/albums/1moJ6fFO8yD6itUlDZXlwe",
+              "id" : "1moJ6fFO8yD6itUlDZXlwe",
               "images" : [ {
                 "height" : 640,
-                "url" : "https://i.scdn.co/image/beae4292c3214147a7201ef48f855b4ed40ff84e",
+                "url" : "https://i.scdn.co/image/eb506034a4d533dfd650e6292dfdab72110b99b6",
                 "width" : 640
               }, {
                 "height" : 300,
-                "url" : "https://i.scdn.co/image/f11aa4ef8ef3ff97ab9322f362f77f2eec4744a5",
+                "url" : "https://i.scdn.co/image/d041c1ced181ed28ea5d8a34947db05b8d1ba6ae",
                 "width" : 300
               }, {
                 "height" : 64,
-                "url" : "https://i.scdn.co/image/16f066184e92b296f9a202a326633a934607cb88",
+                "url" : "https://i.scdn.co/image/d85633184fa9c1957c8932f913cc964ed4755088",
                 "width" : 64
               } ],
-              "name" : "A Night At The Opera (2011 Remaster)",
-              "release_date" : "1975-11-21",
+              "name" : "DEVIL MAY CRY 5 Original SoundTrack",
+              "release_date" : "2019-03-20",
               "release_date_precision" : "day",
-              "total_tracks" : 12,
+              "total_tracks" : 136,
               "type" : "album",
-              "uri" : "spotify:album:1GbtB4zTqAsyfZEsm1RZfx"
+              "uri" : "spotify:album:1moJ6fFO8yD6itUlDZXlwe"
             },
             "artists" : [ {
               "external_urls" : {
-                "spotify" : "https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d"
+                "spotify" : "https://open.spotify.com/artist/1hGdQOfaZ5saQ6JWVuxVDZ"
               },
-              "href" : "https://api.spotify.com/v1/artists/1dfeR4HaWDbWqFHLkxsg1d",
-              "id" : "1dfeR4HaWDbWqFHLkxsg1d",
-              "name" : "Queen",
+              "href" : "https://api.spotify.com/v1/artists/1hGdQOfaZ5saQ6JWVuxVDZ",
+              "id" : "1hGdQOfaZ5saQ6JWVuxVDZ",
+              "name" : "Casey Edwards",
               "type" : "artist",
-              "uri" : "spotify:artist:1dfeR4HaWDbWqFHLkxsg1d"
+              "uri" : "spotify:artist:1hGdQOfaZ5saQ6JWVuxVDZ"
             } ],
-            "available_markets" : [ ],
-            "disc_number" : 1,
-            "duration_ms" : 354320,
+            "available_markets" : [ "AD", "AE", "AR", "AT", "AU", "BE", "BG", "BH", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "DZ", "EC", "EE", "EG", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IN", "IS", "IT", "JO", "JP", "KW", "LB", "LI", "LT", "LU", "LV", "MA", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "OM", "PA", "PE", "PH", "PL", "PS", "PT", "PY", "QA", "RO", "SA", "SE", "SG", "SK", "SV", "TH", "TN", "TR", "TW", "US", "UY", "VN", "ZA" ],
+            "disc_number" : 4,
+            "duration_ms" : 191134,
             "explicit" : false,
             "external_ids" : {
-              "isrc" : "GBUM71029604"
+              "isrc" : "JPE101902040"
             },
             "external_urls" : {
-              "spotify" : "https://open.spotify.com/track/4u7EnebtmKWzUH433cf5Qv"
+              "spotify" : "https://open.spotify.com/track/4vnukzBCfcOHeBYp1N7dDz"
             },
-            "href" : "https://api.spotify.com/v1/tracks/4u7EnebtmKWzUH433cf5Qv",
-            "id" : "4u7EnebtmKWzUH433cf5Qv",
+            "href" : "https://api.spotify.com/v1/tracks/4vnukzBCfcOHeBYp1N7dDz",
+            "id" : "4vnukzBCfcOHeBYp1N7dDz",
             "is_local" : false,
-            "name" : "Bohemian Rhapsody - Remastered 2011",
-            "popularity" : 88,
-            "preview_url" : null,
-            "track_number" : 11,
+            "name" : "Silver Bullet",
+            "popularity" : 53,
+            "preview_url" : "https://p.scdn.co/mp3-preview/20f12df94b6524eaf25e47d66b38d107ac9d4c1b?cid=<SPOTIFY_CLIENT_ID>",
+            "track_number" : 25,
             "type" : "track",
-            "uri" : "spotify:track:4u7EnebtmKWzUH433cf5Qv"
+            "uri" : "spotify:track:4vnukzBCfcOHeBYp1N7dDz"
           },
           "currently_playing_type" : "track",
           "actions" : {
             "disallows" : {
-              "resuming" : true,
-              "skipping_prev" : true
+              "resuming" : true
             }
           },
           "is_playing" : true
         }
     http_version: 
-  recorded_at: Tue, 09 Apr 2019 23:37:49 GMT
+  recorded_at: Mon, 29 Apr 2019 04:47:16 GMT
 recorded_with: VCR 4.0.0

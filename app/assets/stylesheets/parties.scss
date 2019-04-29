@@ -6,6 +6,40 @@ $spotify-darkblue: #404452;
 $spotify-black: #191414;
 $spotify-grey: #222326;
 
+.party-container {
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  grid-template-areas:
+    "room-name room-name room-name"
+    "room-code room-code room-code"
+    "player player player"
+    "button button button";
+
+  grid-template-rows: 8vh 8vh 64vh 20vh;
+}
+
+.root-container {
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  grid-template-areas:
+    "logo"
+    "primary-buttons"
+    "secondary-buttons";
+
+  grid-template-rows: 40vh 30vh 30vh;
+}
+
+.room-container {
+  display: grid;
+  grid-template-areas:
+    "back-arrow . ."
+    "input input input";
+
+  grid-template-rows: 20vh 80vh;
+}
+
 .btn-boxed {
   width: 95%;
   height: 15vw;
@@ -16,25 +50,26 @@ $spotify-grey: #222326;
 }
 
 .room-info-panel {
-  padding-top: 5vw;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-around;
   width: 100%;
 
   p {
     align-self: center;
+    display: inline;
+  }
+
+  h3 {
+    display: inline;
   }
 }
 
 .room-info-wrapper {
-  display: flex;
-  flex-direction: column;
-  vertical-align: center;
-  justify-content: center;
-  align-items: center;
+  justify-self: center;
   width: 95%;
-  height: 15vw;
+  height: 8vh;
   background-color: $spotify-grey;
   border-style: ridge;
   border-radius: 10px;
@@ -42,27 +77,19 @@ $spotify-grey: #222326;
   margin-bottom: 1vw;
 }
 
-.room-info-text {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-block;
-  margin-right: 3vw;
-  margin-left: 3vw;
-}
-
 .player-container {
   text-align: center;
+  grid-area: player;
 
   #host-album-art {
-    max-width: 80vw;
+    max-width: 33vh;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
   }
 
   #guest-album-art {
-    max-width: 90vw;
+    max-width: 35vh;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -79,7 +106,7 @@ $spotify-grey: #222326;
 }
 
 .player-control-section {
-  height: 30vw;
+  height: 15vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -144,13 +171,13 @@ $spotify-grey: #222326;
 }
 
 #index-primary-buttons {
-  position: absolute;
-  bottom: 30vh;
+  max-width: 75vh;
+  justify-self: center;
 }
 
 #index-secondary-buttons {
-  position: absolute;
-  bottom: 5vh;
+  max-width: 75vh;
+  justify-self: center;
 }
 
 #index-create-button {
@@ -187,18 +214,26 @@ $spotify-grey: #222326;
 }
 
 #leave-party-button {
-  position: absolute;
-  bottom: 10%;
+  grid-area: button;
+  justify-self: stretch;
 }
 
 #save-track {
-  max-width: 12vw;
+  max-width: 6vh;
 }
 
 #skip-icon {
-  max-width: 8vw;
+  max-width: 4vh;
 }
 
 #pause-play {
-  max-width: 21vw;
+  max-width: 9vh;
+}
+
+#room-name {
+  grid-area: room-name;
+}
+
+#room-code {
+  grid-area: room-code;
 }

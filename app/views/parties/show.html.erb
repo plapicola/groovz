@@ -1,31 +1,33 @@
-<div class='room-info-panel'>
-  <div class="room-info-wrapper" id='room-name'>
+<div class="party-container">
+  <div class="room-info-wrapper room-info-panel" id='room-name'>
     <strong><h3 class='room-info-text'>Party Name:</h3></strong><p><%= facade.name %></p>
   </div>
 
-  <div class="room-info-wrapper" id='room-code'>
+  <div class="room-info-wrapper room-info-panel" id='room-code'>
     <strong><h3 class='room-info-text'>Party Code:</h3></strong><p><%= facade.code %></p>
   </div>
-</div>
 
-<div class="player-container">
-  <div id="guest-album-art">
-    <%= image_tag('album-loading.gif', class: 'album-artwork', id: 'album-art') %>
+  <div class="player-container">
+    <div id="guest-album-art">
+      <%= image_tag('album-loading.gif', class: 'album-artwork', id: 'album-art') %>
+    </div>
+    <div class="player-info-section">
+      <div id="save-button" class="info-item">
+        <img src="plus_template.png" alt="Plus-button" class="icon" id="save-track">
+      </div>
+      <div class="track-info info-item">
+        <h4 id="track-title"><%= facade.name %></h4>
+        <p id="track-artist">Welcome to the party.</p>
+      </div>
+      <div class=" info-item">
+      </div>
+    </div>
   </div>
-  <div class="player-info-section">
-    <div id="save-button" class="info-item">
-      <img src="plus_template.png" alt="Plus-button" class="icon" id="save-track">
-    </div>
-    <div class="track-info info-item">
-      <h4 id="track-title"><%= facade.name %></h4>
-      <p id="track-artist">Welcome to the party.</p>
-    </div>
-    <div class=" info-item">
-    </div>
+
+  <div id="leave-party-button">
+    <%= button_to 'Bail Out', leave_party_path, method: :delete, class: 'btn btn-boxed' %>
   </div>
 </div>
-
-<%= button_to 'Bail Out', leave_party_path, method: :delete, id: 'leave-party-button', class: 'btn btn-boxed' %>
 
 <script type="text/javascript">
   const roomCode = "<%= facade.code %>";
