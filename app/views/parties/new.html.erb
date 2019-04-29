@@ -1,9 +1,11 @@
-<%= link_to image_tag('back-button.png'), root_path, method: :get, id: 'back-arrow' %>
+<div class="room-container">
+  <%= link_to image_tag('back-button.png'), root_path, method: :get, id: 'back-arrow' %>
 
-<section id='member-party-join'>
-  <%= form_tag join_party_path, class: 'form-group' do %>
+  <section id='member-party-join'>
+    <%= form_tag join_party_path, class: 'form-group' do %>
     <%= label_tag "Room Code", nil, class: 'label' %>
     <%= text_field_tag :code, nil, placeholder: 'Enter Here', class: 'input-field rounded' %>
     <%= submit_tag 'Join', class: 'btn sub-primary-button rounded' %>
-  <% end %>
-</section>
+    <% end %>
+  </section>  
+</div>

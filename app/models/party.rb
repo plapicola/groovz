@@ -49,10 +49,10 @@ class Party < ApplicationRecord
   private
 
   def self.generate_code
-    options = ('A'..'Z').to_a + ('a'..'z').to_a + ('0'..'9').to_a
-    6.times.map do
-      options.sample
-    end.join('')
+    RandomWord.exclude_list << /^[a-z]{6,}$/ if RandomWord.exclude_list.empty?
+    RandomWord.exclude_list << /_/ if RandomWord.exclude_list.length == 1
+    binding.pry
+    "#{RandomWord.adjs.first}-#{RandomWord.nouns.first}"
   end
 
   def song_info

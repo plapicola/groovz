@@ -69,7 +69,7 @@ rspec
 - Heroku
 
 ###### Testing
--  RSpec
+- RSpec
 - Capybara
 - Simplecov
 - VCR's and Webmocks

@@ -1,13 +1,15 @@
-<%= render partial: 'shared/site-logo' %>
-<div class="button-container" id='index-primary-buttons'>
-  <%= button_to "Create Party", soundcheck_path, method: :get, class: 'btn btn-primary rounded', id: 'index-create-button' %>
-  <%= button_to "Join Party", admissions_path, method: :get, class: 'btn btn-secondary rounded' %>
-</div>
+<div class="root-container">
+  <%= render partial: 'shared/site-logo' %>
+  <div class="button-container" id='index-primary-buttons'>
+    <%= button_to "Create Party", soundcheck_path, method: :get, class: 'btn btn-primary rounded', id: 'index-create-button' %>
+    <%= button_to "Join Party", admissions_path, method: :get, class: 'btn btn-secondary rounded' %>
+  </div>
 
-<div class="button-container" id="index-secondary-buttons">
-  <%= button_to 'Log Out', logout_path, method: :get, class: 'btn btn-minor rounded' %>
-  <div class="sub-buttons">
-    <%= button_to 'Legal', legal_path, method: :get, class: 'btn sub-button rounded' %>
-    <%= button_to 'About', root_path, method: :get, class: 'btn sub-button rounded' %>
+  <div class="button-container" id="index-secondary-buttons">
+    <%= button_to 'Log Out', logout_path, method: :get, class: 'btn btn-minor rounded' %>
+    <div class="sub-buttons">
+      <%= button_to 'Legal', legal_path, method: :get, class: 'btn sub-button rounded' %>
+      <%= button_to 'About', root_path, method: :get, class: 'btn sub-button rounded' %>
+    </div>
   </div>
 </div>

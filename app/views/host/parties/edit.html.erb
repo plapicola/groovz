@@ -1,7 +1,8 @@
-<%= link_to image_tag('back-button.png'), cancel_party_path, method: :delete, id: 'back-arrow' %>
+<div class="room-container">
+  <%= link_to image_tag('back-button.png'), cancel_party_path, method: :delete, id: 'back-arrow' %>
 
-<section id='host-party-create'>
-  <%= form_tag update_host_party_path, method: :put, class: 'form-group' do %>
+  <section id='host-party-create'>
+    <%= form_tag update_host_party_path, method: :put, class: 'form-group' do %>
     <%= label_tag "Party Name", nil, class: 'label' %>
     <%= text_field_tag :name, nil, placeholder: 'Enter Here...', class: 'input-field rounded' %>
     <%= label_tag "Select A Playback Device:", nil, class: 'small-label' %>
@@ -10,8 +11,9 @@
       <%= image_tag 'refresh.png', id: 'refresh-button', onclick: 'getAvailableDevices()' %>
     </div>
     <%= submit_tag 'Start Party', class: 'btn sub-primary-button rounded' %>
-  <% end %>
-</section>
+    <% end %>
+  </section>
+</div>
 
 <script type="text/javascript" src="/partycreate.js">
 </script>
